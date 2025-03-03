@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+            node-version: '20.18.1'
+            cache: 'yarn'
+            cache-dependency-path: www/yarn.lock
+
+      - name: Setup TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          package-file:
+            .github/tl_packages
+
+      - run: |
+          cd www
+          yarn install --frozen-lockfile
+          yarn build
+          yarn tsx scripts/copy-lecture-notes.ts
+          echo 'lecturenotes.hornik.dev' > out/CNAME
+          touch out/.nojekyll
+
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+            REPO: self
+            BRANCH: gh-pages
+            FOLDER: www/out
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
