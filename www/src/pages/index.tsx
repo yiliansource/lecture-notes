@@ -3,6 +3,7 @@ import * as fs from "fs";
 import { globSync } from "glob";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Head from "next/head";
 import * as path from "path";
 import { z } from "zod";
 
@@ -80,23 +81,29 @@ export const getStaticProps: GetStaticProps<{
 
 export default function Home({ lectureNotes }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <div className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)]`}>
-            <div className="px-3 flex flex-col mx-auto w-full min-h-screen max-w-4xl">
-                <header className="pt-12 lg:pt-16 pb-4 lg:pb-8 select-none">
-                    <h1 className="text-3xl lg:text-4xl font-bold">Vorlesungsmitschriften</h1>
-                    <p className="text-xl font-semibold">Ian Hornik</p>
-                </header>
-                <div className="grow flex flex-col divide-y divide-gray-200">
-                    {lectureNotes.map((l) => (
-                        <LectureNotesItem {...l} key={l.id} />
-                    ))}
+        <>
+            <Head>
+                <title>Vorlesungsmitschriften</title>
+                <meta name="description" content="Eine Ansammlung an Vorlesungsmitschriften." />
+            </Head>
+            <div className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)]`}>
+                <div className="px-3 flex flex-col mx-auto w-full min-h-screen max-w-4xl">
+                    <header className="pt-12 lg:pt-16 pb-4 lg:pb-8 select-none">
+                        <h1 className="text-3xl lg:text-4xl font-bold">Vorlesungsmitschriften</h1>
+                        <p className="text-xl font-semibold">Ian Hornik</p>
+                    </header>
+                    <div className="grow flex flex-col divide-y divide-gray-200">
+                        {lectureNotes.map((l) => (
+                            <LectureNotesItem {...l} key={l.id} />
+                        ))}
+                    </div>
+                    <footer className="py-4 lg:py-8 flex flex-col lg:flex-row justify-between select-none text-gray-500 ">
+                        <p>Eine Ansammlung an Vorlesungsmitschriften.</p>
+                        <p>Copyright &copy; {new Date().getFullYear()} Ian Hornik</p>
+                    </footer>
                 </div>
-                <footer className="py-4 lg:py-8 flex flex-col lg:flex-row justify-between select-none text-gray-500 ">
-                    <p>Eine Ansammlung an Vorlesungsmitschriften.</p>
-                    <p>Copyright &copy; {new Date().getFullYear()} Ian Hornik</p>
-                </footer>
             </div>
-        </div>
+        </>
     );
 }
 
