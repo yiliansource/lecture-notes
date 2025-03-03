@@ -10,6 +10,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ${{ github.workspace }}/www/.next/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -17,15 +31,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-            node-version: '20.18.1'
-            cache: 'yarn'
-            cache-dependency-path: www/yarn.lock
-
-      - name: Setup TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          package-file:
-            .github/tl_packages
+          node-version: '20.18.1'
+          cache: 'yarn'
+          cache-dependency-path: www/yarn.lock
 
       - run: |
           cd www
@@ -38,7 +46,7 @@ jobs:
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
         env:
-            REPO: self
-            BRANCH: gh-pages
-            FOLDER: www/out
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: www/out
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
