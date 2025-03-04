@@ -35,13 +35,23 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: www/yarn.lock
 
-      - run: |
-          cd www
-          yarn install --frozen-lockfile
-          yarn build
-          yarn tsx scripts/copy-lecture-notes.ts
+      - name: Install dependancies
+        run: yarn install --frozen-lockfile
+        working-directory: www
+
+      - name: Build frontend
+        run: yarn build
+        working-directory: www
+
+      - name: Copy documents
+        run: yarn tsx scripts/copy-lecture-notes.ts
+        working-directory: www
+
+      - name: Add deployment files
+        run: |
           echo 'lecturenotes.hornik.dev' > out/CNAME
           touch out/.nojekyll
+          working-directory: www
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
