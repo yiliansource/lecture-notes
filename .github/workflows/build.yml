@@ -40,18 +40,18 @@ jobs:
         working-directory: www
 
       - name: Build frontend
-        run: yarn build
         working-directory: www
+        run: yarn build
 
       - name: Copy documents
-        run: yarn tsx scripts/copy-lecture-notes.ts
         working-directory: www
+        run: yarn tsx scripts/copy-lecture-notes.ts
 
       - name: Add deployment files
+        working-directory: www
         run: |
           echo 'lecturenotes.hornik.dev' > out/CNAME
           touch out/.nojekyll
-          working-directory: www
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
