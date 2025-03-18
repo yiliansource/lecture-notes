@@ -68,7 +68,7 @@ function LectureItem({ id, title, lecturer, semester, lastChanged }: LectureMeta
                         </span>
                     )}
                 </div>
-                <div className="flex flex-row gap-5 text-neutral-500 text-sm">
+                <div className="flex flex-col lg:flex-row gap-1 lg:gap-5 text-neutral-500 text-sm">
                     {lecturer && (
                         <div className="flex flex-row items-center gap-1">
                             <span className="text-base">
