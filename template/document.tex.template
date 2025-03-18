@@ -1,0 +1,16 @@
+\documentclass[a4paper, 11pt]{../../defs/lecture-notes}
+\usepackage{../../defs/lecture-notes-macros}
+
+\title{}
+\lecturer{}
+\semester{}
+\author{Ian Hornik}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\end{document}
