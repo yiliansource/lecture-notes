@@ -1,7 +1,7 @@
 \chapter{Zahlentheoretische Funktionen}
 
 \begin{definition}
-    Eine \emph{zahlentheoretische Funktion} ist eine Abbildung $a : \{1,2,...\} \to \C$. Einer solchen Funktion ordnet man die (formale) \emph{Dirichletsche Reihe} zu:
+    Eine \emph{zahlentheoretische Funktion} ist eine Abbildung $a : \N \to \C$. Einer solchen Funktion ordnet man die (formale) \emph{Dirichletsche Reihe} zu:
     $$ A(s) \coloneqq \sum_{n=1}^\infty \frac{a(n)}{n^s}, \quad s \in \C. $$
 \end{definition}
 
@@ -111,14 +111,3 @@
     Ist $a$ vollständig multiplikativ, dann ist
     $$ \sum_{n=1}^\infty \frac{a(n)}{n^s} = \prod_{p \in \P} \frac{1}{1 - \frac{a(p)}{p^s}}. $$
 \end{theorem}
-
-\begin{theorem}
-    Sind $a, b$ multiplikativ, dann sind $a \ast b$ und $a^{-1}$ ebenfalls multiplikativ.
-\end{theorem}
-
-\begin{remark}
-    Sind $a, b$ vollständig multiplikativ, so müssen $a \ast b$ und $a^{-1}$ im Allgemeinen nicht vollständig multiplikativ sein.
-    
-    Jedoch gilt in diesem Fall $a^{-1}(n) = a(n) \mu(n)$, da
-    $$ (a \ast a \mu)(n) = \sum_{d \mid n} a(d) a(n/d) \mu(n/d) = a(n) \sum_{d \mid n} \mu(n/d) = \left\{ \begin{array}{ll} a(1) = 1, & n=1, \\ 0, & \textrm{sonst}. \end{array} \right. $$
-\end{remark}

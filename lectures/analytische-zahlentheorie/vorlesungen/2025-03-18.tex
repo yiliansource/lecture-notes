@@ -1,0 +1,104 @@
+\begin{lemma}
+    Sind $a, b$ zahlentheoretische Funktionen und sind $a \ast b$ und $a$ multiplikativ, so ist auch $b$ multiplikativ.
+\end{lemma}
+
+\begin{proof}
+    Angenommen dem wäre nicht so, so gäbe es $m, n$ mit $mn > 1, \ggT(m,n)=1$ und $b(mn) \neq b(m) b(n)$. Ohne Beschränkung der Allgemeinheit sei $mn$ kleinstmöglich mit dieser Eigenschaft. Da $\frac{mn}{d_1 d_2} < mn$, gilt
+    \begin{align*}
+        (a \ast b)(mn) &= \sum_{d \mid mn} a(d) b(mn/d) = \sum_{\substack{d \mid mn \\ d > 1}} a(d) b(mn/d) + b(mn) = \\
+        &= \sum_{\substack{d_1 \mid m, d_2 \mid n \\ d_1 d_2 > 1}} a(d_1) a(d_2) b(m/d_1) b(n/d_2) + b(mn) = \\
+        &= (a \ast b)(m) \cdot (a \ast b)(n) - b(m)b(n) + b(mn).
+    \end{align*}
+    Da $a \ast b$ multiplikativ ist folgt $b(mn) = b(m)b(n)$, im Widerspruch.
+\end{proof}
+
+\begin{theorem} \label{thm:multiplikativ-vererbt-auf-produkt-und-inverse}
+    Sind $a, b$ multiplikativ, dann sind $a \ast b$ und $a^{-1}$ ebenfalls multiplikativ.
+\end{theorem}
+
+\begin{proof}
+    Seien $m, n$ beliebig mit $\ggT(m,n)=1$. Gilt $d \mid mn$, so schreiben wir $d = d_1 d_2$ mit $d_1 \mid m$ und $d_2 \mid n$. Dann gilt $\ggT(d_1, d_2) = 1$ und $\ggT(m/d_1, n/d_2) = 1$ und damit
+    \begin{align*}
+        (a \ast b)(mn) &= \sum_{d \mid mn} a(d) b(mn/d) = \sum_{d_1 \mid m} \sum_{d_2 \mid n} a(d_1) a(d_2) b(m/d_1) b(m/d_2) = \\
+        &= \sum_{d_1 \mid m} a(d_1) b(m/d_1) \sum_{d_2 \mid n} a(d_2) b(n/d_2) = (a \ast b)(m) \cdot (a \ast b)(n) \\
+    \end{align*}
+    Nun sind $a$ und $a \ast a^{-1}$ multiplikativ, womit nach obigem Lemma folgt, dass $a^{-1}$ multiplikativ ist.
+\end{proof}
+
+\begin{remark}
+    Sind $a, b$ vollständig multiplikativ, so müssen $a \ast b$ und $a^{-1}$ im Allgemeinen nicht vollständig multiplikativ sein.
+    
+    Jedoch gilt in diesem Fall $a^{-1}(n) = a(n) \mu(n)$, da
+    $$ (a \ast a \mu)(n) = \sum_{d \mid n} a(d) a(n/d) \mu(n/d) = a(n) \sum_{d \mid n} \mu(n/d) = \left\{ \begin{array}{ll} a(1) = 1, & n=1, \\ 0, & \textrm{sonst}. \end{array} \right. $$
+\end{remark}
+
+\begin{remark}
+    Wir wollen $\mu \ast J = I$ zeigen. Zunächst sind $\mu$ und $J$ multiplikativ, womit auch $\mu \ast J$ multiplikativ ist -- wir müssen die Gleichheit also nur auf Primzahlpotenzen überprüfen.
+
+    Ist $n = p^k, p \in \P, k \geq 1$, so ist
+    $$ (\mu \ast J)(p^k) = \sum_{d \mid p^k} \mu(d) \cdot 1 = \mu(1) + \mu(p) = 1 - 1 = 0 = I(p^k), $$
+    was zu zeigen war.
+\end{remark}
+
+\begin{remark}
+    Ist $n = p^k, p \in \P, k \geq 1$, so ist
+    $$ \varphi(p^k) = p^k - p^{k-1} = (p-1)p^{k-1} = p^k (1 - 1/p). $$
+    Aus dem und der Multiplikativität folgt damit (für $n = p_1^{k_1} \cdots p_r^{k_r}$):
+    $$ \varphi(n) = n \prod_{p \mid n} \left( 1 - \frac{1}{p} \right) = p_1^{k_1-1} (p_1 - 1) \cdots p_r^{k_r - 1} (p_r - 1). $$
+    Weiters kann man zeigen
+    $$ \varphi^{-1}(n) = \prod_{p \mid n} (1 - p). $$
+\end{remark}
+
+\begin{example}
+    Wir betrachten
+    $$ Q(x) \coloneqq \# \{ 1 \leq n \leq x \mid n \textrm{ quadratfrei} \} = \sum_{n \leq x} \vert \mu(n) \vert. $$
+    Wir behaupten
+    $$ \vert \mu(n) \vert = \sum_{d^2 \mid n} \mu(d). $$
+    Dazu sehen wir zunächst ein, dass beide Seiten multiplikativ sind. Bei der linken Seite ist es klar -- bei der rechten Seite zeigt eine analoge Rechnung zu \ref{thm:multiplikativ-vererbt-auf-produkt-und-inverse} die Multiplikativität.
+
+    Schreibe nun $n = p^k, p \in \P, k \geq 1$, so ist
+    \begin{align*}
+        \sum_{d^2 \mid p^k} \mu(d) = \left\{ \begin{array}{ll}
+            \mu(1) = 1, & k = 1, \\
+            \mu(1) + \mu(p) = 0, & k > 1,
+        \end{array} \right.
+    \end{align*}
+    womit die Behauptung folgt. Damit erhalten wir
+    \begin{align*}
+        Q(x) &= \sum_{n \leq x} \sum_{d^2 \mid n} \mu(d) = \sum_{\substack{m,d\\md^2 \leq x}} \mu(d) = \sum_{d \leq \lfloor \sqrt{x} \rfloor} \mu(d) \cdot \sum_{m \leq \lfloor x / d^2 \rfloor} 1 = \sum_{d \leq \lfloor \sqrt{x} \rfloor} \mu(d) \cdot \left\lfloor \frac{x}{d^2} \right\rfloor = \\
+        &= x \sum_{d \leq \lfloor \sqrt{x} \rfloor} \mu(d) \frac{1}{d^2} + \O(\sqrt{x}).
+    \end{align*}
+    Weiters gilt
+    $$ \sum_{d \geq 1} \frac{\mu(d)}{d^2} = \frac{1}{\zeta(2)} = \frac{6}{\pi^2}, $$
+    sowie die Abschätzung
+    \begin{align*}
+        \left\vert \sum_{d > \lfloor \sqrt{x} \rfloor} \frac{\mu(d)}{d^2} \right\vert \leq \sum_{d > \sqrt{x}} \frac{1}{d^2} \leq \frac{1}{x} + \int_{\sqrt{x}}^\infty \frac{1}{t^2} \dd t = \frac{1}{x} + \frac{1}{\sqrt{x}}.
+    \end{align*}
+    Damit erhalten wir
+    $$ Q(x) = x \left( \frac{6}{\pi^2} + \O(\frac{1}{x} + \frac{1}{\sqrt{x}}) \right) + \O(\sqrt{x}) = x \frac{6}{\pi^2} + \O(1 + \sqrt{x}). $$
+\end{example}
+
+\chapter{Komplexe Analysis}
+
+Im Folgenden sei stets $G \subseteq \C$ ein Gebiet (offen und einfach zusammenhängend).
+
+\begin{definition}
+    Eine Funktion $f : G \to \C$ heißt \emph{analytisch}, wenn es für alle $z_0 \in G$ eine Potenzreihenentwicklung von $f$ um $z_0$ mit positivem Konvergenzradius gibt.
+
+    Eine Funktion $f : G \to \C$ heißt \emph{komplex differenzierbar} wenn für alle $z_0 \in G$ der Grenzwert
+    $$ \lim_{z \to z_0} \frac{(z) - f(z_0)}{z - z_0} = f'(z_0) $$
+    existiert.
+\end{definition}
+
+\begin{remark}
+    Ist $f$ analytisch, so ist $f$ (stetig) komplex differenzierbar.
+\end{remark}
+
+\begin{definition}
+    Sei $f : G \to \C$ und $\gamma : [0,1] \to G$ eine differenzierbare Kurve, dann ist das \emph{komplexe Wegintegral von $f$ über $\gamma$} definiert als
+    $$ \int_\gamma f(z) \dd z \coloneqq \int_0^1 f(\gamma(t)) \gamma'(t) \dd t. $$
+\end{definition}
+
+\begin{remark}
+    Das komplexe Wegintegral einer analytischen Funktion ist wegunabhängig.
+\end{remark}
