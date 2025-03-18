@@ -1,5 +1,10 @@
 import { LectureMetadata, getLectures } from "@/lib/lectures";
+import { format } from "date-fns";
+import { deAT } from "date-fns/locale";
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { FaGithub, FaGraduationCap, FaRegClock } from "react-icons/fa";
 
 export const metadata: Metadata = {
     title: "Vorlesungsmitschriften",
@@ -12,30 +17,47 @@ export default async function Home() {
     return (
         <div className="px-3 flex flex-col mx-auto w-full min-h-screen max-w-4xl">
             <header className="pt-12 lg:pt-16 pb-4 lg:pb-8 select-none">
-                <h1 className="text-3xl lg:text-4xl font-bold">Vorlesungsmitschriften</h1>
-                <p className="text-xl font-semibold">Ian Hornik</p>
+                <h1 className="mb-1 text-2xl lg:text-4xl font-bold">Vorlesungsmitschriften</h1>
+                <p className="text-base lg:text-lg flex flex-row items-center gap-2 text-neutral-500">
+                    <span className="w-[28px] aspect-square inline-block rounded-full overflow-hidden">
+                        <Image
+                            src="/avatar.png"
+                            width={32}
+                            height={32}
+                            alt="Avatar"
+                            className="scale-125"
+                            draggable={false}
+                        />
+                    </span>
+                    <span>Ian Hornik</span>
+                </p>
             </header>
             <div className="grow flex flex-col divide-y divide-gray-200">
                 {lectures.map((l) => (
                     <LectureItem {...l} key={l.id} />
                 ))}
             </div>
-            <footer className="py-4 lg:py-8 flex flex-col lg:flex-row justify-between select-none text-gray-500 ">
-                <p>Eine Ansammlung an Vorlesungsmitschriften.</p>
-                <p>Copyright &copy; {new Date().getFullYear()} Ian Hornik</p>
+            <footer className="py-3 lg:py-6 flex flex-col select-none text-neutral-500 ">
+                <p className="mb-1">Eine Ansammlung an Vorlesungsmitschriften.</p>
+                <div className="flex flex-row justify-between items-center text-sm text-neutral-400">
+                    <p>&copy; {new Date().getFullYear()} Ian Hornik</p>
+                    <p className="text-xl hover:text-neutral-600">
+                        <Link href="https://github.com/yiliansource/lecture-notes" target="_blank">
+                            <FaGithub />
+                        </Link>
+                    </p>
+                </div>
             </footer>
         </div>
     );
 }
 
 function LectureItem({ id, title, lecturer, semester, lastChanged }: LectureMetadata) {
-    const lastChangedDate = new Date(lastChanged);
-
     return (
-        <div className="py-4">
+        <div className="py-4 select-none">
             <div className="flex flex-col">
-                <div className="flex flex-row gap-3">
-                    <span>
+                <div className="mb-1 flex flex-row gap-3">
+                    <span className="font-semibold">
                         <a className="hover:underline" href={"/documents/" + id + ".pdf"} target="_blank">
                             {title}
                         </a>
@@ -46,18 +68,25 @@ function LectureItem({ id, title, lecturer, semester, lastChanged }: LectureMeta
                         </span>
                     )}
                 </div>
-                {lecturer && (
-                    <div>
-                        <span className="text-sm">{lecturer}</span>
+                <div className="flex flex-row gap-5 text-neutral-500 text-sm">
+                    {lecturer && (
+                        <div className="flex flex-row items-center gap-1">
+                            <span className="text-base">
+                                <FaGraduationCap />
+                            </span>
+                            <span>{lecturer}</span>
+                        </div>
+                    )}
+                    <div className="flex flex-row items-center gap-1">
+                        <span className="text-sm">
+                            <FaRegClock />
+                        </span>
+                        <span>
+                            {format(lastChanged, "eeee, do MMMM yyyy, HH:mm", {
+                                locale: deAT,
+                            })}
+                        </span>
                     </div>
-                )}
-                <div>
-                    <span className="text-sm text-gray-600">
-                        Aktualisiert:{" "}
-                        {new Intl.DateTimeFormat("de-DE", {
-                            dateStyle: "full",
-                        }).format(lastChangedDate)}
-                    </span>
                 </div>
             </div>
         </div>
