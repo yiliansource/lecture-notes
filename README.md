@@ -22,11 +22,14 @@ yarn install
 
 ### Local Frontend
 
-The development server serves a local instance of the frontend. When building, data will be statically rendered. Note that the lecture document .pdfs will not be available, as they are copied at export time.
+The development server serves a local instance of the frontend. When building, data will be statically rendered. Note that the 
 
 ```console
 yarn dev
 ```
+
+> [!WARNING]
+> The lecture PDFs will not be available in the browser, as they are copied at export time.
 
 ### Create new lecture
 
