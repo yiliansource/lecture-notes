@@ -1,0 +1,124 @@
+\chapter{Zahlentheoretische Funktionen}
+
+\begin{definition}
+    Eine \emph{zahlentheoretische Funktion} ist eine Abbildung $a : \{1,2,...\} \to \C$. Einer solchen Funktion ordnet man die (formale) \emph{Dirichletsche Reihe} zu:
+    $$ A(s) \coloneqq \sum_{n=1}^\infty \frac{a(n)}{n^s}, \quad s \in \C. $$
+\end{definition}
+
+\begin{example}
+    Beispiele für zahlentheoretische Funktionen sind:
+    \begin{align*}
+        d(n) &\coloneqq \# \{ k : k \mid n \} \\
+        \varphi(n) &\coloneqq \# \{ 1 \leq a \leq n \mid \ggT(a, n) = 1 \} \\
+        \mu(n) &\coloneqq \left\{ \begin{array}{ll}
+            1, & n = 1, \\
+            (-1)^r, & n = p_1 \cdot p_2 \cdots p_r, \textrm{ wobei $p_j$ verschiende Primzahlen}, \\
+            0, & \textrm{sonst}.
+        \end{array} \right. \\
+        \Lambda(n) &\coloneqq \left\{ \begin{array}{ll}
+            \log p, & n = p^k, p \in \P, k \geq 1, \\
+            0, & \textrm{sonst}.
+        \end{array} \right.
+    \end{align*}
+\end{example}
+
+\begin{definition}
+    Für zahlentheoretische Funktionen $a, b$ definieren eine Summe
+    $$ c(n) \coloneqq (a+b)(n) \coloneqq a(n) + b(n) \quad \leftrightarrow \quad C(s) = A(s) + B(s) $$
+    und die \emph{Dirichlet-Faltung}:
+    $$ c(n) \coloneqq (a \ast b)(n) = \sum_{d \mid n} a(d) b(n/d) = \sum_{d_1 d_2 = n} a(d_1) b(d_2) $$
+    $$ \leftrightarrow \quad C(s) = \sum_{n=1}^\infty \frac{\sum_{d_1 d_2 = n} a(d_1) b(d_2)}{n^s} = \sum_{d_1 \geq 1} \frac{a(d_1)}{n^s} \cdot \sum_{d_2 \geq 1} \frac{b(d_2)}{n^s} = A(s) \cdot B(s). $$
+\end{definition}
+
+\begin{example}
+    Die Dirchlet-Faltung besitzt ein neutrales Element:
+    $$ I(n) = \left\{ \begin{array}{ll}
+        1 & n = 1, \\
+        0 & \textrm{sonst},
+    \end{array} \right.
+    \quad \sum_{n=1}^\infty \frac{I(n)}{n^s} = 1,
+    \quad a \ast I = I \ast a = a $$
+\end{example}
+
+\begin{lemma}    
+    Sei $a$ eine zahlentheoretische Funktion. Dann besitzt $a$ ein (bezüglich $\ast$) inverses Element $a^{-1}$ genau dann wenn $a(1) \neq 0$.
+\end{lemma}
+
+\begin{proof}{\ }
+    \begin{itemize}
+        \item[``$\Rightarrow$''] $ (a \ast a^{-1})(1) = a(1) \cdot a^{-1}(1) = 1 = I(1) \implies a(1) \neq 0 $
+        \item[``$\Leftarrow$''] $ a^{-1}(1) \coloneqq \frac{1}{a(1)}, \quad a^{-1}(n) \coloneqq -\frac{1}{a(1)} \sum_{d \mid n, d < n} a(\frac{n}{d}) a^{-1}(d), n > 1 $
+    \end{itemize}
+\end{proof}
+
+\begin{remark}
+    Besitzt $a$ ein Inverses, so gilt für die Dirichletsche Reihe:
+    $$ \sum_{n=1}^\infty \frac{a^{-1}(n)}{n^s} = \frac{1}{A(s)} $$
+\end{remark}
+
+\begin{definition}
+    Sei $a$ eine zahlentheoretische Funktion $a$ mit $a \neq 0$.
+    \begin{itemize}
+        \item $a$ heißt \emph{multiplikativ}, falls $a \neq 0$ und aus $\ggT(m, n) = 1$ folgt $a(mn) = a(m) a(n)$.
+        \item $a$ heißt \emph{vollständig multiplikativ}, falls $a \neq 0$ und stets $a(mn) = a(m) a(n)$.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}{\ }
+    \begin{itemize}
+        \item Klarerweise folgt aus vollständig multiplikativ auch multiplikativ.
+        \item Ist $a$ multiplikativ so ist $a(1) = 1$, wegen $a(1) = a(1) a(1)$ und $a(n) a(1) = a(n)$.
+        \item Ist $a$ multiplikativ, so legt $a(p^k), p \in \P, k \geq 1$ die Funktion bereits fest.
+        \item Ist $a$ vollständig multiplikativ, so legt $a(p), p \in \P$ die Funktion bereits fest.
+    \end{itemize}
+\end{remark}
+
+\begin{example}
+    Die Funktion $J(n) = 1$ ist vollständig multiplikativ und die entsprechende Dirichletsche Reihe ist die \emph{Riemannsche Zeta-Funktion}:
+    $$ \sum_{n=1}^\infty \frac{J(n)}{n^s} = \sum_{n=1}^\infty \frac{1}{n^s} \eqqcolon \zeta(s). $$
+\end{example}
+
+\begin{example}
+    Die \emph{Möbius-Funktion}
+    $$ \mu(n) \coloneqq \left\{ \begin{array}{ll}
+        1, & n = 1, \\
+        (-1)^r, & n = p_1 \cdot p_2 \cdots p_r, \textrm{ wobei $p_j$ verschiende Primzahlen}, \\
+        0, & \textrm{sonst}.
+    \end{array} \right. \\ $$
+    ist multiplikativ und es gilt $(\mu \ast J)(1) = 1$. Ist $n = p_1^{k_1} \cdots p_r^{k_r}$ mit verschiedenen Primzahlen $p_j$, so folgt
+    $$ (\mu \ast J)(n) = \sum_{d \mid n} \mu(d) = \mu(1) + \mu(p_1) + ... + \mu(p_r) + \mu(p_1 p_2) + ... + \mu(p_1 ... p_r) = (1 - 1)^r = 0, $$
+    demnach ist $\mu = J^{-1}$ und damit
+    $$ \sum_{n=1}^\infty \frac{\mu(n)}{n^s} = \frac{1}{\zeta(s)}. $$
+\end{example}
+
+\begin{example}
+    Für die \emph{Von Mangoldtsche-Funktion} gilt $(\Lambda \ast J)(1) = 1$. Ist $n = p_1^{k_1} \cdots p_r^{k_r}$ mit verschiedenen Primzahlen $p_j$, so folgt
+    $$ (\Lambda \ast J)(n) = \sum_{d \mid n} \Lambda(d) = k_1 \log p_1 + k_2 \log p_2 + ... k_r \log p_r = \log n, $$
+    demnach ist $\Lambda = \log^{-1}$. Wegen $(n^{-s})' = -n^{-s} \log n$ erhalten wir weiters
+    $$ \sum_{n=1}^\infty \frac{\log n}{n^s} = -\zeta'(s) \quad \textrm{und damit} \quad \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} = -\frac{\zeta'(s)}{\zeta(s)}. $$
+\end{example}
+
+\begin{example}
+    Für die \emph{Eulersche Phi-Funktion} gilt
+    $$ (\varphi \ast J)(n) = \sum_{d \mid n} \varphi(d) = n. $$
+    Demnach erhalten wir
+    $$ \sum_{n=1}^\infty \frac{n}{n^s} = \zeta(s-1) \quad \textrm{und} \quad \sum_{n=1}^\infty \frac{\varphi(n)}{n^s} = \frac{\zeta(s-1)}{\zeta(s)}. $$
+\end{example}
+
+\begin{theorem}
+    Sei $a$ multiplikativ, dann ist
+    $$ \sum_{n=1}^\infty \frac{a(n)}{n^s} = \prod_{p \in \P} \left( 1 + \frac{a(p)}{p^s} + \frac{a(p^2)}{p^{2s}} + ... \right). $$
+    Ist $a$ vollständig multiplikativ, dann ist
+    $$ \sum_{n=1}^\infty \frac{a(n)}{n^s} = \prod_{p \in \P} \frac{1}{1 - \frac{a(p)}{p^s}}. $$
+\end{theorem}
+
+\begin{theorem}
+    Sind $a, b$ multiplikativ, dann sind $a \ast b$ und $a^{-1}$ ebenfalls multiplikativ.
+\end{theorem}
+
+\begin{remark}
+    Sind $a, b$ vollständig multiplikativ, so müssen $a \ast b$ und $a^{-1}$ im Allgemeinen nicht vollständig multiplikativ sein.
+    
+    Jedoch gilt in diesem Fall $a^{-1}(n) = a(n) \mu(n)$, da
+    $$ (a \ast a \mu)(n) = \sum_{d \mid n} a(d) a(n/d) \mu(n/d) = a(n) \sum_{d \mid n} \mu(n/d) = \left\{ \begin{array}{ll} a(1) = 1, & n=1, \\ 0, & \textrm{sonst}. \end{array} \right. $$
+\end{remark}
