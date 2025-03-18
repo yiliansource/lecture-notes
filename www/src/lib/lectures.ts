@@ -28,15 +28,23 @@ export async function getLectures(): Promise<LectureMetadata[]> {
 
     for (const lectureNoteFolderName of fs.readdirSync(lectureNoteRoot)) {
         const lectureNoteFolder = path.join(lectureNoteRoot, lectureNoteFolderName);
-        const metaFilePath = path.join(lectureNoteFolder, "meta.json");
-        if (!fs.existsSync(metaFilePath)) continue;
+        if (fs.existsSync(path.join(lectureNoteFolder, ".nobuild"))) continue;
 
-        const metaFileStats = fs.lstatSync(metaFilePath);
-        const metaFileContents = fs.readFileSync(metaFilePath, "utf-8");
-        const parseResult = metaJsonSchema.safeParse(JSON.parse(metaFileContents));
+        const lectureDocumentFile = path.join(lectureNoteFolder, "document.tex");
+        const lectureDocument = fs.readFileSync(lectureDocumentFile, "utf-8");
+
+        const lectureData = Object.fromEntries(
+            ["title", "lecturer", "semester"].map((key) => [
+                key,
+                lectureDocument.match(new RegExp(`\\\\${key}\{(.*)\}`))?.[1] ?? null,
+            ]),
+        );
+
+        const parseResult = metaJsonSchema.safeParse(lectureData);
         if (!parseResult.success) continue;
 
         const metadata = parseResult.data;
+        const lectureDocumentStats = fs.lstatSync(lectureDocumentFile);
 
         const modifiedDates = (
             await Promise.all(
@@ -47,7 +55,8 @@ export async function getLectures(): Promise<LectureMetadata[]> {
         )
             .map((o) => (!o ? Number.NaN : new Date(o.stdout).getTime()))
             .filter((n) => !Number.isNaN(n));
-        const lastModifiedTime = modifiedDates.length > 0 ? Math.max(...modifiedDates) : metaFileStats.mtime.getTime();
+        const lastModifiedTime =
+            modifiedDates.length > 0 ? Math.max(...modifiedDates) : lectureDocumentStats.mtime.getTime();
 
         lectureNotes.push({
             id: lectureNoteFolderName,

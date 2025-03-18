@@ -37,6 +37,7 @@
 
 \RedeclareSectionCommand[style=section]{chapter}
 \setkomafont{chapter}{\normalfont\bfseries\LARGE}
+\setkomafont{disposition}{\normalsize\bfseries}
 
 
 \RequirePackage[subfigure]{tocloft}
@@ -87,11 +88,12 @@
 
 \makeatletter
 \newcommand{\lecturer}[1]{\gdef\@lecturer{#1}}
+\newcommand{\semester}[1]{\gdef\@semester{#1}}
 
 \renewcommand{\maketitle}{
     \thispagestyle{plain}
     \begin{center}
-        {\huge\bfseries\@title\par}
+        {\huge\bfseries\@title\hspace{0.2cm}/\hspace{0.2cm}\@semester\par}
         \vspace{0.2em}
         {\Large\@lecturer\par}
         \vspace{1em}
