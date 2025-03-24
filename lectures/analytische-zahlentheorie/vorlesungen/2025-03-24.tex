@@ -1,0 +1,84 @@
+\begin{remark}
+    Schreiben wir $z = u + iv$ und
+    $$ f(z) = f_1(u, v) + i f_2(u, v), $$
+    so können wir den Grenzwert in der obigen Definition berechnen als
+    \begin{align*}
+        f'(z_0) &= \lim_{u \to u_0} \frac{f(u, v_0) + i f(u, v_0) - f_1(u_0, v_0) - i f_2(u_0, v_0)}{u - u_0} = \frac{\partial f_1}{\partial u} + i \frac{\partial f_2}{u}, \\
+        f'(z_0) &= \lim_{v \to v_0} \frac{f(u_0, v) + i f(u_0, v) - f_1(u_0, v_0) - i f_2(u_0, v_0)}{u - u_0} = \frac{1}{i} \left( \frac{\partial f_1}{\partial v} + i \frac{\partial f_2}{\partial v} \right) \\
+        &= \frac{\partial f_2}{\partial v} - i \frac{\partial f_1}{\partial v}.
+    \end{align*}
+    Wir erhalten also
+    $$ \frac{\partial f_1}{\partial u} = \frac{\partial f_2}{\partial v} \quad \textrm{und} \quad \frac{\partial f_2}{\partial u} = - \frac{\partial f_2}{\partial v}, $$
+    die \emph{Cauchy-Riemannschen--Differentialgleichungen}. Weiters können wir schreiben
+    \begin{align*}
+        \int_\gamma f(z) \dd z = \int_\gamma (f_1 + i f_2)(\dd u + i \dd v) = \int_\gamma (f_1 \dd u - f_2 \dd v) + i \int_\gamma (f_2 \dd u + f_1 \dd v),
+    \end{align*}
+    wobei mit dem Satz von Green die Wegunabhängigkeit des Kurvenintegrals folgt.
+\end{remark}
+
+\begin{remark}
+    Wir können wegen der Wegunabhängigkeit eine Stammfunktion definieren:
+    \begin{align*}
+        F(z) \coloneqq \int_{z_0}^z f(\xi) \dd \xi,
+    \end{align*}
+    es gilt also $F'(z) = f(z)$.
+\end{remark}
+
+\begin{theorem}
+    Sei $f : G \to \C$. Dann sind äquivalent:
+    \begin{enumerate}
+        \item $f$ ist analytisch.
+        \item $f$ ist stetig komplex differenzierbar.
+        \item $ \displaystyle f(z_0) = \frac{1}{2 \pi i} \int_\gamma \frac{f(z)}{z - z_0} \dd z $, wobei $\gamma$ ein Weg in $G$ mit Windungszahl 1 um $z_0$ ist.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    Seien $f_n : G \to \C$ analytisch und gelte $f_n \to f$ gleichmäßig auf allen Kompakta $K \subset G$. Dann ist auch $f$ analytisch.
+\end{theorem}
+
+\begin{remark}
+    Wir wollen zeigen das für $\Re s > 1$
+    $$ \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \sum_{n=1}^\infty e^{-s \log n} $$
+    analytisch sind. Sei also $K \subset \{ z \in \C : \Re z > 1 \}$ kompakt, so ist $\sigma_0 \coloneqq \min \Re K > 1$. Weiters gilt für $s \in K$
+    $$ \vert e^{-s \log n} \vert \leq e^{-\sigma_0 \log n} = \frac{1}{n^{\sigma_0}}, $$
+    damit die gleichmäßige Konvergenz auf $K$ und damit nach dem vorigen Satz das zu Zeigende.
+\end{remark}
+
+\begin{example}
+    Betrachte die Funktion $f(z) = 1/z, z \neq 0$. $f$ ist in genau einem Punkt nicht analytisch -- die Funktion $z f(z)$ jedoch überall. Das motiviert die folgende Definition:
+\end{example}
+
+\begin{definition}
+    $z_0$ ist eine \emph{Polstelle} einer analytischen Funktion $f : G \setminus \{ z_0 \} \to \C$, wenn es ein $\kappa \geq 1$ gibt, sodass
+    $ f(z) (z-z_0)^\kappa $ analytisch auf $G$ ist. Das minimale $\kappa$ mit dieser Eigenschaft heißt \emph{Ordnung} der Polstelle.
+\end{definition}
+
+\begin{remark}
+    Schreiben wir in der obigen Situation
+    $$ g(z) = f(z) (z-z_0)^\kappa = \sum_{n=0}^\infty b_n (z-z_0)^n, $$
+    so gilt
+    $$ f(z) = \sum_{n=0}^\infty b_n (z-z_0)^{n-\kappa}. $$
+    Letztere Reihe wird auch \emph{Laurentreihe} genannt, die Terme mit negativen Exponenten bilden ihren \emph{Hauptteil}, und der Koeffizient von $1/z$ wird \emph{Residuum} von $f$ in $z_0$ genannt und wird mit $\Res(f, z_0)$ bezeichnet.
+
+    Insbesondere gilt für eine geschlossene Kurve $\gamma$ mit Windungszahl 1 um $z_0$:
+    $$ \frac{1}{2 \pi i} \int_\gamma f(z) \dd z = \sum_{n=0}^\infty b_n \frac{1}{2 \pi i} \int_\gamma (z - z_0)^{n-\kappa} \dd z = b_{\kappa - 1} = \Res(f, z_0). $$
+    Dieses Resultat wird auch \emph{Residuensatz} genannt.
+\end{remark}
+
+\begin{theorem}[Partielle Summation] Es gilt:
+    $$ \sum_{n=1}^N a_n b_n = \sum_{n=1}^N a_n b_N - \sum_{n=1}^{N-1} (b_{n+1} - b_n) \sum_{k=1}^n a_k. $$
+    Oder auch in folgender Variante:
+    $$ \sum_{n=1}^N a_n g(n) = \sum_{n=1}^N a_n g(N) - \int_1^N g'(t) \left( \sum_{1 \leq k \leq t} a_k \right) \dd t. $$
+\end{theorem}
+
+\begin{remark}
+    Wie wir bereits gezeigt haben ist $\zeta(s)$ analytisch für $\Re s > 1$. Durch partielle Summation erhalten wir
+    \begin{align*}
+        \sum_{n=1}^N 1 \cdot n^{-s} &= \lfloor N \rfloor N^{-s} + s \int_1^N \lfloor u \rfloor u^{-s-1} \dd u = \\
+        &= \O(N^{1 - \Re s}) + s \int_1^N u^{-s} \dd u - s \int_1^N \{ u \} u^{-s-1} \dd u.
+    \end{align*}
+    Damit erhalten wir mit $N \to \infty$ und für $\Re s > 1$ die folgende Darstellung:
+    $$ \zeta(s) = \frac{1}{s-1} + 1 - s \int_1^\infty \{ u \} u^{-s-1} \dd u. $$
+    Der rechte Term konvergiert sogar wenn $\Re s > 0$ und ist analytisch.
+\end{remark}
