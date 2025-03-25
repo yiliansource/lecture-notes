@@ -80,5 +80,7 @@
     \end{align*}
     Damit erhalten wir mit $N \to \infty$ und für $\Re s > 1$ die folgende Darstellung:
     $$ \zeta(s) = \frac{1}{s-1} + 1 - s \int_1^\infty \{ u \} u^{-s-1} \dd u. $$
-    Der rechte Term konvergiert sogar wenn $\Re s > 0$ und ist analytisch.
+    Der rechte Term kann betraglich abgeschätzt werden durch
+    $$ \vert s \vert \int_1^\infty u^{-\Re s - 1} \dd u = \frac{\vert s \vert}{\Re s} $$
+    und konvergiert somit sogar wenn $\Re s > 0$. Wir erhalten somit eine analytische (eigentlich meromorphe) Fortsetzung von $\zeta$. Aus dem obigen erkennt man auch $\Res(\zeta, 1) = 1$.
 \end{remark}

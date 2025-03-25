@@ -1,0 +1,25 @@
+% \begin{remark}
+%     % hat probleme bei nullstellen von \zeta
+%     $$ \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} = -\frac{\zeta'(s)}{\zeta(s)} $$
+% \end{remark}
+
+\begin{theorem}
+    Sei
+    $$ \sum_{n=1}^\infty \frac{a_n}{n^s} = A(s) $$
+    eine Dirichletsche Reihe die für $\Re s > \sigma$ absolut konvergiert. Dann gilt
+    $$ \sum_{n \leq x} a_n = \frac{1}{2 \pi i} \lim_{T \to \infty} \int_{s_0 + iT}^{s_0 + iT} \frac{A(s)}{s} x^s \dd s $$
+    für $s_0 > \sigma$ und $x \notin \Z$.
+\end{theorem}
+
+\begin{remark}
+    Aus dem obigen Satz folgt
+    \begin{align*}
+        \sum_{n \leq x} \Lambda(n) &= -\frac{1}{2 \pi i} \int_{(s_0)} \frac{\zeta'(s)}{\zeta(s)} \frac{x^s}{s} \dd s \\
+        &= x + \o(x) \sim x
+    \end{align*}
+    Dabei ist
+    $$ \sum_{n \leq x} \Lambda(n) \sim \sum_{\substack{p \leq x \\ p \in \P}} \log p \sim \log x \sum_{\substack{p \leq x \\ p \in \P}} 1 = \pi(x) \log x. $$
+    Das so erhaltene Ergebnis
+    $$ \pi(x) \sim \frac{x}{\log x} $$
+    wird auch \emph{Primzahlsatz} genannt.
+\end{remark}
