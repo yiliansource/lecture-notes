@@ -1,0 +1,79 @@
+\begin{remark}
+    Wir haben bereits gezeigt, dass
+    $$ \vert \zeta(\sigma) \vert^3 \cdot \vert \zeta(\sigma + it) \vert^4 \cdot \vert \zeta(\sigma + 2it) \vert \geq 1, \quad \sigma > 1. $$
+    Mit Umschreiben folgt
+    $$ \vert \zeta(\sigma + it) \vert \geq \vert \zeta(\sigma) \vert^{-3/4} \cdot \vert \zeta(\sigma + 2it) \vert^{-1/4} \geq c(\sigma - 1)^{3/4} \cdot \log(1+1+2)^{-1/4}. $$
+    Unser Ziel ist es nun $\vert \zeta(s) \vert$ und $\vert \zeta'(s) \vert$ abzuschätzen, wenn $\Re s = \sigma \approx 1$ und $\Im s = t \to \infty$.
+\end{remark}
+
+\begin{theorem}[Eulersche Summenformel]
+    Es gilt
+    \begin{align*}
+        \sum_{a < n \leq x} g(n) = \int_a^x g(u) \dd u + \int_a^x B_0(u) g'(u) \dd u - g(x) B_0(x) + g(a) B_0(a),
+    \end{align*}
+    wobei $B_0(x) = x - \lfloor x \rfloor - \frac{1}{2}$.
+\end{theorem}
+
+\begin{proof}
+    Folgt durch Aufspalten des Integrals auf kleinere Intervalle und partielle Integration.
+\end{proof}
+
+\begin{remark}
+    Mit der Eulerschen Summenformel folgt nun (für $\Re s > 1$)
+    \begin{align*}
+        \zeta(s) - \frac{1}{s-1} - \sum_{n \leq N} n^{-s} &= \sum_{n > N} n^{-s} - \frac{1}{s - 1} = \\ 
+        &= \int_N^\infty u^{-s} \dd u - s \int_N^\infty B_0(u) u^{-s-1} \dd u + B_0(N) N^{-s} - \frac{1}{s-1} = \\
+        &= \frac{N^{1-s} - 1}{s-1} - s \int_N^\infty B_0(u) u^{-s-1} + B_0(N) N^{-s}.
+    \end{align*}
+    Die rechte Seite ist jedoch analytisch für $\Re s > 0$ -- wir erhalten als eine analytische Fortsetzung von $\zeta(s) - \frac{1}{s-1}$.
+
+    Schreibe wieder $s = \sigma + it, \tau \coloneqq \vert t \vert + 2$. Wir betrachten, für $\frac{3}{2} \geq \sigma \geq 1 - \delta$,
+    $$ \left\vert \sum_{n \leq N} n^{-s} \right\vert \leq \sum_{n \leq N} n^{-\sigma} \leq 1 + \int_1^N u^{-\sigma} \dd u = 1 + \frac{1 - N^{-\sigma + 1}}{\sigma - 1} \leq \frac{N^\delta}{\delta}. $$
+
+    Für $ \vert s-1 \vert \log N \geq 1 $ folgt
+    $$ \left\vert \frac{N^{1-s} - 1}{s-1} \right\vert \leq (1 + N^{1-\sigma}) \log N, $$
+    und für $ \vert s-1 \vert \log N \geq 1 $ gilt
+    $$ \vert N^{1-s} - 1 \vert = \left\vert \sum_{k=1}^\infty \frac{((1-s)\log N)^k}{k!} \right\vert \leq \vert 1 - s \vert \log N \sum_{k=1}^\infty \frac{1}{k!} $$
+    und damit
+    $$ \left\vert \frac{N^{1-s} - 1}{s-1} \right\vert \leq c \log N (N^{1-\sigma} + 1). $$
+
+    Zuletzt schätzen wir ab
+    \begin{align*}
+        \left\vert s \int_N^\infty B_0(u) u^{-s-1} \dd u \right\vert \leq \frac{\vert s \vert}{2} \int_N^\infty u^{-\sigma - 1} \dd u = \frac{\vert s \vert}{2 \sigma} N^{-\sigma} \leq c N^{-\sigma} \tau.
+    \end{align*}
+
+    Insgesamt erhalten wir damit
+    \begin{align*}
+        \left\vert \zeta(s) - \frac{1}{s-1} \right\vert \leq c \left( \frac{N^\delta}{\delta} + (N^{1 - \sigma} + 1) \log N + \tau N^{-\sigma} \right)
+    \end{align*}
+    und mit $N = \tau$ folgt sogar
+    \begin{align*}
+        \left\vert \zeta(s) - \frac{1}{s-1} \right\vert \leq c \tau^\delta \log \tau.
+    \end{align*}
+
+    Wir können noch $\delta$ in Abhängigkeit von $\tau$ wählen. Wähle $\delta(\tau) \coloneqq \min \left( \frac{1}{2}, \frac{A}{\log \tau} \right)$, so ist $\tau^{\delta(\tau)}$ beschränkt und wir erhalten (in dem Bereich in dem alle Voraussetzungen erfüllt sind) sogar
+    $$ \left\vert \zeta(s) - \frac{1}{s-1} \right\vert \leq c \log \tau. $$
+\end{remark}
+
+Entsprechend kann man eine Abschätzung für die Ableitung $\zeta'$ erhalten. Wir führen die Herleitung nicht aus, aber fassen in folgendem Lemma zusammen:
+
+\begin{lemma}
+    Ist $s = \sigma + it, \tau \coloneqq \vert t \vert + 2$ und $1 - \min \left( \frac{1}{2}, \frac{A}{\log \tau} \right) \leq \sigma \leq \frac{3}{2}$, so gilt
+    $$ \left\vert \zeta(s) - \frac{1}{s-1} \right\vert \leq c \log \tau, \quad \left\vert \zeta'(s) + \frac{1}{(s-1)^2} \right\vert \leq c (\log \tau)^2. $$
+\end{lemma}
+
+\begin{remark}
+    Für $\rho \geq 1 - \min \left( \frac{1}{2}, \frac{A}{\log \tau} \right)$ haben wir
+    \begin{align*}
+        \vert \zeta(\sigma + it) - \zeta(\rho + it) \vert \leq \max_{\rho \leq \kappa \leq \sigma} \vert \zeta'(\kappa + it) \vert \cdot \vert \sigma - \rho \vert \leq c (\log \tau)^2 \vert \sigma - \rho \vert.
+    \end{align*}
+    Da
+    $$ \vert \zeta(\sigma + it) \vert \geq c \cdot (\sigma - 1)^{3/4} \cdot (\log \tau)^{-1/4}, $$
+    folgt (mit $\sigma = 1 + c_3 (\log \tau)^{-9}$, $\vert \rho - 1 \vert \leq c_3 (\log \tau)^{-9}$)
+    \begin{align*}
+        \vert \zeta(\rho + it) \vert &\geq c \cdot (\sigma - 1)^{3/4} (\log \tau)^{-1/4} - c \cdot (\log \tau)^2 \vert \sigma - \rho \vert \geq \\
+        &\geq c \cdot c_3^{3/4} (\log \tau)^{-27/4 - 1/4} - c \cdot 2 \cdot (\log \tau)^2 \cdot (\log \tau)^{-9} c_3 = \\
+        &= c \cdot c_3^{3/4} \cdot (1 - 2c_3^{1/4}) \cdot (\log \tau)^{-7} = c' (\log \tau)^{-7}.
+    \end{align*}
+\end{remark}
+
