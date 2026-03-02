@@ -1,133 +1,135 @@
 \chapter{Wiederholung aus der Funktionalanalysis}
 
 \begin{definition}
-    $\mathcal{A}$ heißt Algebra, wenn:
+    Sei $\Aa$ eine nichtleere Menge und $\cdot : \Aa \times \Aa \to \Aa$ eine Abbildung. Das Tupel $(\Aa, \cdot)$ heißt \emph{Algebra}, wenn
     \begin{itemize}
-        \item $\mathcal{A} \neq \{ 0 \}$,
-        \item $\mathcal{A}$ ist ein $\C$-Vektorraum, und
-        \item $\cdot : \mathcal{A} \times \mathcal{A} \to \mathcal{A}$ eine assoziative, bilineare Abbildung ist.
+        \item $\Aa \neq \{ 0 \}$,
+        \item $\Aa$ ein $\C$-Vektorraum, und
+        \item $\cdot$ assoziativ und bilinear ist.
     \end{itemize}
+    Wir schreiben auch nur $\Aa$ wenn $\cdot$ aus dem Kontext klar ist.
 \end{definition}
 
 \begin{example}
-    Beispiele von Algebren:
-    \begin{itemize}
-        \item $\ell^\infty(\mu, \C)$
-    \end{itemize}
+    Für ein Maß $\mu$ ist $\ell^\infty(\mu, \C)$ mit punktweiser Multiplikation eine Algebra.
 \end{example}
 
 \begin{definition}
-    Falls eine Algebra $\mathcal{A}$ eine Norm trägt, welche $\Vert a \cdot b \Vert \leq \Vert a \Vert \Vert b \Vert$ erfüllt, so sprechen wir von einer normierten Algebra.
+    Sei $\Aa$ eine Algebra versehen mit einer Norm $\Vert \cdot \Vert$. Erfüllt diese $\Vert a \cdot b \Vert \leq \Vert a \Vert \Vert b \Vert$ für alle $a, b \in \Aa$, so heißt $(\Aa, \Vert \cdot \Vert)$ \emph{normierte Algebra}. Wir schreiben auch nur $\Aa$, wenn die Norm aus dem Kontext klar ist.
 
-    Ist eine normierte Algebra vollständig als Banachraum, so sprechen wir von einer Banachalgebra.
+    Ist eine normierte Algebra $\Aa$ vollständig als Banachraum, so heißt $\Aa$ \emph{Banachalgebra}.
 \end{definition}
 
 \begin{example}
-    Sei $X$ ein Banachraum und bezeichne $L_b(X)$ die Menge aller beschränkten linearen Abbildungen, dann ist dies eine Banachalgebra (mit der Operatornorm).
+    Sei $X$ ein Banachraum und bezeichne $L_b(X)$ die Menge aller beschränkten linearen Abbildungen. Dann ist $L_b(X)$ versehen mit Komposition und der Operatornorm eine Banachalgebra.
 \end{example}
 
 \begin{definition}
-    Sei $\mathcal{A}$ eine Algebra, und ${}^* : \mathcal{A} \to \mathcal{A}$ involutorisch, konjugiert linear mit $(a \cdot b)^* = b^* \cdot a^*$, dann heißt $\mathcal{A}$ auch ${}^*$-Algebra.
+    Sei $(\Aa, \cdot)$ eine Algebra, und ${}^* : \Aa \to \Aa$ involutorisch, konjugiert linear mit $(a \cdot b)^* = b^* \cdot a^*$. Dann heißt $(\Aa, {}^*)$ \emph{$\ast$-Algebra}. Wir schreiben auch nur $\Aa$, wenn $\cdot$ und ${}^*$ aus dem Kontext klar sind.
 \end{definition}
 
 \begin{example}
-    Der Raum der komplexen Polynome $\C[z]$ mit der Konjugation als ${}^*$-Operation ist eine ${}^*$-Algebra.
+    Der Raum der komplexen Polynome $\C[z]$ ist versehen mit der Abbildung ${}^* : p(z) \mapsto \overline{p(z)}$ eine $\ast$-Algebra.
 \end{example}
 
 \begin{definition}
-    Falls $\mathcal{A}$ normierte Algebra und eine ${}^*$-Algebra ist und ${}^*$ isometrisch ist, dann heißt $\mathcal{A}$ normierte ${}^*$-Algebra oder auch Banach-${}^*$-Algebra.
+    Sei $(\Aa, \cdot, {}^*)$ eine $\ast$-Algebra und $\Aa$ eine normierte Algebra. Ist ${}^*$ isometrisch, so heißt $\Aa$ \emph{normierte $*$-Algebra}. Entsprechend definiert man \emph{Banach-$*$-Algebra}, wir schreiben auch $B^*$-Algebra.
 \end{definition}
 
 \begin{definition}
-    Eine $C^*$-Algebra ist eine $B^*$-Algebra mit $\Vert a^* a \Vert = \Vert a \Vert^2$.
+    Eine \emph{$C^*$-Algebra} ist eine $B^*$-Algebra $\Aa$, in der $\Vert a^* a \Vert = \Vert a \Vert^2$ für alle $a \in \Aa$ gilt.
 \end{definition}
 
 \begin{lemma}
-    Sei $\mathcal{A}$ eine Banachalgebra, ${}^* : \mathcal{A} \to \mathcal{A}$ konjugiert linear und involutorisch und für alle $a, b \in \mathcal{A}$ gelte $(a \cdot b)^* = b^* \cdot a^*$. Falls für alle $a \in \mathcal{A}$ gilt $\Vert a \Vert^2 \leq \Vert a a^* \Vert$, dann ist $\mathcal{A}$ sogar eine $C^*$-Algebra.
+    Sei $\Aa$ eine Banachalgebra, ${}^* : \Aa \to \Aa$ konjugiert linear und involutorisch und für alle $a, b \in \Aa$ gelte $(a \cdot b)^* = b^* \cdot a^*$. Gilt für alle $a \in \Aa$, dass $\Vert a \Vert^2 \leq \Vert a a^* \Vert$, so ist $(\Aa, {}^*)$ sogar eine $C^*$-Algebra.
 \end{lemma}
 
 \begin{proof}
-    Sei $a \neq 0$ beliebig, dann gilt
+    Sei $a \in \Aa, a \neq 0$ beliebig, dann gilt
     $$ \Vert a \Vert^2 \leq \Vert a a^* \Vert \leq \Vert a \Vert \Vert a^* \Vert. $$
-    Insbesondere folgt
-    $$ \Vert a \Vert \leq \Vert a^* \Vert $$
-    für alle $a \in \mathcal{A}$. Aus Symmetriegründen folgt sogar Gleichheit. Weiters folgt
-    $$ \Vert a \Vert^2 \leq \Vert a a^* \Vert \leq \Vert a \Vert \Vert a^* \Vert = \Vert a \Vert^2. $$
+    Wegen $\Vert a \Vert \neq 0$ folgt $ \Vert a \Vert \leq \Vert a^* \Vert $ für alle $a \in \Aa$. Mit $a' \coloneqq a^*$ folgt mit derselben Argumentation Gleichheit. Weiters folgt
+    \begin{equation*}
+        \Vert a \Vert^2 \leq \Vert a a^* \Vert \leq \Vert a \Vert \Vert a^* \Vert = \Vert a \Vert^2. \qedhere
+    \end{equation*}
 \end{proof}
 
 \begin{remark}
-    Eigenschaft von normierten Algebren: Die Multiplikation ist als Abbildung von $\mathcal{A} \times \mathcal{A} \to \mathcal{A}$ stetig, wobei entsprechend die Produkttopologie verwendet wird.
+    Für eine normierte Algebra $\Aa$ ist die Multiplikation als Abbildung von $\Aa \times \Aa \to \Aa$ stetig, wobei $\Aa \times \Aa$ mit der Produkttopologie versehen ist.
 \end{remark}
 
 \begin{definition}
-    Sei $\mathcal{A}$ eine Algebra.
+    Sei $\Aa$ eine Algebra.
     \begin{itemize}
-        \item $e \in \mathcal{A}$ heißt Einselement\footnote{Wie man in der Algebra oft zeigt bedingt die Existenz von Einselement bereits die Eindeutigkeit.}, falls $a \cdot e = a = e \cdot a$.
-        \item Hat eine Algebra ein Einselement, so definieren wir
-        $$ \Inv(\mathcal{A}) \coloneqq \{ a \in \mathcal{A} \mid \exists b \in \mathcal{A} : a \cdot b = e = b \cdot a \}. $$
-        \item Hat eine Algebra ein Einselement und ist $a \in \mathcal{A}$, so heißt
-        $$ \rho_{\mathcal{A}}(a) \coloneqq \{ \lambda \in \C \mid (a - \lambda e) \in \Inv(\mathcal{A}) \} $$
-        die \emph{Resolvente} von $a$. Entsprechend definieren wir durch $\sigma_{\mathcal{A}}(a) \coloneqq \C \setminus \rho_{\mathcal{A}}(a)$ das \emph{Spektrum} von $a$.
-        \item Hat eine Algebra ein Einselement und ist $a \in \mathcal{A}$, so heißt $r_{\mathcal{A}}(a) \coloneqq \sup_{\lambda \in \sigma(a)} \vert \lambda \vert$ der \emph{Spektralradius} von $a$. Ist das Spektrum leer, so setzen wir das Supremum nach Konvention gleich $0$.
+        \item $e \in \Aa$ heißt Einselement\footnote{Wie man in der Algebra oft zeigt, bedingt die Existenz von Einselement bereits die Eindeutigkeit.}, falls $a \cdot e = a = e \cdot a$ für alle $a \in \Aa$.
+    \end{itemize}
+    Sei nun $e \in \Aa$ ein Einselement.
+    \begin{itemize}
+        \item Wir definieren
+        $$ \Inv(\Aa) \coloneqq \{ a \in \Aa \mid \exists b \in \Aa : a \cdot b = e = b \cdot a \}. $$
+        \item Sei $a \in \Aa$, so heißt
+        $$ \rho_{\Aa}(a) \coloneqq \{ \lambda \in \C \mid (a - \lambda e) \in \Inv(\Aa) \} $$
+        die \emph{Resolvente} von $a$. Weiters definieren wir durch $\sigma_{\Aa}(a) \coloneqq \C \setminus \rho_{\Aa}(a)$ das \emph{Spektrum} von $a$. Nach Kontext schreiben wir auch nur $\rho(a)$ und $\sigma(a)$.
+        \item Ist $a \in \Aa$, so heißt $r_{\Aa}(a) \coloneqq \sup_{\lambda \in \sigma(a)} \vert \lambda \vert$ der \emph{Spektralradius} von $a$. Ist das Spektrum leer, so setzen wir das Supremum nach Konvention gleich $0$.
     \end{itemize}
 \end{definition}
 
 \begin{example}
-    Für einen Hilbertraum $H$ betrachte $\mathcal{A} = L_b(H)$. Das Adjungieren eines Operators ist unsere ${}^*$-Operation. Dann ist $\mathcal{A}$ sogar eine $C^*$-Algebra.
+    Für einen Hilbertraum $H$ betrachte $L_b(H)$ und sei ${}^*$ die Operation des Konjugierens eines Operators. Dann ist $(L_b(H), {}^*)$ sogar eine $C^*$-Algebra.
 
-    Sei $P \in L_b(H)$ eine nicht-triviale orthogonale Projektion. Dann ist $\sigma(P) = \{ 0, 1 \}$, da $P^2 - P = 0$, womit nach dem Spektralabbildungssatz $\sigma(P^2 - P) = \{ 0 \}$ folgt, und damit die Behauptung.
+    Sei $P \in L_b(H)$ eine nichttriviale orthogonale Projektion, so gilt $P^2 - P = 0$. Nach dem Spektralabbildungssatz folgt $\sigma(P^2 - P) = \{ 0 \}$. Also ist $z \in \sigma(P)$ genau dann, wenn $z^2 - z = 0$, womit $\sigma(P) \subseteq \{ 0, 1 \}$ folgt. Da $P$ nichttrivial ist gibt es $x \in \ker P, y \in \ran P$ mit $x, y \neq 0$, was $P \notin \Inv(L_b(H))$ und $P - I \notin \Inv(L_b(H))$ impliziert und damit $\{ 0, 1 \} \subseteq \sigma(P)$.
 \end{example}
 
-\begin{example}
-    Ist $a \in \Inv(\mathcal{A})$, so gilt
+\begin{lemma}
+    Sei $\Aa$ eine Algebra mit Einselement und $a \in \Inv(\Aa)$, so gilt
     $$ \sigma(a^{-1}) = \{ 1/z \mid z \in \sigma(a) \}. $$
-\end{example}
+\end{lemma}
 
 \begin{definition}
-    Sei $\mathcal{A}$ eine normierte Algebra und $e \in \mathcal{A}$ ein Einselement. $e$ heißt normiert wenn $\Vert e \Vert = 1$, in dem Fall nennen wir $e$ auch \emph{Eins} und reden von einer Algebra mit Eins.
+    Sei $\Aa$ eine normierte Algebra und $e \in \Aa$ ein Einselement. Gilt $\Vert e \Vert = 1$, so heißt $e$ \emph{normiert}. In dem Fall nennen wir $e$ auch \emph{Eins} und reden von einer Algebra mit Eins.
 \end{definition}
 
 \begin{remark}
-    In jedem Fall gilt für Einselemente stets $1 \leq \Vert e \Vert$.
+    Sei $\Aa$ eine normierte Algebra mit Einselement, dann folgt, wegen $\Vert x^2 \Vert \leq \Vert x \Vert^2$ für alle $x \in \Aa$, stets $1 \leq \Vert e \Vert$.
 \end{remark}
 
 \begin{example}
-    Einselemente müssen nicht Norm 1 haben (man skaliere die Norm einfach mit Faktor $\neq 1$).
+    Ist $(\Aa, \Vert \cdot \Vert)$ eine Algebra mit Eins und definiert man für $t \geq 1$ eine Norm $\Vert \cdot \Vert_t : x \mapsto t \Vert x \Vert$, so ist $(\Aa, \Vert \cdot \Vert_t)$ eine normierte Algebra mit Einselement und $\Vert e \Vert_t = t$.
 \end{example}
 
 \begin{remark}
-    Eigenschaften von Banachalgebren mit Eins:
+    Sei $\Aa$ eine Banachalgebra mit Eins. Dann gilt:
     \begin{itemize}
-        \item $\Inv(\mathcal{A})$ ist eine offene Teilmenge von $\mathcal{A}$.
-        \item Für $a \in \mathcal{A}$ ist $\rho(a)$ als Teilmenge von $\C$ offen.
-        \item Für $a \in \mathcal{A}$ ist $\sigma(a) \subseteq \C$ abgeschlossen. Weiters gilt sogar stets $\sigma(a) \subseteq K^\C_{\Vert a \Vert}(0)$, womit das Spektrum stets kompakt ist. Weiters ist das Spektrum stets nichtleer.
+        \item $\Inv(\Aa)$ ist eine offene Teilmenge von $\Aa$.
+        \item Für $a \in \Aa$ ist $\rho(a)$ als Teilmenge von $\C$ offen.
+        \item Für $a \in \Aa$ ist $\sigma(a) \subseteq \C$ abgeschlossen. Weiters gilt sogar stets $\sigma(a) \subseteq K^\C_{\Vert a \Vert}(0)$, womit das Spektrum stets kompakt ist. Weiters ist das Spektrum stets nichtleer.
         \item Es gilt
         $$ r(a) = \lim_{n \to \infty} (\Vert a^n \Vert)^{1/n} = \inf_{n \in \N} (\Vert a^n \Vert)^{1/n}. $$
-        \item Ist $\mathcal{A}$ sogar eine $C^*$-Algebra mit Eins, $x \in \mathcal{A}$ und gilt $x x^* = x^* x$, dann gilt sogar $r(x) = \Vert x \Vert$.
+        \item Ist $\Aa$ sogar eine $C^*$-Algebra mit Eins, $x \in \Aa$ und gilt $x x^* = x^* x$, dann gilt sogar $r(x) = \Vert x \Vert$.
     \end{itemize}
 \end{remark}
 
 \begin{example}
-    Betrachte $L_b(\C^2)$, wobei $\C^2$ als Hilbertraum aufzufassen ist.
+    Betrachte $L_b(\C^2)$, wobei $\C^2$ als Hilbertraum aufzufassen ist und setze
     $$ J \coloneqq \begin{pmatrix}
         0 & 0 \\ 1 & 0
-    \end{pmatrix} \implies \sigma(J) = \{ 0 \} \implies r(J) = 0 \neq 1 = \Vert J \Vert. $$
+    \end{pmatrix}. $$
+    Dann ist $\sigma(J) = \{ 0 \}$, womit $r(J) = 0 \neq 1 = \Vert J \Vert$.
 \end{example}
 
 \begin{remark} {\ }
     \begin{enumerate}
-        \item Seien $\mathcal{A}, \mathcal{B}$ Algebren mit Einselement und $\varphi : \mathcal{A} \to \mathcal{B}$ ein Homomorphismus mit $\varphi(e_{\mathcal{A}}) = e_{\mathcal{B}}$. Dann folgt $\varphi(\Inv(\mathcal{A})) \subseteq \Inv(\mathcal{B}).$ Für $a \in \mathcal{A}$ folgt $\rho_{\mathcal{A}}(a) \subseteq \rho_{\mathcal{B}}(\varphi(a))$, sowie $\sigma_{\mathcal{A}}(a) \supseteq \sigma_{\mathcal{B}}(\varphi(a))$.
+        \item Seien $\Aa, \mathcal{B}$ Algebren mit Einselement und $\varphi : \Aa \to \mathcal{B}$ ein Homomorphismus mit $\varphi(e_{\Aa}) = e_{\mathcal{B}}$. Dann folgt $\varphi(\Inv(\Aa)) \subseteq \Inv(\mathcal{B}).$ Für $a \in \Aa$ folgt $\rho_{\Aa}(a) \subseteq \rho_{\mathcal{B}}(\varphi(a))$, sowie $\sigma_{\Aa}(a) \supseteq \sigma_{\mathcal{B}}(\varphi(a))$.
         
-        \item Sei $\mathcal{A}$ Algebra mit Einselement, $\mathcal{B}$ eine Algebra und $\varphi : \mathcal{A} \to \mathcal{B}$ ein surjektiver Homomorphismus. Dann hat auch $\mathcal{B}$ ein Einselement.
+        \item Sei $\Aa$ Algebra mit Einselement, $\mathcal{B}$ eine Algebra und $\varphi : \Aa \to \mathcal{B}$ ein surjektiver Homomorphismus. Dann hat auch $\mathcal{B}$ ein Einselement.
         
-        \item Seien $\mathcal{A}, \mathcal{B}$ $C^*$-Algebren mit Einselement und $\varphi : \mathcal{A} \to \mathcal{B}$ ein ${}^*$-Homomorphismus mit $\varphi(e_{\mathcal{A}}) = e_{\mathcal{B}}$. Dann behaupten wir $\Vert \varphi \Vert = 1$. Für $a \in \mathcal{A}$ gilt
+        \item Seien $\Aa, \mathcal{B}$ $C^*$-Algebren mit Einselement und $\varphi : \Aa \to \mathcal{B}$ ein ${}^*$-Homo\-morphismus mit $\varphi(e_{\Aa}) = e_{\mathcal{B}}$. Dann folgt $\Vert \varphi \Vert = 1$, da für $a \in \Aa$ gilt
         \begin{align*}
             \Vert \varphi(a) \Vert^2 &= \Vert \varphi(a^*) \varphi(a) \Vert = r(\varphi(a^* a)) = \sup_{\lambda \in \sigma(\varphi(a^* a))} \vert \lambda \vert \leq \sup_{\lambda \in \sigma(a^* a)} \vert \lambda \vert = r(a^* a) = \Vert a \Vert^2.
         \end{align*}
 
-        \item Sei $\mathcal{A}$ eine Algebra mit Einselement $e$. Sei $\mathcal{B} \subseteq \mathcal{A}$ eine Unteralgebra mit $e \in \mathcal{B}$. Dann folgt $ \Inv(\mathcal{B}) \subseteq \Inv(\mathcal{A}) \cap \mathcal{B} $ und $\rho_{\mathcal{B}}(b) \subseteq \rho_{\mathcal{A}}(b) $ für alle $b \in \mathcal{B}$.
+        \item Sei $\Aa$ eine Algebra mit Einselement $e$. Sei $\mathcal{B} \subseteq \Aa$ eine Unteralgebra mit $e \in \mathcal{B}$. Dann folgt $ \Inv(\mathcal{B}) \subseteq \Inv(\Aa) \cap \mathcal{B} $ und $\rho_{\mathcal{B}}(b) \subseteq \rho_{\Aa}(b) $ für alle $b \in \mathcal{B}$.
         
-        \item Sei $\mathcal{A}$ eine Algebra mit Eins $e$. Sei $\mathcal{B} \subseteq \mathcal{A}$ eine Unteralgebra mit $e \in \mathcal{B}$. Zunächst ist $\Inv(\mathcal{B})$ offen als Teilmenge von $\Inv(\mathcal{A}) \cap \mathcal{B}$, nach Definition der Spurtopologie. Sei nun $b \in \cl_{\Inv(\mathcal{A}) \cap \mathcal{B}}(\Inv(\mathcal{B})) = \cl_{\mathcal{A}}(\Inv(\mathcal{B})) \cap \Inv(\mathcal{A}) \cap \mathcal{B}$. Dann existiert $b^{-1} \in \mathcal{A}$. Gleichzeitig gilt $b = \lim_{n \to \infty} b_n$, wobei $b_n \in \Inv(\mathcal{B}) \subseteq \Inv(\mathcal{A})$, womit sogar $b_n^{-1} \in \mathcal{B} \subseteq \mathcal{A}$. Da $\mathcal{B}$ abgeschlossen ist folgt sogar $b^{-1} \in \mathcal{B}$, und damit sogar $b \in \Inv(\mathcal{B})$. Also ist $\Inv(\mathcal{B})$ abgeschloffen als Teilmenge von $\Inv(\mathcal{A}) \cap \mathcal{B}$.
+        \item Sei $\Aa$ eine Algebra mit Eins $e$. Sei $\mathcal{B} \subseteq \Aa$ eine Unteralgebra mit $e \in \mathcal{B}$. Zunächst ist $\Inv(\mathcal{B})$ offen als Teilmenge von $\Inv(\Aa) \cap \mathcal{B}$, nach Definition der Spurtopologie. Sei nun $b \in \cl_{\Inv(\Aa) \cap \mathcal{B}}(\Inv(\mathcal{B})) = \cl_{\Aa}(\Inv(\mathcal{B})) \cap \Inv(\Aa) \cap \mathcal{B}$. Dann existiert $b^{-1} \in \Aa$. Gleichzeitig gilt $b = \lim_{n \to \infty} b_n$, wobei $b_n \in \Inv(\mathcal{B}) \subseteq \Inv(\Aa)$, womit sogar $b_n^{-1} \in \mathcal{B} \subseteq \Aa$. Da $\mathcal{B}$ abgeschlossen ist folgt sogar $b^{-1} \in \mathcal{B}$, und damit sogar $b \in \Inv(\mathcal{B})$. Also ist $\Inv(\mathcal{B})$ abgeschloffen als Teilmenge von $\Inv(\Aa) \cap \mathcal{B}$.
     \end{enumerate}
 \end{remark}
 
