@@ -1,0 +1,111 @@
+\begin{theorem}
+    Sei $\Aa$ ein kommutative Banachalgebra mit Eins und $a \in \Aa$. Dann ist $a \in \Inv(a)$ genau dann, wenn $m(a) \neq 0$ für alle $m \in M_\Aa$ ist, wobei $M_\Aa$ die Menge aller multiplikativen linearen Funktionale von $\Aa$ nach $\C$ bezeichnet, welche nicht identisch $0$ sind.
+\end{theorem}
+
+\begin{proof}
+    Ist $a$ invertierbar, so gilt
+    $$ 1 = m(e) = m(a) m(a^{-1}), $$
+    insbesondere $m(a) \neq 0$.
+
+    Ist $a$ nicht invertierbar, so ist $a \cdot \Aa$ ein echtes Ideal in $\Aa$. Sei $I \supseteq a \cdot \Aa$ ein maximales Ideal. Dann gilt $U_1^\Aa(e) \subseteq \Inv(\Aa) \subseteq (I^c)^\circ = (\cl I)^c$ und somit $\cl I \neq \Aa$. Damit ist $I = \cl I$ und insbesondere ist $I$ abgeschlossen. Der Raum $\Aa / I$ ist mit der Quotientennorm ein Banachraum, und wir können durch $[c] \cdot [d] \coloneqq [cd]$ eine Multiplikation wohldefinieren, mit der $\Aa / I$ zu einer kommutativen, normierten Algebra mit Eins (nämlich $[e]$) wird. Sei nun $[b] \in \Aa / I, b \neq [0]$. Da $I$ maximal ist, ist $\Aa / I$ ein Körper, womit $[b]$ invertierbar ist. Wenden wir nun den Satz von Banach--Mazur auf die Algebra $\Aa / I$ an, so erhalten wir einen isometrischen Isomorphismus
+    $$ \phi : \Aa / I \to \C, \ \lambda [e] \mapsto \lambda. $$
+    Bezeichnet $\pi$ die Faktorabbildung, so ist die Abbildung $\phi \circ \pi : \Aa \to \C$ kontraktiv, ein Homomorphismus und nicht identisch $0$. Weiters gilt $\phi \circ \pi(a) = \phi([0]) = 0$. Damit erfüllt $m \coloneqq \phi \circ \pi$ das zu Zeigende, nämlich $m(a) = 0$.
+\end{proof}
+
+\begin{remark}
+    Sei $\Aa$ eine Banachalgebra mit Eins. Sei $m \in M_\Aa$ und setze $I \coloneqq \ker m \vartriangleleft \Aa$, was ein Ideal von Kodimension $1$ ist. Damit ist $I$ maximal und nach dem obigen Argument somit abgeschlossen, womit $m$ insbesondere stetig ist. Schreiben wir nun wie oben $m = \phi \circ \pi$, so folgt aus der Kontraktivität und $m(e) = 1$ insgesamt $\Vert m \Vert = 1$.
+\end{remark}
+
+\begin{lemma}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins, $f \in \Aa', \Vert f \Vert = 1 = f(e)$ und $a \in \Aa$. Gilt $a = a^*$, so ist $f(a) \in \R$.
+\end{lemma}
+
+\begin{proof}
+    Schreibe $f(a) = \alpha + i \beta$ mit $\alpha, \beta \in \R$. Sei $\lambda \in \R$ beliebig, so gilt
+    \begin{align*}
+        \alpha^2 + \beta^2 + \lambda^2 - 2 \beta \lambda &= \vert \alpha + i(\beta - \lambda) \vert^2 = \vert f(a - i \lambda e) \vert^2 \leq \Vert a - i \lambda e \Vert^2 \\
+        &= \Vert (a - i \lambda e) (a + i \lambda e) \Vert = \Vert a^2 + \lambda^2 e \Vert \leq \Vert a \Vert^2 + \lambda^2.
+    \end{align*}
+    Damit folgt
+    $$ \alpha^2 + \beta^2 - \Vert a \Vert^2 \leq 2 \beta \lambda. $$
+    Da die obige Gleichung für alle $\lambda \in \R$ gilt muss $\beta = 0$ folgen.
+\end{proof}
+
+\begin{corollary}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $a \in \Aa$ mit $a = a^*$. Dann ist $\sigma_\Aa(a) \subseteq \R$.
+\end{corollary}
+
+\begin{proof}
+    % cite
+    Sei $\lambda \in \sigma_\Aa(a)$ und setze $\Ba \coloneqq [\{ e, a \}]_\Aa$, so ist $\Ba$ eine kommutative Unteralgebra von $\Aa$. Nach Bemerkung 1.19 (4) gilt $\sigma_\Aa(a) \subseteq \sigma_\Ba(a)$, also ist $a - \lambda e \notin \Inv(\Ba)$. Nach Satz 1.20 gibt es ein $m \in M_\Ba$ mit $m(a - \lambda e) = 0$, womit $\lambda = m(a)$ folgt, was nach Lemma 1.22 reell ist.
+\end{proof}
+
+\begin{theorem}
+    Seien $\Aa, \Ba$ $C^*$ Algebren mit Eins $e \in \Ba$. Dann gilt
+    \begin{itemize}
+        \item $\Inv(\Ba) = \Inv(\Aa) \cap \Ba$, und
+        \item für alle $b \in \Ba$ gilt $\rho_\Ba(b) = \rho_\Aa(b)$.
+    \end{itemize}
+\end{theorem}
+
+\begin{proof}
+    Sei $b \in \Ba$ mit $b = b^*$. Dann gilt zunächst $ \sigma_\Aa(b) \subseteq \sigma_\Ba(b) \subseteq \C $ und damit $ \C \setminus \R \subseteq \rho_\Ba(b) \subseteq \rho_\Aa(b) $.
+    Damit folgt
+    $$ \C \cap \rho_\Aa(b) = \cl_\C \rho_\Ba(b) \cap \rho_\Aa(b) = \rho_\Ba (b) $$
+    und insbesondere $b \in \Inv(\Aa)$ genau dann wenn $b \in \Inv(\Ba)$.
+
+    Ist nun allgemeiner $b \in \Inv(\Aa) \cap \Ba$ (nicht notwendigerweise selbstadjungiert), so setze $a \coloneqq b^{-1} \in \Aa$. Dann folgt $a^* b^* = b^* a^*$ und damit $(a^* a)(b b^*) = e = (b b^*)(a^* a)$, also folgt $b b^* \in \Ba \cap \Inv(\Aa)$. Da $b b^*$ selbstadjungiert ist, folgt aus dem oben Gezeigtem $b b^* \in \Inv(\Ba)$. Aufgrund der Eindeutigkeit inverser Elemente folgt auch $a a^* \in \Ba$. Damit folgt
+    $$ a = ea = b^* (a^* a) \in \Ba. $$
+
+    Die zweite Aussage folgt unmittelbar aus der ersten, wie in Bemerkung 1.19.
+\end{proof}
+
+\begin{remark} {\ }
+    \begin{itemize}
+        \item Sei $\Aa$ eine Banachalgebra mit Eins. In Bemerkung 1.21 haben wir $M_\Aa \subseteq K_1^{\Aa'}(0)$ gezeigt. Weiters kann man zeigen, dass $M_\Aa$ versehen mit der $w^*$-Topologie sogar ein kompakter Hausdorffraum ist.
+        \item Sei $\Aa$ eine kommutative Banachalgebra mit Eins und $a \in \Aa$. Dann definieren wir
+        $$ \hat{a} \coloneqq  \restr{\iota(a)}{M_\Aa}, $$
+        wobei $\iota$ die kanonische Einbettung $\Aa \to \Aa'', a \mapsto (f \mapsto f(a)) $ bezeichnet. Die Abbildung
+        $$ \hat{\cdot} : \Aa \to C_b(M_\Aa, \C) $$
+        ist kontraktiver Banachalgebren-Homomorphismus mit $\Vert \hat{\cdot} \Vert = 1$.
+
+        Für $a \in \Aa$ gilt $\hat{a}(M_\Aa) = \sigma_\Aa(a)$, da: Es gilt $\lambda \in \sigma_\Aa(a)$ genau dann, wenn $a - \lambda e \notin \Inv(\Aa)$, was genau dann der Fall ist wenn es ein $m \in M_\Aa$ mit $m(a - \lambda e) = 0$ gibt, was zu $\hat{a}(m) = m(a) = \lambda$ äquivalent ist.
+    \end{itemize}
+\end{remark}
+
+\begin{lemma}
+    Sei $\Aa$ eine kommutative $C^*$-Algebra, dann ist die Abbildung
+    $$ \hat{\cdot} : \Aa \to C_b(M_\Aa, \C) $$
+    ein isometrischer $\ast$-Isomorphismus.
+\end{lemma}
+
+\begin{proof}
+    Für $b \in \Aa$ schreiben wir $b = b_r + i b_i$, mit
+    $$ b_r = \frac{b^* + b}{2}, \quad b_i = \frac{b - b^*}{2i}. $$
+    Dann sind $\hat{b_r}, \hat{b_i}$ reellwertig. Also folgt
+    $$ \hat{b^*} = \widehat{b_r + i b_i} = \hat{b_r} - i \hat{b_i} = \overline{\hat{b_r} + i \hat{b_i}} = \overline{\hat{b}}. $$
+    Die Isometrie folgt wegen
+    $$ \Vert \hat{b} \Vert_\infty = \sup_{m \in M_\Aa} \vert \hat{b}(m) \vert = \sup_{\lambda \in \sigma(b)} \vert \lambda \vert = r(b) = \Vert b \Vert. $$
+    Es bleibt die Surjektivität zu zeigen. Es ist $\hat{\Aa} \subseteq C_b(M_\Aa, \C)$ eine $B^*$-Unteralgebra mit $\hat{e} \in \hat{\Aa}$. Weiters ist die Algebra punktetrennend, womit nach dem Satz von Stone-Weierstrass die Aussage folgt. % maybe genauer noch?
+\end{proof}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ mit $x x^* = x^* x$. Dann ist
+    $$ \Ba \coloneqq \clspan \{ x^j (x^*)^k \mid j, k \in \N_0 \} = [\{ e, x \}]_\Aa \subseteq \Aa $$
+    eine kommutative $C^*$-Algebra. Dann definieren wir
+    $$ \phi_x : M_\Ba \to \sigma_\Ba(x), m \mapsto \hat{x}(m). $$
+\end{definition}
+
+\begin{lemma}
+    Die Abbildung $\phi_x$ ist ein Homöomorphismus.
+\end{lemma}
+
+\begin{proof}
+    Die Surjektivität ist klar, die Stetigkeit auch.
+
+    Ist $\phi_x (m_1) = \phi_x (m_2)$, so folgt $m_1(x^j) = m_2(x^j)$ für alle $j \in \N_0$. Entsprechend folgt wegen
+    $$ \overline{\phi_x(m)} = \overline{\hat{x}(m)} = \hat{x^*}(m) = m(x^*) $$
+    auch $m_1((x^*)^k) = m_2((x^*)^k)$ für alle $k \in \N_0$. Damit haben wir Gleichheit auf dem Erzeuger, und damit auf dem gesamten Raum.
+
+    Ein topologisches Standardargument zeigt nun, dass $\phi_x$ sogar ein Homöomorphismus ist.
+\end{proof}
