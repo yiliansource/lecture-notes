@@ -1,0 +1,118 @@
+\begin{definition}
+    Seien $\Aa, x \in \Aa, \Ba$ wie in Definition 1.27. Dann definieren wir
+    \begin{equation*}
+        \phi_x^t : C_b(\sigma(x), \C) \to C_b(M_\Ba, \C), f \mapsto f \circ \phi_x
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}
+    Die Abbildung $\phi_x^t$ ist ein isometrischer $\ast$-Isomorphismus.
+\end{lemma}
+
+\begin{remark}
+    Es gilt
+    $$ \phi_x^t(\iota_{\sigma(x)}) = \iota_{\sigma(x)} \circ \phi_x = \hat{x} $$
+    und
+    $$ \phi_x^t(\zeta \mapsto \zeta^j \zeta^{-k}) = \hat{x}^j \hat{x}^{-k} = \widehat{x^j (x^*)^k}. $$
+\end{remark}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins, $x \in \Aa$ normal und $f \in C_b(\sigma(x), \C)$. Dann definieren wir
+    $$ f(x) \coloneqq (\hat{\cdot})^{-1} \circ \phi_x^t(f). $$
+\end{definition}
+
+\begin{remark}{\ }
+    \begin{enumerate}
+        \item $(f \mapsto f(x)) = (\hat{\cdot})^{-1} \circ \phi_x^t(f)$ ist ein isometrischer $\ast$-Isomorphismus.
+        
+        Ist $f = \iota_{\sigma(x)}$, so gilt $f(x) = x$.
+        
+        Entsprechend gilt auch mit $f = (\zeta \mapsto \zeta^j \overline{\zeta}^k)$, dass $f(x) = x^j (x^*)^k$.
+
+        \item $f$ ist reellwertig genau dann, wenn $f(x) = f(x)^*$.
+        
+        $f$ ist $\T$-wertig genau dann, wenn $f(x)$ unitär ist.
+
+        $f(x) \in [e, x] \subseteq \Aa$.
+
+        \item Ist $f \in C_b(\sigma(x), \C), a \in \Aa, ax = xa, ax^* = x^* a$, so ist auch $af(x) = f(x) a$.
+        
+        \item Ist $f \in C_b(\sigma(x), \C)$, so ist $f(x)$ das eindeutige Element von $[e, x]$ mit der Eigenschaft $\widehat{f(x)} = \phi_x^t(f)$, beziehungsweise $\hat{f}(x)(m) = \phi_x^t(f)(m)$ für alle $m \in M_\Ba$. Inbesondere gilt
+        $$ \phi_x^t(f)(m) = (f \circ \phi_x)(m) = f(m(x)). $$
+
+        \item Es gilt
+        $$ \sigma_\Ba (f(x)) = \{ m(f(x)) : m \in M_\Ba \} = f(\{ m(x) : m \in M_\Ba \}) = f(\sigma(x)). $$
+    \end{enumerate}
+\end{remark}
+
+\begin{proposition}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Sind $f \in C_b(\sigma(x), \C), g \in C_b(\sigma(f(x)), \C)$. Dann ist $g \circ f \in C_b(\sigma(x), \C)$ und $(g \circ f)(x) = g(f(x))$.
+\end{proposition}
+
+\begin{proof}
+    Es gilt $f(x) \in [e, x]$ und damit $[e, f(x)] \leq [e, x] \leq \Aa$. Sei nun $m \in M_{[e,x]}$.
+    \begin{align*}
+        m(g(f(x))) &= \restr{m}{[e,f(x)]}{(g(f(x)))} = g(m(f(x))) = g(f(m(x))) \\
+        &= (g \circ f)(m(x)) = m((g \circ f)(x)). \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Seien $\Aa, \Ba$ $C^*$-Algebren mit Eins ($e_\Aa$, bzw. $e_\Ba$) und $\varphi : \Aa \to \Ba$ ein $\ast$-Algebren-Homomorphismus mit $\varphi(e_\Aa) = e_\Ba$. Falls $x \in \Aa$ normal ist, so ist auch $\varphi(x) \in \Ba$ normal mit $\sigma_\Ba(\varphi(x)) \subseteq \sigma_\Aa(x)$ und $\varphi(f(x)) = \restr{f}{\sigma_\Ba(\varphi(x))} (\varphi(x))$ für alle $f \in C_b(\sigma_\Aa(x), \C)$.\footnote{In anderen Worten: Der oben konstruierte Funktionalkalkül ist verträglich mit $\ast$-Algebren-Homomorphismen.}
+\end{proposition}
+
+\begin{proof}
+    Wir wissen bereits $\Vert \varphi \Vert = 1$, $\varphi(x) \varphi(x)^* = \varphi(x)^* \varphi(x)$ und $\sigma_\Ba(\varphi(x)) \subseteq \sigma_\Aa(x)$.
+
+    Sei $m \in M_{[e_\Ba, \varphi(x)]}$. Dann ist $m \circ \varphi \in M_{[e_\Aa, x]}$. Weiters gilt
+    \begin{align*}
+        m(\varphi(f(x))) &= (m \circ \varphi)(f(x)) = f((m \circ \varphi)(x)) = \restr{f}{\sigma_\Ba (\varphi(x))} (m(\varphi(x))) \\
+        &= m(\restr{f}{\sigma_\Ba (\varphi(x))} (\varphi(x))). \qedhere
+    \end{align*}
+\end{proof}
+
+Proposition 1.34 folgt aus Proposition 1.35 mit $f = \iota$.
+
+\begin{corollary}
+    Mit den Voraussetzungen von Proposition 1.35 gilt, dass wenn $\varphi$ injektiv ist, $\varphi$ sogar isometrisch ist.
+\end{corollary}
+
+\begin{proof}
+    Angenommen $\varphi$ ist nicht isometrisch. Dann gibt es ein $a \in \Aa$ mit $\Vert a \Vert > \Vert \varphi(a) \Vert$, da $\Vert \varphi \Vert \leq 1$. Dann gilt
+    $$ r(\varphi(a^* a)) = \Vert \varphi(a^* a) \Vert = \Vert \varphi(a)^* \varphi(a) \Vert = \Vert \varphi(a) \Vert^2 < \Vert a \Vert^2 = r(a^* a). $$
+    Inbesondere folgt $\sigma_\Ba (\varphi(a^* a)) \subsetneq \sigma_\Aa(a^* a)$. Sei nun $f : \sigma(a^* a) \to \C$ stetig mit $f \neq 0$ und $\restr{f}{\sigma_\Ba (\varphi(a^* a))} = 0$. Damit erhalten wir aus der vorigen Proposition
+    $$ \varphi(f(a^* a)) = \restr{f}{\sigma_\Ba(\varphi(a^* a))} (\varphi(a^* a)) = 0. $$
+    Nun ist aber $f(a^* a) \neq 0$, daher $\ker \varphi \neq \{ 0 \}$ und damit $\varphi$ nicht injektiv.
+\end{proof}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra (mit Eins) und $a \in \Aa$. Dann heißt $a$
+    \begin{itemize}
+        \item \emph{selbstadjungiert}, wenn $a^* = a$.
+        \item \emph{positiv}, wenn $a^* = a$ mit $\sigma(a) \subseteq [0, +\infty)$.
+    \end{itemize}
+    Die Menge der selbstadjungierten, bzw. positiven Elemente von $\Aa$ bezeichnen wir mit $\Aa_{sa}$, bzw. $\Aa_+$.
+\end{definition}
+
+\begin{remark}
+    Seien $a \in \Aa_{sa}$ und $p, q \in \Aa_+$.
+    \begin{enumerate}
+        \item Ist $\sigma(a) \in [0, +\infty)$, dann ist $\restr{\sqrt{\cdot}}{\sigma(a)} \in C_b(\sigma(a), \C)$. Insbesondere gilt
+        $$ \sigma(\sqrt{q}) = \sqrt{\sigma(q)} \subseteq [0, +\infty). $$
+        Weiters ist
+        $$ (\sqrt{q})^2 = \sqrt{q} \sqrt{q} = (\sqrt{\cdot})^2(q) = q. $$
+        Entsprechend sieht man $\sqrt{p^2} = p$.
+
+        \item $\sqrt{q}$ ist das eindeutige Element aus $\Aa_+$ mit $(\sqrt{q})^2 = q$, wäre nämlich auch $p^2 = q = (\sqrt{q})^2$, so folgt $p = \sqrt{q}$.
+        
+        \item Für alle $n \in \N_0$ ist $q^n \in \Aa_+$. und $a^{2n} \in \Aa_+$.
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+    Sei $\Aa = L_b(H)$ für einen Hilbertraum $H$. Dann ist $T \in \Aa_{sa}$ genau dann wenn
+    $$ \langle Tx, y \rangle = \langle x, Ty \rangle, $$
+    und $T \in \Aa_+$ genau dann wenn
+    $$ \langle Tx, x \rangle \geq 0. $$
+    Inbesondere folgt (mit dem numerischen Wertebereich), dass aus positiv bereits selbstadjungiert folgt. Man kann also hier positiv, bzw. selbstadjungiert, über Elemente des Hilbertraums charakterisieren.
+\end{example}
