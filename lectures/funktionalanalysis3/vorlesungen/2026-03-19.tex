@@ -1,0 +1,49 @@
+\begin{definition}
+    Seien $a, b \in \Aa_{sa}$, dann schreiben wir
+    $$ a \leq b \quad :\Longleftrightarrow \quad b - a \in \Aa_+. $$
+\end{definition}
+
+\begin{remark}{\ }
+    \begin{enumerate}
+        \item Die oben definierte Relation ist eine Halbordnung auf $\Aa_{sa}$. Reflexivität ist klar, gilt $a \leq b \leq c$, so folgt $b - a, c - b \in \Aa_+$ und damit $c - a \in \Aa_+$, also $a \leq c$. Für die Antisymmetrie sei $a \leq b$ und $b \leq a$. Dann ist $b - a \in \Aa_+$ und $-(b-a) \in \Aa_+$. Dann folgt
+        $$ \sigma(b-a) \subseteq [0, +\infty), \quad -\sigma(b-a) = \sigma(-(b-a)) \subseteq [0, +\infty), $$
+        also folgt $\sigma(b-a) = \{ 0 \}$ und damit $\Vert b - a \Vert = 0$.
+
+        \item Gilt $a \leq b$ und ist $\lambda \geq 0$ so folgt $\lambda a \leq \lambda b$. Außerdem ist $-b \leq -a$.
+        
+        Ist $c \in \Aa_{sa}$, so folgt $a + c \leq b + c$.
+
+        Ist zusätzlich $d \in \Aa_{sa}$ mit $c \leq d$, so folgt $a + c \leq b + d$.
+
+        \item Sei $c \in \Aa_{sa}$, so gilt $c \leq \Vert c \Vert e$. Um dies einzusehen bemerken wir zunächst $\sigma(\Vert c \Vert e - c) \subseteq \R$. Ist $t>0$, so ist
+        $$ -\Vert c \Vert > -\Vert c \Vert - t \notin \sigma(-c) = -\sigma(c), $$
+        also erhalten wir
+        $$ -t \notin \sigma(-c) + \Vert c \Vert = \sigma(\Vert c \Vert e - c), $$
+        also $-t \in \rho(\Vert c \Vert e - c)$. Also ist $\sigma(\Vert c \Vert e - c) \subseteq [0, +\infty)$.
+
+        \item Seien $0 \leq a \leq b$. Nach dem vorigen Punkt gilt auch $b \leq \Vert b \Vert e$. Also folgt
+        $$ \Vert b \Vert - \sigma(a) = \sigma(\Vert b \Vert e - a) \subseteq [0, +\infty) $$
+        und damit $\sigma(a) \subseteq (-\infty, \Vert b \Vert]$. Da $a$ positiv ist folgt $\sigma(a) \subseteq [0, \Vert b \Vert]$ und insgesamt $0 \leq \Vert a \Vert = r(a) \leq \Vert b \Vert$.
+
+        \item Seien $a, b \in \Aa_+$, $\Vert a \Vert, \Vert b \Vert \leq 1$, also $0 \leq a \leq e$ und $0 \leq b \leq e$. Dann folgt $0 \leq e - a \leq e$ und damit $0 \leq e + b - a \leq 2e$. Also ist
+        $$ 1 + \sigma(b-a) = \sigma(e + b - a) \subseteq [0, +\infty). $$
+        Analog erhält man
+        $$ 1 - \sigma(b-a) = \sigma(2e - (e+b-a)) \subseteq [0, +\infty) $$
+        und damit $\sigma(b-a) \subseteq [-1, +1]$, also $\Vert a - b \Vert \leq 1$.
+
+        \item Sei $x \in \Aa$, dann gilt $x^* x \in \Aa_+$. Um dies einzusehen, setze $b \coloneqq x^* x \in \Aa_{sa}$ und schreibe $b = b_+ - b_-$ mit $b_+, b_- \in \Aa_+$. Setze $y \coloneqq x b_-$, so ist
+        $$ -y^* y = -b_- x^* x b_- = -b_- (b_+ - b_-) b_- = b_-^3. $$
+        Damit folgt
+        $$ \sigma(-y^* y) = \sigma(b_-^3) = \sigma(b_-)^3 \subseteq [0, +\infty). $$
+        Schreibe nun $y = y_r + i y_i$, so ist $y^* = y_r - i y_i$. Damit berechnen wir
+        $$ y^* y + y y^* = 2y_r^2 + 2y_i^2, $$
+        und durch Umformen erhalten wir
+        $$ y y^* = 2y_r^2 + 2y_i^2 - y^* y \geq 0. $$
+        Beachte (vgl. Funktionalanalysis 2 Übung)
+        $$ \sigma(y^* y) \setminus \{ 0 \} = \sigma(y^* y) \setminus \{ 0 \}, $$
+        so ist die linke Seite in der linken Halbachse, die rechte Seite in der rechten Halbachse, also folgt $\sigma(y^* y) = \{ 0 \}$, damit $y^* y = 0$. Damit ist auch $b_-^3 = 0$ und damit (da $b_- \in \Aa_+$) auch $b_- = 0$, somit ist $x^* x \in \Aa_+$.
+
+        Inbesondere erhalten wir die Darstellung
+        $$ \Aa_+ = \{ x^* x : x \in \Aa \}. $$
+    \end{enumerate}
+\end{remark}

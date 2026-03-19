@@ -105,7 +105,60 @@ Proposition 1.34 folgt aus Proposition 1.35 mit $f = \iota$.
 
         \item $\sqrt{q}$ ist das eindeutige Element aus $\Aa_+$ mit $(\sqrt{q})^2 = q$, wäre nämlich auch $p^2 = q = (\sqrt{q})^2$, so folgt $p = \sqrt{q}$.
         
-        \item Für alle $n \in \N_0$ ist $q^n \in \Aa_+$. und $a^{2n} \in \Aa_+$.
+        \item Für alle $n \in \N_0$ ist $q^n \in \Aa_+$ und $a^{2n} \in \Aa_+$.
+        
+        \item Betrachte die (stetige) Funktion
+        $$ \vert \cdot \vert : \sigma(a) \to \R \ (\C), $$
+        so ist $\vert a \vert \in \Aa_+$ (sogar wenn $a$ nicht selbstadjungiert ist, man beachte $\sigma(\vert a \vert) = \vert \sigma(a) \vert$). Weiters kann man die (stetigen) Funktionen
+        $$ \max(0, \cdot) : \sigma(a) \to [0, +\infty), \quad -\min(0, \cdot) : \sigma(a) \to [0,+\infty), $$
+        betrachten, und definieren
+        $$ a_+ \coloneqq \max(0, \cdot)(a), \quad a_- \coloneqq [-\min(0,\cdot)](a), $$
+        was beides in $\Aa_+$ liegt.
+
+        \item Es gilt $\iota_{\sigma(a)} \in C_b(\sigma(a), \C)$ und damit $\Vert \iota_{\sigma(a)} \Vert = \Vert a \Vert$. Weiters gilt $0 \leq \max(0, \cdot) \leq \vert \iota_{\sigma(a)} \vert$ und damit
+        $$ \Vert \max(0, \cdot) \Vert_\infty \leq \Vert \vert \iota_{\sigma(a)} \vert \Vert_\infty = \Vert a \Vert. $$
+        Entsprechendes folgt für $-\min(0, \cdot)$ und damit
+        $$ \Vert a_+ \Vert \leq \Vert a \Vert, \quad \Vert a_- \Vert \leq \Vert a \Vert, \quad \Vert \vert a \vert \Vert = \Vert a \Vert. $$
+
+        Es gilt $\iota_{\sigma(a)} = \max(0, \cdot) - (- \min(0, \cdot))$, womit wir aus unserem $\ast$-Isomorphismus erhalten $ a = a_+ - a_- $. Entsprechend erhalten wir $\vert a \vert = a_+ + a_-$.
+
+        Weiters gilt $0 = (\max(0, \cdot)) \cdot (-\min(0, \cdot))$ und damit $ a_+ a_- = 0 $.
+
+        Außerdem gilt $\iota_{\sigma(a)}^2 = \vert \iota_{\sigma(a)} \vert^2$, damit $\vert a \vert^2 = a^2$ und insbesondere $\vert a \vert = \sqrt{a^2}$.
+
+        \item Es gilt $\Aa_{sa} = \Aa_+ - \Aa_+$. Ähnlich leitet man her
+        $$ \Aa = \Aa_{sa} + i \Aa_{sa} = \Aa_+ - \Aa_+ + i \Aa_+ - i \Aa_+. $$
+
+        \item Sei $t \geq \Vert a \Vert$. Dann ist
+        $$ a \in \Aa_+ \quad\Longleftrightarrow\quad \Vert te - a \Vert \leq t. $$
+        Um dies einzusehen bemerken wir
+        \begin{align*}
+            \sigma(te - a) = t - \sigma(a) \subseteq [0, +\infty),
+        \end{align*}
+        sowie
+        \begin{align*}
+            \Vert te - a \Vert = r(te - a) = \max_{s \in \sigma(a)} (t-s) = t - \min_{s \in \sigma(a)} s.
+        \end{align*}
+        Also ist
+        \begin{align*}
+            a \in \Aa_+ \Leftrightarrow \min_{s \in \sigma(a)} s \geq 0 \Leftrightarrow \Vert te - a \Vert \leq t.
+        \end{align*}
+
+        \item Es ist zunächst $p + q \in \Aa_{sa}$. Setze $t \coloneqq \Vert p \Vert + \Vert q \Vert \geq \Vert p+q \Vert$, so ist
+        $$ \Vert (\Vert p \Vert + \Vert q \Vert) e - (p+q) \Vert = \Vert \Vert p \Vert e - p \Vert + \Vert \Vert q \Vert e - q \Vert \leq \Vert p \Vert + \Vert q \Vert, $$
+        womit aus dem vorigen Punkt sogar $p+q \in \Aa_+$ folgt.
+
+        \item Seien $q_1, q_2 \in \Aa_+$ mit $q_1 q_2 = 0$ und $q_1 - q_2 = a \in \Aa_{sa}$. Dann gilt
+        \begin{align*}
+            (q_1 + q_2)^2 = q_1^2 + q_2^2 = (q_1 - q_2)^2 = a^2.
+        \end{align*}
+        Damit folgt $q_1 + q_2 = \vert a \vert$. Inbesondere folgt
+        $$ q_1 = \frac{q_1 + q_2 + (q_1 - q_2)}{2} = \frac{\vert a \vert + a}{2} = a_+, $$
+        $$ q_2 = \frac{q_1 + q_2 - (q_1 - q_2)}{2} = \frac{\vert a \vert - a}{2} = a_-. $$
+
+        \item Wegen der Stetigkeit der $\ast$-Operation ist $\Aa_{sa} \subseteq \Aa$ abgeschlossen. Tatsächlich ist sogar $\Aa_+ \subseteq \Aa$ abgeschlossen. Um dies einzusehen sei $b_n$ eine Folge in $\Aa_+$ mit $b_n \to b \in \Aa_{sa}$. Dann gilt
+        $$ \Vert \Vert b \Vert e - b \Vert = \lim_{n \to \infty} \Vert \Vert b_n \Vert e - b_n \Vert \leq \lim_{n \to \infty} \Vert b_n \Vert = \Vert b \Vert, $$
+        und nach 7. folgt $b \in \Aa_+$.
     \end{enumerate}
 \end{remark}
 
