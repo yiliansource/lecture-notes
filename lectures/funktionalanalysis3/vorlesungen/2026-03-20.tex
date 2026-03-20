@@ -1,0 +1,41 @@
+Sei $X$ ein $\C$-Vektorraum und seien $X_i, i \in I$ topologische $\C$-Vektorräume und $R_i : X \to X_i$ linear. Dann können wir $X$ mit der initialen Topologie versehen, um $X$ zu einem topologischen Vektorraum zu machen.
+
+\begin{itemize}
+    \item Sind alle $X_i$ (T2), so ist auch $X$ (T2).
+    \item Sind alle $X_i$ sogar lokalkonvex, so ist auch $X$ lokalkonvex.
+\end{itemize}
+
+Seien $Y_1, Y_2$ normierte Räume und betrachte $X = L_b(Y_1, Y_2)$ mit der Operatornorm. Wir setzen $R_y(T) = Ty$, für $y \in Y_1, T \in X$. Die von diesen Abbildungen erzeugte initiale Topologie heißt die \emph{starke Operatortopologie} auf $X$, wir schreiben $\Tc_s$.
+
+Ähnlich dazu können wir setzen $R_{y,f}(T) = f(Ty)$, für $y \in Y_1, f \in Y_2'$. Die von diesen Abbildungen erzeugte initiale Topologie heißt die \emph{schwache Operatortopologie} auf $X$, wir schreiben $\Tc_w$.
+
+Es gilt $\Tc_w \subseteq \Tc_s$, denn gilt $T_j \to T$ stark, so gilt $T_j y \to Ty$ für alle $y \in Y_1$ und damit insbesondere $f(T_j y) \to f(T y)$ für alle $y \in Y_1$ und $f \in Y_2'$, also gilt $T_j \to T$ schwach. Da aus $T_j \to T$ in Norm die starke Konvergenz folgt, gilt auch $\Tc_s \subseteq \Tc_{op}$.
+
+\medbreak
+
+Sei $H$ ein Hilbertraum und $\Aa \leq L_b(H)$ eine Unter-$\ast$-Algebra mit $I \in \Aa$. Dann gilt $\cl_{\Tc_s} \Aa = \Aa^{\updownarrow\updownarrow}$. Um dies einzusehen bemerken wir zunächst
+$$ \cl_{\Tc_s} \Aa \subseteq \cl_{\Tc_s} \Aa^{\updownarrow\updownarrow} = \Aa^{\updownarrow\updownarrow}, $$
+da Kommutanten abgeschlossen sind.
+
+Für die andere Inklusion betrachten wir für $r \in \N$ den Raum $H^r$ und definieren
+$$ \Aa_r \coloneqq \{ (S \times \hdots \times S) : S \in \Aa \} \leq L_b(H^r), $$
+was eine Unter-$\ast$-Algebra bestehend aus Diagonaloperatoren ist. Sei nun $T = (T_{ij}) \in \Aa_r^\updownarrow$, dann ist
+$$ [(S \times \hdots \times S) T]_{ij} = S T_{ij}, $$
+$$ [T (S \times \hdots \times S)]_{ij} = T_{ij} S. $$
+Es gilt also
+$$ T \in \Aa_r^{\updownarrow} \quad\Longleftrightarrow\quad T_{ij} \in \Aa^{\updownarrow} \quad \forall i, j. $$
+Sei $L \in \Aa^{\updownarrow\updownarrow}$, dann ist $(L \times \hdots \times L) \in \Aa_r^{\updownarrow\updownarrow}$. Es ist zu zeigen, dass $(L + U) \cap \Aa \neq \emptyset$ für alle $U \in \Uc_{(L_b(H), \Tc_s)}(0)$. Dazu können wir o.B.d.A. annehmen
+$$ \exists x_1, \hdots, x_r \in H, \varepsilon_1, \hdots, \varepsilon_r > 0: U = \{ B \in L_b(H) : \Vert B x_j \Vert < \varepsilon_j, j = 1, \hdots, r \}. $$
+Dann gilt $x = (x_1, \hdots, x_r) \in H^r$ und wir können definieren
+$$ G \coloneqq \clspn \{ Tx : T \in \Aa_r \} \leq H^r, $$
+wobei der Abschluss in $H^r$ gebildet wird. Tatsächlich reicht es den Abschluss (ohne lineare Hülle) zu nehmen. Es gilt
+$$ x = (I \times \hdots \times I)x \in G. $$
+Für $R \in \Aa_r$ folgt $R(G) \leq G$ und $R^*(G) \leq G$. Dann folgt für $x, y \in H^r$
+$$ (R P_G x, y) = (P_G R P_G x, y) = (P_G x, R^* P_G y) = (x, R^* P_G y) = (P_G R x, y). $$
+Also ist $P_G \in \Aa_r^\updownarrow$. Aus dem oben Gezeigten folgt
+$$ (L \times \hdots \times L) P_G = P_G (L \times \hdots \times L), $$
+also auch
+$$ (L x_1, \hdots, L x_r) = (L \times \hdots \times L) x \in G. $$
+Also gibt es eine Folge $(C_n)_{n \in \N}$ aus $\Aa$ mit
+$$ (L x_1, \hdots, L x_r) = \lim_{n \to \infty} (C_n x_1, \hdots, C_n x_r). $$
+Sei $n_0 \in \N$ sodass für alle $n \geq n_0$ gilt $\Vert (C_n - L) x_j \Vert < \varepsilon_j$ für alle $j = 1, \hdots, r$.  Dann gilt also $C_n - L \in U$, also $C_n \in (L + U) \cap \Aa$, womit die ursprüngliche Behauptung gezeigt ist.
