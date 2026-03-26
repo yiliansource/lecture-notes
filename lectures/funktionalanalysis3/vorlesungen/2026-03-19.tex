@@ -45,5 +45,40 @@
 
         Inbesondere erhalten wir die Darstellung
         $$ \Aa_+ = \{ x^* x : x \in \Aa \}. $$
+
+        \item Sind $a, b \in \Aa_{sa}$, $y \in \Aa$, dann folgt aus $a \leq b$ das auch $y^* a y \leq y^* b y$. Um dies einzusehen schreiben wir
+        $$ y^* b y - y^* a y = y^* (b-a) y = y^* p^2 y = (py)^* py $$
+        für ein $p \geq 0$ und aus dem vorigen Punkt folgt die Behauptung.
+
+        \item Sei $q \in \Aa_+$. Dann ist $q$ invertierbar genau dann wenn $0 \notin \sigma(q)$, was äquivalent (da $q \geq 0$) zu der Existenz eines $\delta > 0$ mit $\sigma(q) \subseteq [\delta, +\infty)$ ist, was wieder zu $\sigma(q - \delta e) \subseteq [0, +\infty)$ äquivalent ist, was $q \geq \delta e$ bedeutet.
+        
+        Ist $q \geq \delta e$ für $\delta > 0$, so folgt
+        $$ (q^{-1})^* = (q^*)^{-1} = q^{-1}, $$
+        womit $q^{-1}$ selbstadjungiert ist. Wegen der Darstellung für $\sigma(q^{-1})$ folgt auch $q^{-1} \geq 0$.
+
+        \item Sei $q \in \Aa_+ \cap \Inv(\Aa)$ mit $q \geq \delta e$ für ein $\delta > 0$. Dann gilt
+        $$ \sigma(\sqrt{q}) = \sqrt{\sigma(q)} \subseteq [\sqrt{\delta}, +\infty). $$
+        Also ist auch $\sqrt{q} \in \Aa_+ \cap \Inv(\Aa)$. Wegen
+        $$ (\sqrt{q}^{-1})^2 = q^{-1} $$
+        gilt auch $\sqrt{q^{-1}} = (\sqrt{q})^{-1}$.
+
+        \item Sei $0 \leq a \leq b$, wobei $a \in \Inv(\Aa)$. Zunächst gibt es ein $\delta > 0$ mit $\delta e \leq a \leq b$, womit auch $b \in \Inv(\Aa)$ folgt. Dann gilt
+        $$ 0 \leq (\sqrt{a})^{-1} a (\sqrt{a})^{-1} \leq (\sqrt{a})^{-1} b (\sqrt{a})^{-1} \eqqcolon p. $$
+        Insbesondere gilt $0 \leq (p-e)$ und damit
+        $$ 0 \leq (\sqrt{p})^{-1} (p-e) (\sqrt{p})^{-1} = e-p^{-1}. $$
+        Damit folgt $\sqrt{a} b^{-1} \sqrt{a} \leq e$ und damit nach Multiplizieren mit $(\sqrt{a})^{-1}$
+        $$ 0 \leq b^{-1} \leq a^{-1}. $$
+
+        \item Seien $0 \leq a \leq b$, dann folgt\footnote{Im Allgemeinen folgt \textbf{nicht} $0 \leq a^2 \leq b^2$!} $0 \leq \sqrt{a} \leq \sqrt{b}$. Um das zu zeigen setze $p \coloneqq \sqrt{a}, q \coloneqq \sqrt{b}$, so reicht es $q - p \geq 0$ zu zeigen. Äquivalent dazu müssen wir für beliebiges $t > 0$ zeigen
+        $$ te + q - p \in \Inv(\Aa). $$
+        Dazu setzen wir $x_t \coloneqq (te + q + p)(te + q - p)$. Dann ist $x_t^* = (te + q - p)(te + q + p)$. Schreibe nun $x_t = c_t + i d_t$ für gewisse $c_t, d_t \in \Aa_{sa}$, dann ist
+        $$ 2 c_t = x_t + x_t^* = 2 t^2 + 4 t q + 2(b-a) \geq 2 t^2 e. $$
+        Insbesondere ist $c_t$ positiv und invertierbar. Nach dem Spektralabbildungssatz folgt
+        $$ \sigma(e + i \sqrt{c_t}^{-1} d_t \sqrt{e_t}^{-1}) = 1 + i \sigma(\sqrt{c_t}^{-1} d_t \sqrt{c_t}^{-1}) \subseteq 1 + i \R. $$
+        Also ist das linksstehende Element, welches gleich $ \sqrt{c_t}^{-1} x_t \sqrt{c_t}^{-1} $ ist, invertierbar. Inbesondere sind auch $x_t$ und damit $x_t^*$ invertierbar. Nun ist
+        $$ x_t^{-1} (te + q + p)(te + q - p) = e $$
+        und
+        $$ (te + q - p)(te + q + p)(x_t^*)^{-1} = e, $$
+        womit $te + q - p$ invertierbar ist.
     \end{enumerate}
 \end{remark}

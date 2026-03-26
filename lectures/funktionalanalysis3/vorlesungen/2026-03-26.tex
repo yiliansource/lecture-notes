@@ -1,0 +1,62 @@
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins. Dann heißt $f \in \Aa^*$ \emph{positiv}, falls
+    $$ \forall a \in \Aa_+ : f(a) \geq 0. $$
+\end{definition}
+
+\begin{remark}
+    Sei $f \in \Aa^*$ positiv.
+    \begin{enumerate}
+        \item Seien $a \leq b$ mit $a, b \in \Aa_{sa}$, so folgt $f(a) \leq f(b)$.
+
+        \item Es gilt $f(\Aa_{sa}) \subseteq \R$, was sofort folgt, da wir $a \in \Aa_{sa}$ als $a = a_+ - a_0$ schreiben können. Insbesondere folgt mit $x = x_r + i x_i$ folgt
+        $$ \overline{f(x)} = \overline{f(x_r) + i f(x_i)} = f(x_r - i x_i) = f(x^*). $$
+
+        \item Es gilt $f(\Aa_+ \cap K_1^\Aa(0)) \subseteq [0, c]$ für ein $c \geq 0$. Angenommen dem wäre nicht so, dann gibt es für alle $n \in \N$ ein Element $a_n \in K_1^\Aa(0) \cap \Aa_+$ mit $f(a_n) \geq 2^n$. Definiere
+        $$ a \coloneqq \sum_{n=0}^\infty 2^{-n} a_n \in \Aa_+, $$
+        so konvergiert diese Reihe absolut. Für $N \in \N$ gilt außerdem
+        $$ \sum_{n=0}^N 2^{-n} a_n \leq a. $$
+        Damit ist
+        $$ f(a) \geq \sum_{n=0}^N 2^{-n} f(a_n) \geq N, $$
+        im Widerspruch zu $f(a) \in \R$.
+
+        \item Sei $c \geq 0$ wie in 3. Dann gilt $\Vert f \Vert \leq 4 c$. Um dies einzusehen sei $x \in \Aa$ und schreibe $x = x_r + i x_i$. Dann gilt
+        $$ \vert f(x) \vert \leq \vert f(x_r) \vert + \vert f(x_i) \vert. $$
+        Es reicht also das Ganze auf selbstadjungierten Elementen zu überprüfen. Sei $a = a^*$ und schreibe $a = a_+ - a_-$, dann gilt
+        $$ \vert f(a) \vert \leq \vert f(a_+) \vert + \vert f(a_-) \vert \leq c \Vert a_+ \Vert + c \Vert a_- \Vert \leq 2c \Vert a \Vert. $$
+        Wegen $\Vert x_r \Vert, \Vert x_i \Vert \leq \Vert x \Vert$ folgt die Behauptung.
+
+        \item Betrachte die Abbildung $(\cdot, \cdot)_f$ definiert durch
+        $$ \Aa \times \Aa \ni (x, y) \mapsto f(y^* x) \in \C. $$
+        Dann ist $(\cdot, \cdot)_f$ eine hermitesche Sesquilinearform. Da stets $x^* x \in \Aa_+$ ist die Abbildung auch positiv semidefinit.
+
+        Betrachte nun den ``Kern''
+        $$ N_f \coloneqq \{ c \in \Aa : f(c^* c) = 0 \} \subseteq \Aa. $$
+        Setze
+        $$ M_f \coloneqq \{ c \in \Aa : f(d^* c) = 0 \ \forall d \in \Aa \}, $$
+        so gilt klarerweise $N_f \supseteq M_f$. Nach Cauchy-Schwarz gilt
+        $$ \vert f(d^* c) \vert^2 \leq f(d^* d) f(c^* c) = 0, $$
+        und damit auch die andere Inklusion und es gilt $N_f = M_f$. Inbesondere ist $N_f$ der Orthogonalraum (insbesondere ein Unterraum) von $\Aa$ bezüglich der definierten Sesquilinearform.
+
+        Damit können wir auf $f/_{N_f}$ eine Abbildung definieren durch
+        $$ ([x], [y])_f \coloneqq f(y^* x). $$
+        Seien $u \in [x], v \in [y]$, so ist
+        \begin{align*}
+            f(v^* u) &= f((y + (v-y))^* (x + (u - x))) = \\
+            &= f(y^* x) + f((v-y)^* x) + f((y^* (u- x)) + f((v - y)^* (u - x))) \\
+            &= f(y^* x),
+        \end{align*}
+        unter Verwendung des oben Gezeigten. Insbesondere ist die Abbildung wohldefiniert und man prüft sofort nach, dass sie auch eine hermitesche Sesquilinearform definiert. Für $c \in \Aa$ gilt
+        $$ 0 = ([c], [c])_f = f(c^* c), $$
+        also $c \in N_f$ und die Abbildung ist sogar positiv definit.
+
+        \item Sei $b \in \Aa$ und definiere
+        $$ b_f : \Aa/_{N_f} \to \Aa/_{N_f}, \ [x] \mapsto [bx]. $$
+        Sei $y \in [x]$ und $d \in \Aa$ und betrachte
+        $$ f(d^* b(x-y)) = f((b^* d)^* (x-y)) = 0, $$
+        daher ist $bx - by \in N_f$ und $b_f$ wohldefiniert. Die Linearität der Abbildung ist klar.
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    Mit $(H_f, (\cdot, \cdot)_f)$ bezeichnen wir die Hilbertraum-Vervollständigung von $(\Aa/_{N_f}, (\cdot, \cdot)_f)$.
+\end{definition}
