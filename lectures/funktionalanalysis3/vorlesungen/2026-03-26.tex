@@ -53,10 +53,114 @@
         $$ b_f : \Aa/_{N_f} \to \Aa/_{N_f}, \ [x] \mapsto [bx]. $$
         Sei $y \in [x]$ und $d \in \Aa$ und betrachte
         $$ f(d^* b(x-y)) = f((b^* d)^* (x-y)) = 0, $$
-        daher ist $bx - by \in N_f$ und $b_f$ wohldefiniert. Die Linearität der Abbildung ist klar.
+        daher ist $bx - by \in N_f$ und $b_f$ wohldefiniert. Die Linearität der Abbildung ist klar. Wegen
+        $$ \Vert b_f([x]) \Vert^2 = \Vert [bx] \Vert^2 = f(x^* b^* b x) \leq \Vert b^* b \Vert f(x^* x) = \Vert b \Vert^2 \, \Vert [x] \Vert^2 $$
+        ist $ \Vert b_f \Vert \leq \Vert b \Vert $.
     \end{enumerate}
 \end{remark}
 
 \begin{definition}
     Mit $(H_f, (\cdot, \cdot)_f)$ bezeichnen wir die Hilbertraum-Vervollständigung von $(\Aa/_{N_f}, (\cdot, \cdot)_f)$.
 \end{definition}
+
+\begin{remark}
+    Mit den Bezeichnungen der vorigen Bemerkung können wir $b_f$ auch als Abbildung auf $H_f$ betrachten.
+
+    \begin{enumerate}
+        \item Wir definieren die Abbildung
+        $$ \varphi_f : A \to L_b(H), \ b \mapsto b_f, $$
+        diese ist linear und kontraktiv. Wegen
+        $$ \varphi_f(ab)([x]) = [abx] = a_f(b_f([x])) = \varphi_f(a) \varphi_f(b) ([x].) $$
+        und
+        $$ (\varphi_f(b)([x]), [x])_f = ([bx], [y])_f = f(y^* b x) = f((b^*y)^* x) = ([x], \varphi_f(b^*) ([y]))_f $$
+        und der Dichtheit der Restklassen, ist die Abbildung sogar ein Algebrenhomomorphismus, inbesondere gilt $\varphi_f(b)^* = \varphi_f(b^*)$.
+
+        \item Es gilt
+        $$ \varphi_f(e)([x]) = [ex] = [x] = I_{H_f}([x]). $$
+    \end{enumerate}
+\end{remark}
+
+Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir insgesamt also eine $C^*$-Algebra mit Eins als Unterrhaum eines gewissen $L_b(H)$ betrachten. Das geht im Allgemeinen nicht, aber wir werden eine ähnliche Aussage erhalten.
+
+\begin{proposition}
+    Sei $f \in \Aa^*$. Dann ist $f$ positiv genau dann, $\Vert f \Vert = f(e) \ \ (< +\infty)$.
+\end{proposition}
+
+\begin{proof}
+    ``$\Longrightarrow$'': Zunächst gilt $0 \leq f(e) \leq \Vert f \Vert$, da $e$ positiv ist. Außerdem gilt stets
+    $$ \vert f(y^* x) \vert^2 = \vert (x, y)_f \vert^2 \leq (x, x)_f (y, y)_f = f(x^* x) f(y^* y). $$
+    Für festes $x$ und $y=e$ folgt damit
+    $$ \vert f(x) \vert^2 \leq f(e) f(x^* x) \leq f(e) \, \Vert f \Vert \, \Vert x \Vert^2. $$
+    Also ist $\Vert f \Vert^2 \leq f(e) \Vert f \Vert \leq \Vert f \Vert^2$. Wir haben also sogar gezeigt, dass in diesem Fall gilt
+    $$ \Vert f(x) \Vert^2 \leq \Vert f \Vert \, f(x^* x). $$
+
+    ``$\Longleftarrow$'': Ist $f=0$ so ist nichts zu zeigen. Ansonsten können wir o.B.d.A. nach eine Skalierung $ 1 = \Vert f \Vert = f(e) $. Mit Bemerkung 1.43.2 folgt $f(a) \in [-\Vert a \Vert, +\Vert a \Vert]$ für selbstadjungierte $a$.
+
+    Nun folgt für positive $a$
+    $$ \Vert a \Vert - f(a) = \vert \Vert a \Vert - f(a) \vert = \vert f(\Vert a \Vert e - a) \vert \leq \Vert \Vert a \Vert e - a \Vert \leq \Vert a \Vert, $$
+    also $f(a) \geq 0$.
+\end{proof}
+
+\begin{lemma}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Dann existiert ein positives $f \in \Aa^*$ mit $\Vert f \Vert = 1$ und $\vert f(x) \vert = \Vert x \Vert$.
+\end{lemma}
+
+\begin{proof}
+    Wir betrachten die kommutative $C^*$-Unteralgebra $[e, x] \leq \Aa$. Wir können also die Gelfandtransformierte betrachten
+    $$ \hat{\cdot} : [e, x] \to C_b(M_{[e, x]}, \C), $$
+    welche ein $\ast$-Algebren-Isomorphismus ist.
+
+    Die Abbildung
+    $$ \vert \hat{x} \vert : M_{[e, x]} \to \R $$
+    ist stetig und hat eine Maximalstelle, es gibt also eine $m \in M_{[e, x]}$ mit
+    $$ \vert m(x) \vert = \vert \hat{x}(m) \vert = \Vert \hat{x} \Vert_\infty = \Vert x \Vert. $$
+
+    Sei $f \in \Aa'$ mit $\restr{f}{[e,x]} = m$ und $\Vert f \Vert = \Vert m \Vert = 1 = m(e) = f(e)$. Dann ist
+    $$ \vert f(x) \vert = \vert m(x) \vert = \Vert x \Vert. $$
+\end{proof}
+
+\begin{definition}
+    Sei $f \in \Aa^*$ positiv mit $\Vert f \Vert = 1$, so heißt $f$ \emph{Zustand}.
+\end{definition}
+
+\begin{theorem}[Gelfand--Neimark--Siegel]
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins. Dann existiert ein Hilbertraum $H$ und eine Unter-$C^*$-Algebra $\Ca \leq L_b(H)$ und ein isometrischer $\ast$-Algebren-Isomorphismus $\varphi : \Aa \to \Ca$ mit $\varphi(e) = \mathrm{id}_H$.
+\end{theorem}
+
+\begin{proof}
+    Setze
+    $$ Z \coloneqq \{ f \in \Aa^* : \Vert f \Vert = f(e) = 1 \} $$
+    und $H \coloneq \ell^2(Z, (H_f)_{f \in Z})$, so ist $H$ mit dem ``kanonischen'' Skalarprodukt ein Hilbertraum. Wir definieren
+    $$ \mapping{\varphi}{\Aa & \to & L_b(H),}{b & \mapsto & ((\xi_f)_{f \in Z} \mapsto (\varphi_f(b)(\xi_f))_{f \in Z}).} $$
+    Es gilt
+    $$ \sum_{f \in Z} \Vert \varphi_f(b) (\xi_f) \Vert^2 \leq \Vert b \Vert^2 \sum_{f \in Z} \Vert \xi_f \Vert^2 < +\infty, $$
+    also bildet $\varphi(b)$ tatsächlich nach $H$ ab, inbesondere ist $\Vert \varphi(b) \Vert \leq \Vert b \Vert$. Es ist $\varphi$ klarerweise linear und multiplikativ, was man sofort komponentenweise überprüft. Also ist $\varphi$ ein Algebrenhomomorphismus. Wegen
+    \begin{align*}
+        (\varphi(b)(\xi_f)_{f \in Z}, (\zeta_f)_{f \in Z})_H &= \sum_{f \in Z} (\varphi_f(b) \xi_f, \zeta_f)_f = \sum_{f \in Z} (\xi_f, \varphi_f(b)^* \zeta_f)_f \\
+        &= ((\xi_f)_{f \in Z}, \varphi(b^*) (\zeta_f)_{f \in Z})
+    \end{align*}
+    ist $\varphi$ sogar mit der $\ast$-Operation verträglich.
+
+    Für $c \in \Aa$ ist $c^* c$ normal. Nach dem vorigen Lemma gibt es also ein $g \in Z$ sodass
+    $$ g(c^* c) = \Vert c^* c \Vert = \Vert c \Vert^2. $$
+    Damit folgt
+    $$ (\varphi_g(c)([e]), \varphi_g(c)([e]))_g = g(c^* c) = \Vert c \Vert^2. $$
+
+    Wir betrachten nun das Element
+    $$ (\delta_{fg} [e]_{H_f})_{f \in Z} \in H, $$
+    wobei $\delta_{xy}$ das Kronecker-Delta bezeichnet. Mit diesem gilt
+    $$ \Vert \varphi(c) (\delta_{fg} [e]_{H_f})_{f \in Z} \Vert^2 = \Vert \varphi_g (c) ([e]_{H_g}) \Vert^2_{H_g} = \Vert c \Vert^2 $$
+    und damit sogar $\Vert \varphi(c) \Vert = \Vert c \Vert$.
+
+    Abschließend folgt noch
+    $$ \varphi(e)(\xi_f)_{f \in Z} = (\xi_f)_{f \in Z}, $$
+    womit genau $\varphi(e) = \mathrm{id}_H$ folgt.
+\end{proof}
+
+Sei $\Aa$ eine Banachalgebra und betrachte den Raum $L_b(\Aa)$. Dann ist die Abbildung
+$$ \Aa \ni y \mapsto L_y = (x \mapsto yx) \in L_b(\Aa) $$
+ist ein kontraktiver Algebrenhomomorphismus.
+
+Falls $\Aa$ eine Banachalgebra mit Eins ist, so ist die Abbildung sogar isometrisch.
+
+Wie wir noch sehen werden ist, falls $\Aa$ eine $C^*$-Algebra (nicht notwendigerweise mit Eins!) ist, auch in diesem Fall die Abbildung isometrisch.
