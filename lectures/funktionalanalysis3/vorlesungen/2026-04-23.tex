@@ -1,0 +1,106 @@
+\begin{remark}
+    Sei $\Aa$ eine Banachalgebra, $a \in \Aa$ und betrachte die Abbildungen
+    $$ L_a : \Aa \to \Aa, \ x \mapsto ax, \qquad \psi : \Aa \to L_b(\Aa), a \mapsto L_a. $$
+    \begin{enumerate}
+        \item $\psi$ ist ein Algebrenhomomorphismus.
+        \item Es gilt stets $\Vert L_a \Vert \leq \Vert a \Vert$. Damit ist $\psi$ sogar kontraktiv.
+        \item Ist $\Aa$ sogar eine $C^*$-Algebra, so gilt wegen
+        $$ \Vert a \Vert^2 = \Vert a a^* \Vert = \Vert L_a \Vert \, \Vert a* \Vert \leq \Vert a \Vert \, \Vert a^* \Vert = \Vert a \Vert^2 $$
+        sogar $\Vert L_a \Vert = \Vert a \Vert$.
+        \item Da $\psi$ isometrisch ist, ist $\psi(\Aa)$ eine Banach-Unteralgebra von $L_b(\Aa)$.
+        \item Wir können somit auf $\psi(\Aa)$ eine ${}^*$-Abbildung durch $(L_a)^* \coloneqq L_{a^*}$ definieren, also
+        $$ \cdot^* \coloneqq \psi \circ \cdot^{*_\Aa} \circ \psi^{-1}. $$
+        Man verifiziert unmittelbar, dass dann $\psi(A)$ eine $C^*$-Algebra ist. Die Isometrie von $\psi$ ist hier wesentlich.
+        \item Es hat $\Aa$ eine Eins genau dann wenn $\id_\Aa \in \psi(\Aa)$.
+        
+        ``$\Longrightarrow$'': Es gilt $\psi(e) = \id_\Aa$.
+
+        ``$\Longleftarrow$'': Wähle $b \in \Aa$ mit $\psi(b) = \id_\Aa$, da $\psi$ ein Homomorphismus ist erfüllt $b$ die Definition einer Eins.
+    \end{enumerate}
+\end{remark}
+
+Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. In dem Fall betten wir $\Aa$ in eine $C^*$-Algebra mit Eins ein.
+
+\begin{proposition}
+    Sei $\Aa$ eine $\C^*$-Algebra ohne Eins. Dann gilt
+    $$ \mathscr{W} \coloneqq \psi(\Aa) \overset{\cdot}{+} \spn(\id_\Aa) \leq L_b(\Aa) $$
+    ist eine Unter-Banachalgebra und eine $C^*$-Algebra mit
+    $$ (L_a + \lambda \id_\Aa)^* \coloneqq L_{a^*} + \overline{\lambda} \id_\Aa. $$
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{itemize}
+        \item Wegen
+        $$ (\psi(a) + \lambda I)(\psi(b) + \mu I) = \psi(ab + \mu a + \lambda b) + \lambda \mu I $$
+        ist $\mathscr{W}$ eine Unteralgebra.
+        \item $\mathscr{W}$ als direkte Summe abgeschlossener Unterräume ebenfalls abgeschlossen und damit sogar eine Banach-Unteralgebra.
+        \item Die konjugierte Linearität und die Eigenschaft $(ab)^* = b^* a^*$ von $\cdot^*$ verifiziert man unmittelbar durch Nachrechnen.
+        \item Es bleibt zu zeigen
+        $$ \Vert \psi(a) + \lambda I \Vert^2 = \Vert (\psi(a) + \lambda I)(\psi(a) + \lambda I)^* \Vert. $$
+        Wegen Lemma 1.9 reicht es $\leq$ zu zeigen.
+        \begin{align*}
+            \Vert (\psi(a) + \lambda I)(x) \Vert^2
+            &=
+            \Vert (a+\lambda)x \Vert^2 = \Vert ((a + \lambda) x)((a + \lambda) x)^* \Vert \\
+            &=
+            \Vert x^* a^* a x + \lambda x^* a^* x + \overline{\lambda} x^* a x + \vert \lambda \vert^2 x^* x \Vert \\
+            &=
+            \Vert \psi(x^*) (a^* a x + \lambda a^* x \overline{\lambda} a x + \vert \lambda \vert^2 x) \Vert \\
+            &=
+            \Vert \psi(x^*) (\psi(a^* a) x + \lambda \psi(a^*) x + \overline{\lambda} \psi(a) x + \vert \lambda \vert^2 I x) \Vert \\
+            &\leq
+            \Vert \psi(x^*) \Vert \ \Vert (\psi(a) + \lambda I)(\psi(a) + \lambda I)^* \Vert \ \Vert x \Vert \\
+            &\leq
+            \Vert x^* \Vert \ \Vert \cdots \Vert \ \Vert x \Vert \\
+            &=
+            \Vert \cdots \Vert \ \Vert x \Vert^2.
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra.
+    \begin{itemize}
+        \item Hat $\Aa$ keine Eins so schreiben wir $\eAa$ für die obige Konstruktion, fassen $\Aa$ als Teilmenge davon auf und schreiben $e \coloneqq \id_\Aa$.
+        \item Hat $\Aa$ bereits eine Eins so schreiben wir $\eAa \coloneqq \Aa$.
+    \end{itemize}
+\end{definition}
+
+Wir erkennen unmittelbar, dass $\Aa \vartriangleleft \eAa$ und $\codim \Aa = 1$.
+
+\begin{proposition}[Eindeutigkeit von $\eAa$]
+    Ist $\Aa$ eine $C^*$-Algebra ohne eins, $\Ba$ eine $C^*$-Algebra mit Eins und $\Aa \leq \Ba$ mit $\codim \Aa = 1$. Dann sind $\eAa$ und $\Ba$ ${}^*$-isomorph.
+\end{proposition}
+
+\begin{proof}
+    Wegen $\codim \Aa = 1$ und $e_\Ba \notin \Aa$ gilt $\Ba = \Aa \overset{\cdot}{+} \spn \{ e_\Ba \}$. Damit ist
+    $$ \Phi : \Ba \to \eAa, \ a + \lambda e_\Ba \mapsto a + \lambda e $$
+    ein ${}^*$-Isomorphismus.
+\end{proof}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra und $a \in \Aa$. Dann definieren wir:
+    \begin{itemize}
+        \item $\rho_\Aa(a) \coloneqq \rho_{\eAa} (a), \sigma_{\Aa} (a) \coloneqq \sigma_{\eAa} (a), r_{\Aa} (a) \coloneqq r_{\eAa} (a) = \sup_{\lambda \in \rho_{\Aa} (a)} \vert \lambda \vert$.
+        \item $\Aa_{sa} \coloneqq \{ a \in \Aa : a = a^* \} = (\eAa)_{sa} \cap \Aa$.
+        \item $\Aa_+ \coloneqq \{ a \in \Aa_{sa} : \sigma_\Aa (a) \subseteq [0, +\infty) \} = (\eAa)_+ +\cap \Aa$.
+    \end{itemize}
+    Für $a, b \in \Aa_{sa}$ definieren wir $a \leq b :\Leftrightarrow b - a \in \Aa_+$.
+\end{definition}
+
+\begin{remark}
+    Sei $\Aa$ eine $C^*$-Algebra ohne Eins, $a \in \Aa, b \in \Aa, c \in \Aa$.
+    \begin{itemize}
+        \item Es gilt stets $0 \in \sigma_{\Aa}(a)$, denn wäre $0 \notin \sigma_{\Aa}(a)$, so gäbe es $b \in \Aa, \beta \in \C$ mit $e = a(b+\beta e) \in \Aa$, im Widerspruch dazu, dass $\Aa$ keine Eins hat.
+        \item Es gilt $\Aa_{sa} = \eAa_{sa} \cap \Aa, \Aa_+ = \eAa_+ \cap \Aa, \leq_{\Aa} = \leq_{\eAa} \cap \Aa \times \Aa$. Außerdem sind $\Aa_{sa}$ und $\Aa_+$ abgeschlossen in $\Aa$.
+        \item Seien $a, b, c \in \Aa_{sa}$ mit $a \leq b$ und $x \in \eAa$. dann gilt $a + c \leq b + c$ und $x^* a x \leq x^* b x$.
+        \item Es gilt\footnote{Das wissen wir schon im Fall einer $C^*$-Algebra mit Eins.} $\Aa_+ = \{ x^* x : x \in \Aa \}$, da
+        $$ \Aa_+ = \eAa_+ \cap \Aa = \{ x^* x : x \in \eAa \} \cap \Aa = \{ x^* x : x \in \Aa \}. $$
+        \item $\Aa$ ist ein maximales Ideal, also insbesondere ein Primideal.
+        \item Für $a \in \Aa_+$ gilt auch\footnote{A priori wissen wir nur $\sqrt[n]{a}$!} $\sqrt[n]{a} \in \Aa$, da $\Aa$ prim ist.
+        \item Es gilt $\Aa_{sa} = \Aa_+ - \Aa_+$ und damit $\Aa = \Aa_+ - \Aa_+ + i \Aa_+ - i \Aa_+$.
+        \item Ist $\Aa$ kommutativ, so ist auch $\eAa$ kommutativ.
+        \item Sei $\Aa$ kommutativ. Dann wissen wir $\eAa \cong C_b(M_{\eAa}, \C)$.
+        \item Insgesamt haben wir $\Aa \vartriangleleft \eAa$, wobei Letzteres nach Gelfand--Neimark--Siegel eingebettet werden kann in $L_b(H)$ für einen Hilbertraum $H$. Insbesondere ist also auch $\Aa$ isometrisch isomorph zu einer Unteralgebra von $L_b(H)$.
+    \end{itemize}
+\end{remark}
