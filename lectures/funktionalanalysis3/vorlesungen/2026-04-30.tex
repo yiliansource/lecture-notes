@@ -1,0 +1,158 @@
+\begin{lemma}
+    Sei $\Ba$ eine $C^*$-Algebra mit Eins $e$ und $\Aa \leq \Ba$ eine Unteralgebra, wobei $e \notin \Aa$. Dann gilt:
+    \begin{enumerate}
+        \item $\Aa \overset{\cdot}{+} \spn \{ e \}$ ist eine $C^*$-Algebra mit $e$ als Eins, und $\Aa$ als Ideal von Kodimension $1$.
+        \item Für $a \in \Aa$ gilt
+        \[
+            \rho_\Aa (a) \setminus \{0\}
+            =
+            \rho_{\Aa \overset{\cdot}{+} \spn \{ e \}} (a) \setminus \{0\}.
+        \]
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Zunächst ist klarerweise $\Ca \coloneq \Aa \overset{\cdot}{+} \spn \{ e \} \leq \Ba$ eine $C^*$-Unteralgebra, inbesondere ein abgeschlossener Unterraum. Weiters verifiziert man unmittelbar, dass $\Aa$ ein Ideal davon ist, mit Kodimension $1$.
+
+    Sei $u \in \Aa$. Dann gilt
+    \begin{align*}
+        (e + u) \in \Inv (\Ca)
+        &\Leftrightarrow
+        \exists v \in \Ca : (e + v)(e + u) = e = (e + u)(e + v)
+        \\ &\Leftrightarrow
+        \exists v \in \Ca : e + v + u + vu = e = e + v + u + uv
+        \\ &\Leftrightarrow
+        \exists v \in \Ca : v + u + vu = 0 = v + u + uv
+        \\ &\Leftrightarrow
+        \exists v \in \Aa : v + u + vu = 0 = v + u + uv.
+    \end{align*}
+
+    Wir folgern, dass für $\lambda \in \C \setminus \{0\}$ und $a \in \Aa$ gilt, dass
+    \begin{align*}
+        \lambda \in \rho_\Ca (a)
+        &\Leftrightarrow
+        \lambda e - a \in \Inv(\Ca)
+        \\ &\Leftrightarrow
+        e + u \in \Inv(\Ca)
+        \\ &\Leftrightarrow
+        \exists v \in \Aa : uv + u + v = 0 = vu + u + v,
+    \end{align*}
+    wobei wir $u = -\frac{1}{\lambda} a$ gesetzt haben. Damit folgt
+    \begin{align*}
+        \rho_\Ca (a) \setminus \{0\} = \{ \lambda \in \C \setminus \{ 0 \} : \exists v \in \Aa : -\frac{1}{\lambda} a v - \frac{1}{\lambda} a + v = 0 = -\frac{1}{\lambda} v a - \frac{1}{\lambda} a + u \}.
+    \end{align*}
+    Falls $\Aa$ bereits eine Eins hat, so folgt
+    \[
+        \lambda \in \rho_\Ca (a) \setminus \{0\}
+        \Leftrightarrow
+        \lambda \in \rho_\Aa (a) \setminus \{0\}.
+    \]
+    Falls $\Aa$ keine Eins hat, so ist $\eAa = \Aa \overset{\cdot}{+} \spn \{ \widetilde{e} \}$, wobei $\widetilde{e}$ eine ``neue'' Eins ist. Wiederholen wir die vorigen Überlegungen mit $\widetilde{e}$ statt $e$, so folgt erneut\footnote{Tatsächlich gilt die Äquivalenz hier sogar ohne den Ausschluss der $0$.}
+    \[
+        \lambda \in \rho_\Ca (a) \setminus \{0\}
+        \Leftrightarrow
+        \lambda \in \rho_\Aa (a) \setminus \{0\}. \qedhere
+    \]
+\end{proof}
+
+\begin{corollary}
+    Seien $\Aa \leq \Ba$ $C^*$-Algebren und $a \in \Aa$. Dann gilt
+    $$ \sigma_\Aa (a) \setminus \{0\} = \sigma_\Ba (a) \setminus \{0\}. $$
+    Insbesondere gilt $\Ba_{sa} \cap \Aa = \Aa_{sa}$ und $\Ba_+ \cap \Aa = \Aa_+$.
+\end{corollary}
+
+\begin{proof}
+    Ohne Beschränkung der Allgemeinheit können wir $\Ba = \eBa$ annehmen, mit $e$ als Eins von $\Ba$. Dann erhalten wir aus dem obigen Lemma
+    $$ \sigma_\Aa (a) \setminus \{0\} = \sigma_{\Aa \overset{\cdot}{+} \spn \{ e \}} (a) \setminus \{ 0 \} = \sigma_{\Ba} (a) \setminus \{ 0 \}, $$
+    wobei die letzte Gleichheit sogar ohne Ausschluss der $0$ richtig wäre.
+
+    Die Gleichheit $\Ba_{sa} \cap \Aa = \Aa_{sa}$ folgt unmittelbar durch Nachrechnen. Ein Element $a \in \Aa$ ist positiv in $\Ba$ genau dann wenn $a = a^*$ und $\sigma_\Ba (a) \setminus \{ 0 \} \subseteq (0, +\infty)$. Nach dem oben Gezeigten ist das aber äquivalent zu $a \in \Aa_+$.
+\end{proof}
+
+Wir erhalten außerdem, dass sowohl $\sigma_\Aa(a) \setminus \{0\}$, als auch $\sigma_\Ba(a) \setminus \{0\}$ gleich
+\[
+     \{ \lambda \in \C \setminus \{0\} : \nexists v \in \Aa: -\frac{1}{\lambda} a v - \frac{1}{\lambda} a + v = 0 = -\frac{1}{\lambda} v a - \frac{1}{\lambda} a + v \}
+\]
+sind.
+
+\begin{corollary}
+    Seien $\Aa, \Ba$ $C^*$-Algebren und $\varphi : \Aa \to \Ba$ ein $\ast$-Homomorphismus, der nicht notwendigerweise die (möglicherweise vorhandenen) Einselemente auf Einselemente abbildet.
+
+    Dann gilt $\Vert \varphi \Vert \leq 1$, und für $a \in \Aa$ gilt
+    \[
+        \sigma_{\Ba} (\varphi(a)) \setminus \{0\} \subseteq \sigma_\Aa (a) \setminus \{0\}.
+    \]
+    Insbesondere gilt $\varphi(\Aa_{sa}) \subseteq \Ba_{sa}$ und $\varphi(\Aa_{+}) \subseteq \Ba_{+}$.
+
+    Falls $\varphi$ isometrisch ist, so ist $\varphi(\Aa) \leq \Ba$ eine Unter-$C^*$-Algebra und $\varphi$ ein $\ast$-Algebren-Isomorphismus auf sein Bild. In diesem Fall gilt in der obigen Inklusion der Spektren sogar Gleichheit.
+\end{corollary}
+
+\begin{proof}
+    Gilt für $\lambda \in \C \setminus \{0\}$, dass $\lambda \notin \sigma_\Aa (a)$, so gibt es ein $v \in \Aa$ mit
+    $$ -\frac{1}{\lambda} a v - \frac{1}{\lambda} a + v = 0 = -\frac{1}{\lambda} v a - \frac{1}{\lambda} a + v. $$
+    Anwenden von $\varphi$ liefert die Existenz eines $\varphi(v) \in \Ba$ mit
+    \[
+        -\frac{1}{\lambda} \varphi(a) \varphi(v) - \frac{1}{\lambda} \varphi(a) + \varphi(v) = 0 = -\frac{1}{\lambda} \varphi(v) \varphi(a) - \frac{1}{\lambda} \varphi(a) + \varphi(v), 
+    \]
+    womit $\lambda \notin \sigma_\Ba (a)$ folgt.
+
+    Damit folgt nun auch $r(\varphi(a)) \leq r(a)$. Wegen
+    \[ 
+        \Vert \varphi(a) \Vert^2 = \varphi(a^* a) \Vert = r(\varphi(a^* a)) \leq r(a^* a) = \Vert a^* a \Vert = \Vert a \Vert^2
+    \]
+    ist $\varphi$ kontraktiv.
+
+    Ist $\varphi$ isometrisch, so ist $\varphi$ injektiv. Es ist $\varphi(\Aa)$ eine $C^*$-Algebra, da sich die Vollständigkeit aus der Isometrie und die restlichen Eigenschaften aus den Eigenschaften von $\varphi$ ableiten. Vertauschen wir nun die Rollen von $\Aa$ und $\varphi(\Aa)$, so erhalten wir aus dem bereits Gezeigten sogar
+    \[
+        \sigma_{\Ba} (\varphi(a)) \setminus \{0\} = \sigma_\Aa (a) \setminus \{0\}. \qedhere
+    \]
+\end{proof}
+
+\begin{proposition}
+    Seien $\Aa, \Ba$ $C^*$-Algebren und $\varphi : \Aa \to \Ba$ injektiv ein $\ast$-Algebren-Homomorphismus. Dann ist $\varphi$ sogar isometrisch.
+\end{proposition}
+
+\begin{proof}
+    Wir betrachten $\Aa \vartriangleleft \eAa$. Es ist $\eAa \times \C$ auch eine $\C^*$-Algebra (vgl. Übung), wobei die Operationen punktweise definiert sind, mit $(e_\Aa, 1)$ als Eins. Jetzt gilt
+    $$ \Aa \cong \Aa \times \{ 0 \} \leq \eAa \times \{ 0 \} \leq \eAa \times \C. $$
+    als Unter-$C^*$-Algebren. Analog gilt
+    $$ \Ba \cong \Ba \times \{ 0 \} \leq \eBa \times \{ 0 \} \leq \eBa \times \C. $$
+    Betrachte $ (\Aa \times \{ 0 \}) \overset{\cdot}{+} \spn \{ (e_\Aa, 1) \} > \Aa \times \{ 0 \}$, so gilt wieder Analoges für $\Ba$, wir nennen die linken Seiten $\Ca_1, \Ca_2$. Wir definieren nun
+    $$ \widetilde{\varphi} : \Ca_1 \to \Ca_2, \ (a, 0) + \alpha (e_\Aa, 1) \mapsto (\varphi(a), 0) + \alpha(e_\Ba, 1), $$
+    so ist diese Abbildung ein injektiver $\ast$-Algebren-Homomorphismus, mit
+    \[
+        \widetilde{\varphi}(e_\Aa, 1) = (e_\Ba, 1).
+    \]
+    Also ist $\widetilde{\varphi}$ isometrisch, die Einschränkung auf $\Aa \times \{0\}$ also auch, und damit ist es auch $\varphi$.
+\end{proof}
+
+\chapter{Approximative Eins}
+
+\begin{lemma}
+    Sei $\Aa$ eine $C^*$-Algebra, und sei $e$ das Einselement von $\eAa$. Die Abbildung
+    \[
+        \varepsilon : \Aa_+ \to \Aa_+ \cap B_1^\Aa(0), \ q \mapsto q(e + q)^{-1} = e - (e+q)^{-1}.
+    \]
+    ist wohldefiniert, bijektiv, verträglich mit $\leq$ und es gilt
+    $$ \varepsilon^{-1}(q) = q(e - q)^{-1}, \quad q \in \Aa_+ \cap B_1^\Aa(0). $$
+\end{lemma}
+
+\begin{proof}
+    Wir wissen
+    $$ \sigma((e + q)^{-1}) = \left\{ \frac{1}{\lambda} : \lambda \in \sigma(e + q) \right\} \subseteq (0, 1]. $$
+    Ebenso
+    $$ \sigma(e - (e+q)^{-1}) = \left\{ 1 - \frac{1}{\lambda} : \lambda \in \sigma(e+q) \right\} \subseteq [0, 1). $$
+    Damit ist $r(\varepsilon(q)) = \Vert \varepsilon(q) \Vert < 1$. Da $\Aa \vartriangleleft \eAa$ folgt damit, dass $\varepsilon$ tatsächlich in $\Aa_+ \cap B_1^\Aa(0)$ abbildet.
+    Setze nun
+    $$ \psi : \Aa_+ \cap B_1^\Aa(0) \to \eAa, \ q \mapsto q (e-a)^{-1}, $$
+    so ist stets $\psi(q) \in \Aa$. Über die von Neumann'sche Reihe sehen wir sogar $\psi(q) \in \Aa_+$, und wir verifizieren unmittelbar $\varepsilon \circ \psi = \id$ und $\psi \circ \varepsilon = \id$.
+
+    Seien $0 \leq p \leq q$ in $\Aa$. Dann folgt
+    \[
+        0 \leq (e + q)^{-1} \leq (e + p)^{-1}.
+    \]
+    Daraus folgt
+    \[
+        \varepsilon(p) = 0 \leq e - (e + p)^{-1} \leq e - (e + q)^{-1} = \varepsilon(q). \qedhere
+    \]
+\end{proof}

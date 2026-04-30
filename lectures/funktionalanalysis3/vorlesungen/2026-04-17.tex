@@ -1,0 +1,32 @@
+\subsection*{17.04.2026}
+
+Wir wollen zeigen
+$$ (L_b(X, Y), SOT)' = (L_b(X, Y), WOT)' = \spn \{ T \mapsto f(Tx) : x \in X, f \in Y' \}, $$
+wobei die letzte Gleichheit bereits bekannt ist.
+
+Die Inklusion $\supseteq$ is klar, da $WOT \subseteq SOT$, beziehungsweise genauer: Ist $h : L_b(X, Y) \to \C$ stetig bezüglich der $WOT$, so ist $h$ auch stetig bezüglich $SOT$.
+
+Für die andere Inklusion sei $F : L_b(X, Y) \to \C$ linear und stetig bezüglich $SOT$. Wir erinnern, dass die $SOT$ die initiale Topologie bezüglich der Abbildungen $L_b(X, Y) \ni T \mapsto Tx \in Y$ ist.
+
+Es gibt also (vgl. Übungsaufgabe) $x_1, \ldots, x_m \in X$ und $c \geq 0$, sodass
+$$ \vert F(T) \vert \leq c \cdot \max_{k=1,\ldots,m} \Vert T x_k \Vert. $$
+Wir setzen
+$$ Z \coloneqq \{ (T x_1, \ldots, T x_m ) : T \in L_b(X, Y) \} \leq Y^m $$
+und definieren die Abbildung
+$$ G : Z \to \C, \ (x_1, \ldots, x_m) \mapsto F(T). $$
+Diese Abbildung ist wohldefiniert, denn sind $S, T \in L_b(X, Y)$ mit $(S x_1, \ldots, S x_m) = (T x_1, \ldots, T x_m)$, ist die Differenz der beiden Vektoren der Nullvektor. Also erhalten wir
+$$ \vert F(T-S) \vert \leq c \cdot \Vert ((S-T)x_k)_{k=1,\ldots,m} \Vert_\infty = 0. $$
+
+Weiters erhalten wir
+$$ \vert G(z) \Vert \leq c \cdot \Vert z \Vert_\infty, \quad z \in Z \leq Y^m. $$
+Vermöge Hahn-Banach können wir $G$ fortsetzen zu einer Abbildung $G : Y^m \to \C$, mit $\Vert G \Vert \leq c$. Nun wissen wir
+$$ (Y^m, \Vert \cdot \Vert_\infty)' = ((Y')^m, \Vert \cdot \Vert_1). $$
+Also gibt es $f_1, \ldots, f_m \in Y'$ so, dass
+$$ G((y_k)_{k=1}^m) = f_1(y_1) + \ldots + f_m(y_m). $$
+Insgesamt erhalten wir
+$$ F(T) = G(T x_1, \ldots, T x_m) = f_1(T x_1) + \ldots + f_m(T x_m). $$
+Aus dieser Darstellung ist nun sofort ersichtlich, dass $F$ auch $SOT$-stetig ist.
+
+Wir erinnern, dass wenn $(X, \mathcal{T})$ lokalkonvex ist und $C \subseteq X$ konvex ist, so ist
+$$ \overline{C}^{\mathcal{T}} = \overline{C}^{\sigma(X, X')}. $$
+Aus dem soeben gezeigten folgt also, dass die $WOT$- und $SOT$-Abschlüsse konvexer Teilmengen von $L_b(X, Y)$ übereinstimmen.
