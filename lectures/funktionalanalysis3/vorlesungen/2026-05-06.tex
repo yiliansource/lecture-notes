@@ -1,0 +1,203 @@
+
+Haben wir $\C^*$-Algebren $\Aa, \Ba$ mit respektiven Abbildungen $\varepsilon_\Aa, \varepsilon_\Ba$, so können wir schreiben
+\[
+    \varepsilon_{\Ba}^{-1}(b) = \sum_{n=1}^\infty b^n.
+\]
+Damit ist also
+\[
+    \restr{\varepsilon_\Ba^{-1}}{\Aa_+ \cap B_1^\Aa (0)} = \varepsilon_\Aa^{-1},
+\]
+womit folgt
+\[
+    \varepsilon_\Aa = \restr{\varepsilon_\Ba}{\Aa_+ \cap B_1^\Aa (0)}.
+\]
+
+\begin{lemma}
+    Sei $\Aa$ eine $C^*$-Algebra, so ist das Netz $(\varepsilon(q))_{q \in \Aa_+}$ (mit Werten in $\Aa_+ \cap B_1^\Aa (0)$) eine approximative Eins, das heißt
+    \[
+        \lim_{q \in \Aa_+} \varepsilon(q) a = \lim_{q \in \Aa_+} a \varepsilon(q) = a, \quad \forall a \in \Aa.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Wir erinnern, dass wir für Elemente $p, q \in \Aa_+$ bereits gezeigt haben:
+    \begin{itemize}
+        \item $p \leq q \implies \Vert p \Vert \leq \Vert q \Vert$
+        \item $p \leq \Vert p \Vert e$
+        \item $p \leq e \Leftrightarrow \Vert p \Vert \leq 1$
+        \item Für $c \in \Aa$ und $p \leq q$ gilt $c^* p c \leq c^* q c$.
+    \end{itemize}
+    Es reicht nun die Aussage für $a \in \Aa_+$ zu zeigen, da wir ein allgemeines $a \in \Aa$ in Real- und Imaginärteil zerlegen können (welche selbstadjungiert sind), und anschließend die selbstadjungierten Elemente in Differenz zweier positiver Elemente. Vermöge einer Streckung können wir sogar $\Vert a \Vert < 1$ annehmen.
+
+    Sei nun $\eta > 0$ und setze $q_\eta \coloneqq \frac{1}{\eta^2} a \in \Aa_+$. Für beliebiges $q \in \Aa_+, q \geq q_\eta$ gilt nun $\varepsilon(q_\eta) \leq \varepsilon(q) \leq e$ und $e - \varepsilon(q) \leq e$. Damit folgt
+    \begin{align*}
+        0
+        &\leq
+        (e - \varepsilon(q))^2
+        =
+        \sqrt{e - \varepsilon(q)} (e - \varepsilon(q)) \sqrt{e - \varepsilon(q)}
+        \leq
+        e - \varepsilon(q) \\
+        &\leq
+        e - \varepsilon(q_\eta)
+        = \left( e + \frac{1}{\eta^2} a \right)^{-1}.
+    \end{align*}
+    Konjugieren mit $a$ liefert
+    \begin{align*}
+        0
+        &\leq
+        a(e - \varepsilon(q))^2 a
+        \leq
+        \sqrt{a} \left[ \sqrt{a} \left( e + \frac{1}{\eta^2} a \right)^{-1} \sqrt{a} \right] \sqrt{a}.
+    \end{align*}
+    Der Term in der $[\cdots]$ Klammer ist gleich
+    \[
+        a \left( e + \frac{1}{\eta^2} a \right)^{-1} = \eta^2 \frac{1}{\eta^2} a \left( e + \frac{1}{\eta^2} a \right)^{-1} = \eta^2 \varepsilon(q_\eta) \leq \eta^2 e,
+    \]
+    womit insgesamt die Ungleichung
+    \[
+        0
+        \leq
+        a (e - \varepsilon(q))^2 a \leq \eta^2 a
+    \]
+    folgt. Anwenden der Norm liefert
+    \[
+        \Vert a (e - \varepsilon(q))^2 a \Vert \leq \eta^2 \Vert a \Vert < \eta^2.
+    \]
+    Damit folgt nun
+    \begin{align*}
+        \Vert a - \varepsilon(q) a \Vert^2
+        &=
+        \Vert a - a \varepsilon(q) \Vert^2
+        =
+        \Vert a (e - \varepsilon(q) ) \Vert^2
+        =
+        \Vert a (e - \varepsilon(q))^2 a \Vert
+        <
+        \eta^2.
+    \end{align*}
+    Damit folgt die erste Gleichheit in der Aussage, und aus Symmetriegründen auch der Rest.
+\end{proof}
+
+\begin{proposition}
+    Sei $\Aa$ eine $C^*$-Algebra und $J$ ein echtes, abgeschlossenes Ideal von $\Aa$. Dann gilt:
+    \begin{enumerate}
+        \item $J^* = J$. Insbesondere ist $J$ eine $C^*$-Unteralgebra.
+        \item Die Faktorraumnorm auf $A/_J$ erfüllt
+        $$ \Vert [a] \Vert = \lim_{q \in J_+} \Vert a - a \varepsilon(q) \Vert. $$
+        \item $A/_J$ versehen mit der Faktorraumnorm ist eine $C^*$-Algebra, falls $[a]^* \coloneqq [a^*]$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Sei $d \in J$ und betrachte die (in $\Aa$) erzeugte $C^*$-Algebra
+        $$ \Ca \coloneqq [{d^* d}] = \clspn \{ (d^* d)^n : n \in \N \} \leq \Aa. $$
+        Für $q \in \Ca_+$ gilt $\varepsilon(q) \in \Ca_+$ und
+        \begin{align*}
+            \Vert \varepsilon(q) d^* - d^* \Vert^2
+            &=
+            \Vert d \varepsilon(q) - d \Vert^2
+            =
+            \Vert d (\varepsilon(q) - e) \Vert^2
+            =
+            \Vert (\varepsilon(q) - e) d^* d (\varepsilon(q) - e) \Vert \\
+            &=
+            \Vert \varepsilon(q) - e \Vert \, \Vert d^* d \varepsilon(q) - d^* d \Vert
+            \leq
+            2 \Vert d^* d \varepsilon(q) - d^* d \Vert.
+        \end{align*}
+        Mit der approximativen Einheit erhalten wir als Grenzwert für $q \in \Ca_+$, dass der obige Ausdruck gegen $0$ konvergiert. Also ist $d^* \in \cl{J} = J$.
+
+        \item Sei $a \in \Aa, d \in J, q \in J_+$, dann ist $a \varepsilon(q) \in J$ und $0 \leq e - \varepsilon(q) \leq e$. Jetzt gilt
+        \begin{align*}
+            \Vert [a] \Vert
+            &=
+            \inf_{j \in J} \Vert a - j \Vert
+            =
+            \Vert [a - a \varepsilon(q) ] \Vert
+            \leq 
+            \Vert a - a \varepsilon(q) \Vert \\
+            &\leq
+            \Vert (a - d)(e - \varepsilon(q)) \Vert + \Vert d - d \varepsilon(q) \Vert
+            \leq
+            \Vert a - d \Vert + \Vert d - d \varepsilon(q) \Vert.
+        \end{align*}
+        Nehmen wir den Limes superior, so erhalten wir
+        \begin{align*}
+            \Vert [a] \Vert
+            &\leq
+            \limsup_{q \in J_+} \Vert a - a \varepsilon(q) \Vert
+            \leq
+            \Vert a - d \Vert, \quad \forall a \in \Aa, d \in J.
+        \end{align*}
+        Anwenden des Infimums über $d \in J$ liefert
+        \[
+            \Vert [a] \Vert
+            \leq
+            \limsup_{q \in J_+} \Vert a - a \varepsilon(q) \Vert
+            \leq
+            \Vert [a] \Vert
+            \leq
+            \liminf_{q \in J_+} \Vert a - a \varepsilon(q) \Vert
+        \]
+        Insbesondere existiert der Limes und stimmt mit der Faktorraumnorm überein.
+
+        \item Zunächst gilt
+        \begin{align*}
+            \Vert (e - \varepsilon(q)) a^* a (e - \varepsilon(q)) \Vert = \Vert a - a \varepsilon(q) \Vert^2,
+        \end{align*}
+        wobei wegen dem vorigen Punkt die Limiten über $q \in J_+$ existieren und mit $\Vert [a] \Vert^2$ übereinstimmen. Damit gilt
+        \begin{align*}
+            \Vert [a]^* [a] \Vert
+            &=
+            \Vert [a^* a] \Vert
+            =
+            \lim_{q \in J_+} \Vert a^* a - a^* a \varepsilon(q) \Vert
+            =
+            \lim_{q \in J_+} \Vert a^* a (e - \varepsilon(q)) \Vert \\
+            &\geq
+            \lim_{q \in J_+} \Vert (e - \varepsilon(q)) a^* a (e - \varepsilon(q)) \Vert
+            =
+            \Vert [a] \Vert^2. \qedhere
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Sei $H$ ein unendlichdimensionaler Hilbertraum und betrachte die kompakten Operatoren $K(H)$ als echtes Unterideal von $\Aa \coloneqq L_b(H)$. Nach dem oben Gezeigten ist $L_b(H)/_{K(H)}$ eine $C^*$-Algebra.
+\end{example}
+
+\begin{corollary}
+    Seien $\Aa, \Ba$ $C^*$-Algebren und sei $\varphi$ ein $\ast$-Algebrenhomomorphismus von $\Aa$ nach $\Ba$, $\varphi \neq 0$. Dann bildet $\varphi(\Aa)$ eine Unter-$C^*$-Algebra von $\Ba$ und
+    \[
+        \varphi/_{\ker \varphi} : \Aa/_{\ker \varphi} \to \varphi(\Aa)
+    \]
+    ist ein isometrischer $\ast$-Algebrenisomorphismus.
+\end{corollary}
+
+\begin{proof}
+    Zunächst ist $\varphi$ stetig (sogar eine Kontraktion), wie wir bereits gezeigt haben. Weiters ist $\ker \varphi$ ein echtes, abgeschlossenes Ideal in $\Aa$. Nach der vorigen Proposition ist $\Aa_{\ker \varphi}$ eine $C^*$-Algebra. Die Abbildung
+    \[
+        \mapping{\varphi/_{\ker \varphi}}
+            {\Aa/_{\ker \varphi} & \to & \varphi(\Aa),}
+            {\textrm{[}a\textrm{]} & \mapsto & \varphi(a)}
+    \]
+    ist dann ein injektiver $\ast$-Algebrenhomomorphismus. Da $\varphi/_{\ker \varphi}$ auch isometrisch ist, ist das Bild abgeschlossen, womit $\varphi(\Aa)$ eine $C^*$-Algebra ist.
+\end{proof}
+
+Wir erinnern, dass ein Funktional $f \in \Aa^*$ \emph{positiv} hieß, wenn $f(q) \geq 0$ für alle $q \in \Aa_+$, wobei $\Aa$ eine $C^*$-Algebra mit Eins war. Wir wissen bereits, dass positive $f$ beschränkt sind, also $\Vert f \Vert < \infty$. Außerdem ist $f$ positiv genau dann wenn $f(e) = \Vert f \Vert$.
+
+Wir weitern dieses Konzept aus:
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra, dann heißt ein $f \in \Aa^*$ positiv, falls
+    $$ f(q) \geq 0, \quad \forall q \in \Aa_+. $$
+\end{definition}
+
+\begin{definition}
+    Sei $f \in \Aa^*$ positiv. Dann definieren wir
+    \[
+        f(e_-) \coloneqq \lim_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{a \in \Aa_+ \cap B_1^\Aa (0)} f(a) \leq \Vert f \Vert.
+    \]
+\end{definition}

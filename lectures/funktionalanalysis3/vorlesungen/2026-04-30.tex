@@ -133,8 +133,8 @@ sind.
     \[
         \varepsilon : \Aa_+ \to \Aa_+ \cap B_1^\Aa(0), \ q \mapsto q(e + q)^{-1} = e - (e+q)^{-1}.
     \]
-    ist wohldefiniert, bijektiv, verträglich mit $\leq$ und es gilt
-    $$ \varepsilon^{-1}(q) = q(e - q)^{-1}, \quad q \in \Aa_+ \cap B_1^\Aa(0). $$
+    ist wohldefiniert, bijektiv, (beidseitig) verträglich mit $\leq$ und es gilt
+    $$ \varepsilon^{-1}(q) = q(e - q)^{-1} = \sum_{n=1}^\infty q^n, \quad q \in \Aa_+ \cap B_1^\Aa(0). $$
 \end{lemma}
 
 \begin{proof}
@@ -153,6 +153,11 @@ sind.
     \]
     Daraus folgt
     \[
-        \varepsilon(p) = 0 \leq e - (e + p)^{-1} \leq e - (e + q)^{-1} = \varepsilon(q). \qedhere
+        \varepsilon(p) = 0 \leq e - (e + p)^{-1} \leq e - (e + q)^{-1} = \varepsilon(q).
     \]
+    Gilt umgekehrt $\varepsilon(p) \leq \varepsilon(q)$, also
+    \[
+        e - (e + p)^{-1} \leq e - (e + q)^{-1}.
+    \]
+    Subtrahieren von $e$, invertieren (bzgl. $-$ und $^{-1}$) liefert dann $p \leq q$.
 \end{proof}
