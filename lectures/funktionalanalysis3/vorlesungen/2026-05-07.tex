@@ -1,0 +1,81 @@
+\subsection*{07.05.2026}
+
+\begin{remark}
+    Sei $A \in L_b(H)$ positiv für einen Hilbertraum $H$. Es ist $A$ kompakt genau dann wenn $\sigma(A) \setminus \{ 0 \}$ höchstens $0$ als Häufungspunkt hat und
+    $$ \dim E(\{ \lambda \}) H < \infty, \quad \forall \lambda \in \sigma(A) \setminus \{ 0 \}. $$
+    In dem Fall können wir schreiben
+    \[
+        A = \int_{\sigma(A) \setminus \{0\}} t \dd E(t) = \sum_{\lambda \in \sigma(A) \setminus \{0\}} \lambda E(\{\lambda\}) = \sum_{n=1}^N \lambda_n \langle \cdot, u_n \rangle u_n,
+    \]
+    wobei die Reihe sogar gleichmäßig in der Operatornorm konvergiert und $N \in \N \cup \{\infty\}$. Dabei ist $(u_n)$ ein Orthonormalsystem, $\{ \lambda_n \}_{n = 1, \ldots, N} = \sigma(A) \setminus \{0\}$. Weiters können wir die $\lambda_k$ monoton fallend anordnen.
+\end{remark}
+
+\begin{definition}
+    Seien $H_1, H_2$ Hilberträume. Dann definieren wir
+    \[
+        S_2(H_1, H_2) = \{ T \in L_b(H_1, H_2) : \sum_{e \in E} \Vert T e \Vert^2 < \infty \},
+    \]
+    wobei $E \subseteq H_1$ eine (zunächst feste) Orthonormalbasis ist.
+\end{definition}
+
+Ist $F \subseteq H_2$ eine Orthonormalbasis, so gilt
+\[
+    \sum_{e \in E} \Vert T e \Vert^2
+    =
+    \sum_{e \in E} \sum_{f \in F} \vert \langle Te, f \rangle \vert^2
+    =
+    \sum_{f \in F} \sum_{e \in E} \vert \langle T^* f, e \rangle \vert^2
+    =
+    \sum_{f \in F} \Vert T^* f \Vert^2.
+\]
+Insbesondere ist die rechte Seite unabhängig von der Wahl von $E$, somit ist die obige Definition insbesondere unabhängig von $E$. Außerdem haben wir insbesondere gezeigt $S_2(H_1, H_2)^* = S_2(H_2, H_1)$. Für ein $T \in L_b(H_1, H_2)$ definieren wir nun
+\[
+    \Vert T \Vert_2^2 = \sum_{e \in E} \Vert Te \Vert^2 \in [0, +\infty].
+\]
+Wir haben bereits gezeigt $\Vert T \Vert_2 = \Vert T^* \Vert_2$.
+
+Für ein kompaktes $T \in L_b(H_1, H_2)$ ist auch $T^* T$ kompakt als Operator auf $H_1$, deswegen können wir schreiben
+\[
+    T^*T = \sum_{k=1}^N \lambda_k \langle \cdot, u_k \rangle u_k.
+\]
+Wir definieren die $s$-Zahlen von $T$ als $s_k(T) \coloneqq \sqrt{\lambda_k}$.
+
+\begin{lemma}
+    Sei $T \in L_b(H_1, H_2)$, so ist $T \in S_2(H_1, H_2)$ genau dann, wenn $T$ kompakt ist und
+    \[
+        \sum_{k=1}^N s_k^2(T) < \infty.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Sei $T \in S_2(H_1, H_2)$ und $\varepsilon > 0$ fest. Dann gibt es eine endliche Teilmenge $M \subseteq E$ mit
+    \[
+        \sum_{e \in E \setminus M} \Vert Te \Vert^2 < \varepsilon.
+    \]
+    Für ein $x \in H_1$ mit $\Vert x \Vert < 1$, und $P_M$ der orthogonalen Projektion auf $\spn M$, gilt
+    \begin{align*}        
+        \Vert (T - T P_M)x \Vert^2
+        &=
+        \left\Vert \sum_{e \in E} \langle x, e \rangle (T - TP_M) e \right\Vert^2 
+        \leq
+        \left( \sum_{e \in E} \vert \langle x, e \rangle \vert \, \Vert (T - TP) e \Vert \right)^2 \\
+        &\leq
+        \left( \sum_{e \in E} \vert \langle x, e \rangle^2 \right) \left( \sum_{e \in E \setminus M} \Vert T e \Vert^2 \right) \leq \Vert x \Vert^2 \varepsilon.
+    \end{align*}
+    Also ist $\Vert T - TP_M \Vert \leq \varepsilon$, womit wir folgern, dass $T \in K(H_1, H_2)$.
+
+    Ist umgekehrt $T \in K(H_1, H_2)$, so gilt
+    \[
+        \sum_{k=1}^N s_k^2
+        =
+        \sum_{k=1}^N \lambda_k
+        =
+        \sum_{k=1}^N \langle T^* T u_k, u_k \rangle
+        =
+        \sum_{k=1}^N \Vert T u_k \Vert^2
+        =
+        \sum_{e \in E} \Vert T e \Vert^2 = \Vert T \Vert_2. \qedhere
+    \]
+\end{proof}
+
+Insbesondere können wir die $\Vert \cdot \Vert_2$ Norm für kompakte Operatoren also auch über die $s$-Zahlen berechnen.
