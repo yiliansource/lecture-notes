@@ -195,9 +195,184 @@ Wir weitern dieses Konzept aus:
     $$ f(q) \geq 0, \quad \forall q \in \Aa_+. $$
 \end{definition}
 
+Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert f \Vert < \infty$.
+
 \begin{definition}
     Sei $f \in \Aa^*$ positiv. Dann definieren wir
     \[
         f(e_-) \coloneqq \lim_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{a \in \Aa_+ \cap B_1^\Aa (0)} f(a) \leq \Vert f \Vert.
     \]
 \end{definition}
+
+\begin{theorem}
+    Sei $\Aa$ eine $C^*$-Algebra und $f \in \Aa^*$. Dann ist $f$ positiv genau dann, wenn
+    \[
+        \lim_{q \in \Aa_+} f(\varepsilon(q)) = \Vert f \Vert < \infty.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Ist $f$ positiv, so wissen wir bereits $\Vert f \Vert < \infty$ und der in Frage kommende Limes existiert, mit $f(e_-) \leq \Vert f \Vert$. Zunächst definiert $(y, z) \mapsto f(z^* y)$ eine positiv definite, hermitsche Sesquilinearform. Sei $x \in \Aa, q \in \Aa_+$, so folgt durch Cauchy--Schwarz
+    \begin{align*}
+        \vert f(\varepsilon(q) x) \vert^2
+        &=
+        \vert f(\varepsilon(q)^* x) \vert^2
+        \leq
+        f(\varepsilon(q)^* \varepsilon(q)) f(x^* x)
+        \leq
+        f(e_-) f(x^* x)
+        \leq
+        f(e_-) \Vert f \Vert \, \Vert x \Vert^2.
+    \end{align*}
+    Bilden wir den Grenzwert über $q \in \Aa_+$, so folgt
+    \[
+        \vert f(x) \vert^2
+        \leq
+        f(e_-) f(x^* x)
+        \leq
+        f(e_-) \Vert f \Vert \, \Vert x \Vert^2
+    \]
+    Nun bilden wir das Supremum über $x \in \Aa$ mit $\Vert x \Vert \leq 1$, und erhalten
+    \[
+        \Vert f \Vert^2 \leq f(e_-) \Vert f \Vert = \Vert f \Vert^2.
+    \]
+    Insbesondere haben wir für $x \in \Aa$ gezeigt, dass $\vert f(x) \vert^2 \leq \Vert f \Vert f(x^* x)$. Wir bemerken noch, dass $\Vert f \Vert$ das kleinste $\eta \geq 0$ ist mit $\vert f(x) \vert^2 \leq \eta f(x^* x)$ für alle $x \in \Aa$. Angenommen es gäbe ein $\eta \geq 0$ mit $\eta < \Vert f \Vert$ und $\vert f(x) \vert^2 \leq \eta f(x^* x)$. Aus der vorig gezeigten Ungleichung folgt
+    \[
+        \vert f(x) \vert^2 \leq \eta \Vert f \Vert \, \Vert x \Vert^2
+    \]
+    und damit $\Vert f \Vert^2 \leq \eta \Vert f \Vert$, ein Widerspruch.
+
+    Wir zeigen nun die Umkehrung, wobei wir o.B.d.A. $\Vert f \Vert = 1$ annehmen können. Sei $a \in \Aa^*$ selbstadjungiert und setze $f(a) = \alpha + i \beta$. Sei $\lambda \in \R$ und $q \in \Aa_+$. Dann gilt
+    \begin{align*}
+        \vert f(a - i \lambda \varepsilon(q)) \vert^2
+        &\leq
+        \Vert a - i \lambda \varepsilon(q) \Vert^2
+        =
+        \Vert (a + i \lambda \varepsilon(q) ) (a - i \lambda \varepsilon(q) ) \Vert
+        \\ &=
+        \Vert a^2 + \lambda^2 \varepsilon(q)^2 + i \lambda (a \varepsilon(q) - \varepsilon(q) a) \Vert
+        \\ &\leq
+        \Vert a^2 \Vert + \lambda^2 + \vert \lambda \vert \, \Vert a \varepsilon(q) - \varepsilon(q) a \Vert
+    \end{align*}
+    und außerdem
+    \begin{align*}
+        \alpha^2 + \beta^2 + \lambda^2 - 2 \beta \lambda
+        &=
+        \vert \alpha + i(\beta - \lambda) \vert^2
+        =
+        \vert f(a) - i \lambda \cdot 1 \vert^2
+        =
+        \lim_{q \in \Aa_+} \left\vert f(a - i \lambda \varepsilon(q)) \right\vert^2
+        \\ &\leq
+        \lim_{q \in \Aa_+} \Vert a \Vert^2 + \lambda^2 + \vert \lambda \vert \, \Vert a \varepsilon(q) - \varepsilon(q) a \Vert
+        =
+        \Vert a \Vert^2 + \lambda^2,
+    \end{align*}
+    womit wir erhalten $\alpha^2 + \beta^2 - \Vert a \Vert^2 \leq 2 \beta \lambda$. Da dies für alle $\lambda \in \R$ gilt, folgt $\beta = 0$, und insbesondere ist $f(a) \in \R$.
+
+    Seien $a \in \Aa_+$ und $q \in \Aa_+$, wobei wir $a \neq 0$ annehmen können. Dann gilt
+    \[
+        \left\Vert \varepsilon(q) - \frac{a}{\Vert a \Vert} \right\Vert \leq 1,
+    \]
+    womit wir erhalten $\Vert \varepsilon(q) \Vert a \Vert - a \Vert \leq \Vert a \Vert$. Nun ist
+    \[
+        0 \leq \Vert a \Vert - f(a)
+        =
+        \vert \, \Vert a \Vert 1 - f(a) \vert
+        =
+        \lim_{q \in \Aa_+} \vert f(\Vert a \Vert \varepsilon(q) - a) \vert
+        \leq
+        \Vert a \Vert,
+    \]
+    und es folgt $f(a) \geq 0$.
+\end{proof}
+
+\begin{corollary}
+    Seien $\Aa \leq \Ba$ $C^*$-Algebren und $f \in \Aa^*$ positiv. Dann gibt es ein positives $h \in \Ba^*$ mit $\restr{h}{\Aa} = f$.
+\end{corollary}
+
+\begin{proof}
+    Sei $e \in \Ba$ eine Eins von $\Aa$ und $\Ba$. Dann ist $\Vert f \Vert = f(e)$. Mit Hahn--Banach können wir $f$ fortsetzen zu einem $h \in \Ba'$ mit $\Vert h \Vert = \Vert f \Vert$. Inbesondere ist $h(e) = f(e) = \Vert f \Vert$, womit $h$ positiv ist.
+
+    Angenommen $\Aa$ und $\Ba$ haben eine Eins, aber $e_\Aa \neq e_\Ba$, oder es habe entweder $\Aa$ oder $\Ba$ keine Eins. Dann können wir o.B.d.A. annehmen $\Ba = \eBa$, wobei jetzt $e \notin \Aa$. Definiere
+    \[
+        \Ca \coloneq \Aa \overset{\cdot}{+} \spn \{ e \} \gneq \Aa,
+    \]
+    dann ist $\Ca$ eine $C^*$-Algebra mit $e$ als Eins. Definiere
+    \[
+        g : \Ca \to \C, \ a + \lambda e \mapsto f(a) + \lambda \Vert f \Vert,
+    \]
+    dann ist $g \in \Ca'$. Betrachten wir $\varepsilon : \Aa_+ \to \Aa_+ \cap U_1^\Aa (0)$, so gilt für $a \in \Aa$, $\alpha > 0$ und $q \in \Aa_+$
+    \begin{align*}
+        \vert f(a \varepsilon(q)) + \alpha f(\varepsilon(q)) \vert
+        &=
+        \vert f(a \varepsilon(q) - \alpha \varepsilon(q)) \vert
+        \leq
+        \Vert f \Vert \, \Vert a \varepsilon(q) + \alpha \varepsilon(q) \Vert
+        \\ &=
+        \Vert f \Vert \, \Vert (a + \alpha e) \varepsilon(q) \Vert
+        \leq
+        \Vert f \Vert \, \Vert a + \alpha e \Vert.
+    \end{align*}
+    Bilden wir den Limes über $q$, so erhalten wir
+    \[
+        \vert g(a + \alpha e) \vert
+        =
+        \vert f(a) + \alpha \Vert f \Vert \, \vert
+        \leq
+        \Vert f \Vert \, \Vert a + \alpha e \Vert,
+    \]
+    also folgt $\Vert g \Vert \leq \Vert f \Vert$. Da $f$ eine Einschränkung von $g$ ist folgt auch die andere Ungleichung, und damit $\Vert f \Vert = \Vert g \Vert = g(e)$. Also ist $g$ positiv. Nach dem ersten Schritt zu Beginn des Beweises gibt es ein positives $h \in \Ba'$, welches $g$ fortsetzt. Also ist $\restr{h}{\Aa} = \restr{g}{\Aa} = f$.
+\end{proof}
+
+\chapter{Darstellungen}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra. Ein nicht-trivialer $\ast$-Homomorphismus
+    \[
+        \varphi : \Aa \to L_b(H)
+    \]
+    für einen nicht-trivialen Hilbertraum $H$ heißt \emph{Darstellung von $\Aa$}.
+\end{definition}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra und $\varphi : \Aa \to L_b(H)$ eine Darstellung von $\Aa$.
+    \begin{itemize}
+        \item Ein Element $x \in H$, $x \neq 0$ heißt \emph{zyklisch} (bezüglich $\varphi$), falls $\varphi(\Aa) x$ dicht in $H$ ist.
+        \item $\varphi$ heißt \emph{irreduzibel}, falls für jeden abgeschlossenen Unterraum $G$ von $H$ mit $\varphi(a)G \subseteq G$ für alle $a \in \Aa$ impliziert, dass $G = \{ 0 \}$ oder $G = H$.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Wir sammeln einige Eigenschaften von Darstellungen. Seien dazu $\Aa$ eine $C^*$-Algebra und $\varphi : \Aa \to L_b(H)$ eine Darstellung von $\Aa$.
+    \begin{enumerate}
+        \item $\varphi(\Aa)$ ist eine Unter-$C^*$-Algebra von $L_b(H)$. Inbesondere ist $\varphi/_{\ker \varphi} : \Aa_{\ker \varphi} \to \varphi(\Aa)$ ein $C^*$-Algebren-Isomorphismus.
+        
+        \item Es gibt imer injektive Darstellungen (wie zum Beispiel die GNS-Konstruktion).
+        
+        \item Falls es ein zyklisches $x \in H \setminus \{0\}$ gibt, so ist
+        \[
+            \bigcap_{a \in \Aa} \ker \varphi(a) = \{ 0 \} \ (\subseteq H).
+        \]
+        Angenommen $y \in \bigcap_{a \in \Aa} \ker \varphi(a)$. Dann gilt
+        \[
+            \langle y, \varphi(a) x \rangle_H
+            =
+            \langle \varphi(a^*) y, x \rangle_H
+            =
+            0.
+        \]
+        Also steht $y$ orthogonal auf einen dichten Teilraum, also folgt $y = 0$.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    Sei $\Aa$ eine $C^*$-Algebra und $\varphi : \Aa \to L_b(H)$ eine Darstellung von $\Aa$. Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\varphi$ ist irreduzibel.
+        \item Jedes $x \in H \setminus \{0\}$ ist zyklisch.
+        \item $\varphi(\Aa)^{\updownarrow} = \spn \{ I_H \} \ (\leq L_b(H))$
+        \item $\varphi(\Aa)^{\updownarrow \updownarrow} = L_b(H)$
+        \item $\varphi(\Aa) \leq L_b(H)$ ist dicht bezüglich der starken Operatortopologie\footnote{Man beachte, dass hier die starke und die schwache Operatortopologie sogar übereinstimmen.}.
+    \end{enumerate}
+\end{theorem}
