@@ -1,0 +1,132 @@
+\begin{proof}
+    Zunächst definieren wir für $x \in H \setminus \{ 0 \}$ den Unterraum $G_x \coloneqq \cl \varphi(\Aa)x \leq H$, so gilt $\varphi(A) G_x \leq G_x$.
+
+    (i) $\implies$ (ii): Wähle $y \neq 0$ mit $\varphi(\Aa) y \neq \{ 0 \}$. Dann ist $G_y \neq \{ 0 \}$ und weil $\varphi$ irreduzibel ist folgt $G_y = H$ und $y$ ist zyklisch. Insbesondere gibt es für $x \in H \setminus \{0\}$ stets ein $a \in \Aa$ mit $\varphi(a) x \neq 0$. Damit ist $\varphi(\Aa) x \neq \{0\}$, damit $G_x = H$ und damit ist $\varphi(\Aa) x$ dicht in $H$.
+
+    (ii) $\implies$ (i): Sei $G \leq H$ abgeschlossen mit $\varphi(\Aa) G \subseteq G$. Ist nun $G = \{0\}$, so ist nichts zu zeigen. Sonst gibt es ein $x \in G \setminus \{0\}$, womit folgt
+    \[
+        H = \cl \varphi(\Aa) x \subseteq \varphi(\Aa) G \subseteq G,
+    \]
+    also $G = H$.
+
+    (iii) $\implies$ (iv): Folgt sofort, da jedes $T \in L_b(H)$ mit $I_H$ kommutiert.
+
+    (iv) $\implies$ (iii): Es gilt
+    \[
+        \varphi(\Aa)^{\updownarrow} = \varphi(\Aa)^{\updownarrow\updownarrow\updownarrow} = L_b(H)^{\updownarrow} = \spn \{ I_H \},
+    \]
+    wobei die letzte Gleichheit gilt da ein Operator der mit jedem Operator kommutiert bereits ein Vielfaches der Identität sein muss (vgl. Übung).
+
+    (iii) $\implies$ (i): Sei $G \leq H$ abgeschlossen mit $\varphi(\Aa) G \subseteq G$. Sei nun $P_G \in L_b(H)$ die orthogonale Projektion auf $G$, dann gilt für alle $a \in \Aa$
+    \[
+        \varphi(a) P_G = P_G \varphi(a) P_G.
+    \]
+    Anwenden auf $a^*$ und Adjungieren liefert
+    \[
+        P_G \varphi(a) = P_G \varphi(a) P_G,
+    \]
+    also ist $P_G \in \varphi(\Aa)^{\updownarrow} = \spn \{ I_H \}$. Also folgt $P_G = 0$ oder $P_G = I_H$, und damit $G = \{0\}$ oder $G = H$.
+
+    (i) $\implies$ (iii): Sei $T \in \varphi(\Aa)^\updownarrow$, so gilt auch $T^* \in \varphi(\Aa)^\updownarrow$. Damit gilt also auch $T_r, T_i \in \varphi(\Aa)^\updownarrow$. Es reicht nun zu zeigen, dass sowohl $T_r$ als auch $T_i$ ein Vielfaches der Identität ist. Mit dem Spektralsatz erhalten wir
+    \[
+        T_r = \int t \dd E_r(t),
+    \]
+    wobei $E_r$ das Spektralmaß auf $\sigma(T_r)$ bezeichnet. Insbesondere gilt $E_r(\Delta) \varphi(a) = \varphi(a) E_r(\Delta)$, womit $\varphi(a) E_r(\Delta) x \in E_r(\Delta) H$ und damit $\varphi(a) E_r(\Delta) H \leq E_r(\Delta) H$. Setzen wir nun $G \coloneqq E_r(\Delta) H$, so folgt $G = \{0\}$ oder $G = \{H\}$, insbesondere ist $E_r(\Delta)$ also entweder identisch Null oder die Identität. Damit folgt (vgl. Übung) $\sigma(T_r) = \{ \lambda \}$ für ein $\lambda \in \R$. Über das Spektralintegral folgt $T_r = \lambda I_H$. Analog für $T_i$, womit $T \in \spn \{ I_H \}$ folgt.
+
+    (v) $\implies$ (iii): Es gilt (vgl. Übung)
+    \[
+        \varphi(\Aa)^\updownarrow = (\cl_{\mathcal{T}_s} \varphi(\Aa))^\updownarrow = L_b(H)^\updownarrow = \spn \{ I_H \}.
+    \]
+
+    (ii), (iv) $\implies$ (v): Betrachte die $\ast$-Unteralgebra $\varphi(\Aa) + \spn \{ I_H \} \leq L_b(H)$, welche (trivialerweise) die Identität enthält. Nach einem Ergebnis aus der VU folgt nun
+    \[
+        \cl_{\mathcal{T}_s} (\varphi(\Aa) + \spn \{ I_H \})
+        =
+        (\varphi(\Aa) + \spn \{ I_H \})^{\updownarrow \updownarrow}
+        \geq
+        \varphi(\Aa)^{\updownarrow\updownarrow}
+        =
+        L_b(H),
+    \]
+    also sogar Gleichheit. Die zu zeigende Aussage folgt nun, wenn wir $I_H \in \cl_{\mathcal{T}_s} \varphi(\Aa)$ zeigen können. Dazu nehmen wir $x \in H \setminus \{0\}$ und $b \in \Aa$, so gilt
+    \[
+        \lim_{q \in \Aa_+} \varphi(\varepsilon(q))(\varphi(b) x)
+        =
+        \lim_{q \in \Aa_+} \varphi(\varepsilon(q) b) x
+        =
+        \varphi \left( \lim_{q \in \Aa_+} \varepsilon(q) b \right) x
+        =
+        I_H(\varphi(b) x).
+    \]
+    Zu $y \in H$ und $\delta > 0$ gibt es nun $b_\delta \in \Aa$ mit $\Vert y - \varphi(b_\delta) x \Vert_H \leq \delta$. Nach dem oben Gezeigten gibt es ein $q_0 \in \Aa_+$ mit $\Vert \varphi(\varepsilon(q)) \varphi(b_\delta) x - I_H(\varphi(b_\delta) x) \Vert \leq \delta$ für $q \geq q_0$. Also folgt
+    \begin{align*}
+        \Vert \varphi(\varepsilon(q)) y - I_H (y) \Vert
+        &\leq
+        \Vert \varphi(\varepsilon(q)) (y - \varphi(b_\delta) x) \Vert
+        + \Vert \varphi(\varepsilon(q)) \varphi(b_\delta) x - I_H(\varphi(b_\delta) x) \Vert
+        \\ & \quad + \Vert I_H(\varphi(b_\delta) x - y) \Vert
+        \leq 3 \delta.
+    \end{align*}
+    Also konvergiert $\varphi(\varepsilon(q))$ in der starken Operatortopologie für $q \in \Aa_+$ gegen $I_H$.
+\end{proof}
+
+\begin{remark}
+    Sei $\varphi$ eine nicht irreduzible Darstellung, dann gibt es also ein abgeschlossenes $G \leq H$ mit $\varphi(\Aa) G \subseteq G$. Wir betrachten nun den Operator $\restr{\varphi(a)}{G} \in L_b(G)$. Man verifiziert, dass dann auch $\restr{\varphi}{G} : \Aa \to L_b(G)$ eine Darstellung ist.
+
+    Insbesondere können wir $\varphi(a)$ in eine Block-Diagonalmatrix zerlegen, wobei auf der Diagonale die Einschränkungen von $\varphi(a)$ auf $G$ und $G^\perp$ stehen.
+\end{remark}
+
+\begin{example}
+    Sei $\Aa$ eine $C^*$-Algebra und $m : \Aa \to \C$ ein multiplikatives lineares Funktional, welches mit $\ast$ verträglich ist\footnote{Wenn $\Aa$ eine Eins hat so ist dies automatisch.}.
+
+    Für $a \in \Aa$ definieren wir nun $\varphi(a) \coloneqq m(a) I_H \in L_b(H)$, so ist das entstehende $\varphi : \Aa \to L_b(H)$ eine Darstellung. Diese Darstellung ist irreduzibel genau dann, wenn $\dim H = 1$, was beispielsweise aus dem obigen Satz folgt.
+\end{example}
+
+\begin{corollary}
+    Sei $\Aa$ eine kommutative $C^*$-Algebra und $H$ ein nicht-trivialer Hilbertraum. Ist $\varphi : \Aa \to L_b(H)$ eine Darstellung, dann ist $\varphi$ irreduzibel genau dann, wenn $\dim H = 1$. In dem Fall gilt $\varphi = m(\cdot) I_H$ für ein multiplikatives, lineares Funktional auf $\Aa$.
+\end{corollary}
+
+\begin{proof}
+    Die Unteralgebra $\varphi(\Aa) \leq L_b(H)$ ist kommutativ, also ist $\varphi(\Aa)^{\updownarrow\updownarrow}$ ebenfalls kommutativ. Nun ist nach dem vorigen Resultat $\varphi$ genau dann irreduzibel wenn $\varphi(\Aa)^{\updownarrow\updownarrow} = L_b(H)$. Es ist $L_b(H)$ jedoch genau dann kommutativ, wenn $\dim H = 1$.
+
+    In diesem Fall können wir $m(a)$ als den Skalaranteil von $\varphi(a)$ definieren, was auch den letzten Teil der Aussage liefert.
+\end{proof}
+
+\begin{remark}
+    Sei $\Aa$ eine $C^*$-Algebra.
+    \begin{enumerate}
+        \item Sei $\varphi : \Aa \to L_b(H)$ eine Darstellung. Für ein $x \in H$ betrachten wir
+        \[
+            f_x(a) \coloneqq \langle \varphi(a) x, x \rangle_H,
+        \]
+        dann ist $f_x \in \Aa^*$ positiv.
+
+        \item Seien $\varphi_i : \Aa \to L_b(H_i)$, $i \in \{1,2\}$ Darstellungen und $x_i$ zyklisch bezüglich $\varphi_i$. Aus der obigen Konstruktion erhalten wir positive Funktionale $f_1, f_2$. Seien $a_1, \ldots, a_n \in \Aa$, so gilt
+        \begin{align*}
+            \left\Vert \sum_{k=1}^n \varphi_1 (a_k) x_1 \right\Vert_{H_1}^2
+            &=
+            \sum_{k,\ell=1}^n \langle \varphi_1(a_k) x_1, \varphi_1 (a_\ell) x_1 \rangle
+            =
+            \sum_{k,\ell=1}^n \langle \varphi_1(a_\ell^* a_k) x_1, x_1 \rangle
+            \\ &=
+            \sum_{k,\ell=1}^n f_1(a_\ell^* a_k)
+            =
+            f_1 \left( \left( \sum_{k=1}^n a_k \right)^* \left( \sum_{\ell=1}^n a_\ell \right) \right),
+        \end{align*}
+        womit $f_1 \neq 0$ folgt, da sonst $H_1 = \{0\}$ wäre. Analoges gilt für $f_2$.
+
+        Angenommen $f_1 = f_2$, so definiere eine Abbildung $U : \varphi_1 (\Aa) x_1 \to \varphi_2 (\Aa) x_2$ durch
+        \[
+            U \left( \sum_{k=1}^n \varphi_1 (a_k) \right) = \sum_{k=1}^n \varphi_2 (a_k) x_2.
+        \]
+        Nach dem oben Gezeigten ist $U$ wohldefiniert, und sogar isometrisch und bijektiv. Insbesondere können wir $U$ fortsetzen zu einem unitären Operator $U : H_1 \to H_2$, welcher insbesondere erfüllt
+        \[
+            U(\varphi_1 (a) x_1) = \varphi_2 (a) x_2.
+        \]
+        Außerdem folgt daraus, für $a, b \in \Aa$
+        \[
+            (U \circ \varphi_1(a)) (\varphi_1(b) x_1) = \varphi_2(a) (\varphi_2(b) x_2) = \varphi_2(a) \circ U(\varphi_1(b) x_1),
+        \]
+        und damit $U = \varphi_1(a) = \varphi_2(a) \circ U$.
+    \end{enumerate}
+\end{remark}
