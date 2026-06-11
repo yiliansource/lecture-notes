@@ -1,0 +1,163 @@
+
+\begin{remark}
+    Sei $\Aa$ eine $C^*$-Algebra.
+    \begin{enumerate}
+        \item Sei $\varphi : \Aa \to L_b(H)$ eine Darstellung. Für ein $x \in H$ betrachten wir
+        \[
+            f_x(a) \coloneqq \langle \varphi(a) x, x \rangle_H,
+        \]
+        dann ist $f_x \in \Aa^*$ positiv.
+
+        \item Seien $\varphi_i : \Aa \to L_b(H_i)$, $i \in \{1,2\}$ Darstellungen und $x_i$ zyklisch bezüglich $\varphi_i$. Aus der obigen Konstruktion erhalten wir positive Funktionale $f_1, f_2$. Seien $a_1, \ldots, a_n \in \Aa$, so gilt
+        \begin{align*}
+            \left\Vert \sum_{k=1}^n \varphi_1 (a_k) x_1 \right\Vert_{H_1}^2
+            &=
+            \sum_{k,\ell=1}^n \langle \varphi_1(a_k) x_1, \varphi_1 (a_\ell) x_1 \rangle
+            =
+            \sum_{k,\ell=1}^n \langle \varphi_1(a_\ell^* a_k) x_1, x_1 \rangle
+            \\ &=
+            \sum_{k,\ell=1}^n f_1(a_\ell^* a_k)
+            =
+            f_1 \left( \left( \sum_{k=1}^n a_k \right)^* \left( \sum_{\ell=1}^n a_\ell \right) \right),
+        \end{align*}
+        womit $f_1 \neq 0$ folgt, da sonst $H_1 = \{0\}$ wäre. Analoges gilt für $f_2$.
+
+        Angenommen $f_2 \leq f_1$. Definiere eine Abbildung $T : \varphi_1 (\Aa) x_1 \to \varphi_2 (\Aa) x_2$ durch
+        \[
+            T \left( \sum_{k=1}^n \varphi_1 (a_k) \right) = \sum_{k=1}^n \varphi_2 (a_k) x_2.
+        \]
+        Nach dem oben Gezeigten ist $T$ wohldefiniert und kontraktiv. (Gilt sogar $f_2 = f_1$, so ist $T$ sogar isometrisch.) Nun können wir $T$ fortsetzen zu einer Kontraktion $T : H_1 \to H_2$. Dann ist $T(H_1) \supseteq \varphi_2(\Aa) x_2$ dicht in $H_2$. (Ist $f_2 = f_1$, so ist $T$ also sogar unitär.) Nun gilt
+        \[
+            T \circ \varphi_1(a) = \varphi_2(a) \circ T, \quad \forall a \in \Aa,
+        \]
+        da
+        \begin{align*}
+            T \circ \varphi_1(a) [ \varphi_1(b) x_1]
+            &=
+            T (\varphi_1 (ab) x_1)
+            =
+            \varphi_2(ab) x_2
+            \\ &=
+            \varphi_2(a) [ \varphi_2(b) x_2 ]
+            =
+            \varphi_2(a) \circ T (\varphi_1(b) x_1)
+        \end{align*}
+        auf einer dichten Teilmenge gilt. Weiters gilt für alle $a \in \Aa$
+        \begin{align*}
+            \varphi_2(a) [ Tx_1 - x_2 ]
+            &=
+            T \circ \varphi_1(a) x_1 - \varphi_2(a) x_2
+            =
+            T \circ \varphi_1(a) x_1 - T \circ \varphi_1(a) x_1
+            =
+            0,
+        \end{align*}
+        also ist $T x_1 - x_2 \in \ker \varphi_2(a)$, womit $Tx_1 = x_2$ folgt.
+
+        \item Nehmen wir wieder $f_2 \leq f_1$ an, so folgt durch Adjungieren für alle $a \in \Aa$
+        \[
+            \varphi_1 (a) \circ T^* = T^* \circ \varphi_2(a).
+        \]
+        Insbesondere folgt
+        \[
+            (T^* T) \circ \varphi_1(a) = \varphi_1(a) \circ (T^* T),
+        \]
+        also ist $T^* T : H_1 \to H_1$ und $T^* T \in \varphi_1(\Aa)^\updownarrow$. Nun ist
+        \begin{align*}
+            f_2 = \langle \varphi_2(\cdot) x_2, x_2 \rangle_{H_2}
+            &=
+            \langle T \circ \varphi_1(a) x_1, T x_1 \rangle_{H_2}
+            =
+            \langle T^* T \varphi_1(\cdot) x_1, x_1 \rangle_{H_1}.
+        \end{align*}
+        Ist $\varphi_1$ irreduzibel, so folgt $T^* T = \beta I_{H_1}$, für ein $\beta \in (0, 1]$.
+
+        \item Sei $\varphi_1 : \Aa \to L_b(H_1)$ eine Darstellung, $x_1 \in H_1$ zyklisch und betrachte wieder $f_1$ entsprechend. Sei angenommen dass für alle positiven $f_2 \in \Aa^* \setminus \{0\}$ mit $f_2 \leq f_1$ folgt, dass $f_2 = \beta f_1$ mit $\beta \in (0,1]$. Wir behaupten, dass dann $\varphi_1$ irreduzibel ist.
+        
+        Sei $T \in \varphi_1(\Aa)^\updownarrow$. Es gilt also für alle $a \in \Aa$
+        \[
+            T \circ \varphi_1(a) = \varphi_1(a) \circ T.
+        \]
+        Adjungieren liefert wieder
+        \[
+            \varphi_1(a) \circ T^* = T^* \circ \varphi_1(a).
+        \]
+        Zerlegen wir nun $T = T_r + i T_i$. Es folgt (beispielsweise aus dem Spektralsatz), dass auch $T_r, T_{r_+}, T_{r_-}, \vert T_r \vert, \sqrt{T_r} \in \varphi(\Aa)^\updownarrow$, analog für $T_i$. Es reicht also nun zu zeigen, dass für alle $B \in \varphi(\Aa)^\updownarrow$ mit $B \geq 0$ und $\Vert B \Vert \leq 1$ folgt, dass $B = \beta I$. Setze nun
+        \[
+            f_2 = \langle B \varphi_1(\cdot) x_1, x_1 \rangle_{H_1},
+        \]
+        so gilt für $a \in \Aa_+$
+        \begin{align*}
+            0
+            \leq
+            f_2(a)
+            &=
+            \langle \sqrt{B} \varphi_1 (\sqrt{a}) x_1, \sqrt{B} \varphi_1(\sqrt{a}) x_1 \rangle_{H_1}
+            \leq
+            \langle \varphi_1(\sqrt{a}) x_1, \varphi_1(\sqrt{a}) x_1 \rangle_{H_1}
+            =
+            f_1(a).
+        \end{align*}
+        Es folgt also $f_2 \leq f_1$. Im Fall $f_2 = 0$ folgt $f_2 = 0 f_1$, ist $f_2 \neq 0$, so folgt aus unserer Annahme, dass $f_2 = \beta f_1$ für ein $\beta \in (0, 1]$. In jedem Fall folgt also $f_2 = \beta f_1$ für ein $\beta \in [0,1]$. Seien $a, b \in \Aa$, so folgt
+        \begin{align*}
+            \langle B \varphi_1(a) x_1, \varphi_1(b) x_1 \rangle_{H_1}
+            &=
+            f_2 (b^* a)
+            =
+            \beta f_1 (b^* a)
+            =
+            \langle \beta I \varphi_1(a) x_1, \varphi_1(b) x_1 \rangle_{H_1}
+        \end{align*}
+        und damit $B = \beta I$.
+
+        \item Sei $f \in \Aa^* \setminus \{ 0 \}$ positiv. Dann haben wir betrachtet
+        \[
+            N_f \coloneqq \{ c \in \Aa : f(c^* c) = 0 \} \leq \Aa,
+        \]
+        wobei wir den Raum $\Aa/_{N_f}$ mit dem Skalarprodukt
+        \[
+            \langle [u], [v] \rangle_f = f(v^* u).
+        \]
+        versehen haben. Die Vervollständigung haben wir mit $H_f$ bezeichnet. Weiters haben wir die Abbildung (a priori auf dem dichten Teilraum)
+        \[
+            \varphi_f : \Aa \to L_b(H_f), \ (a \mapsto ([b] \mapsto [ab]))
+        \]
+        definiert.
+
+        Weiters haben wir für positive $f \in \Aa^*$ gesehen, dass
+        \[
+            \Vert f \Vert = f(e_-) \coloneqq \lim_{q \in \Aa_+} f(\varepsilon(q)).
+        \]
+        Dabei ist $\Vert f \Vert$ das minimale $\eta$ mit $\vert f(b) \vert^2 \leq \eta f(b^* b)$ für alle $b \in \Aa$.
+
+        \item Wir behaupten nun, dass es ein (bezüglich $\varphi_f$) zyklisches $x_f \in H_f$ gibt, mit $\Vert x_f \Vert = \sqrt{\Vert f \Vert}$. Dabei gilt $\varphi_f(a) x_f = [a]$ und $f = \langle \varphi_f(\cdot) x_f, x_f \rangle_{H_f}$.
+        
+        Sei $u \in \Aa$, dann gilt $\vert f(u) \vert^2 \leq \eta ([u], [u])_f$, genau für $\eta \geq \Vert f \Vert$. Definiere nun eine Abbildung
+        \[
+            f/_{N_f} : \Aa/_{N_f} \to \C, \ [u] \mapsto f(u),
+        \]
+        welche aufgrund der obigen Ungleichung wohldefiniert ist. Wegen der Minimalität von $\Vert f \Vert$ bezüglich $\eta$, folgt $\Vert f/_{N_f} \Vert = \sqrt{\Vert f \Vert}$. Insbesondere können wir die Abbildung auf ganz $H_f$ fortsetzen. Nach dem Satz von Riesz--Fischer gibt es ein eindeutiges $x_f \in H_f$ mit $f/_{N_f} = \langle \cdot, x_f \rangle_{H_f}$ und $\Vert x_f \Vert = \sqrt{\Vert f \Vert}$. Nun berechnen wir
+        \begin{align*}
+            \langle [u], \varphi_f(a) x_f \rangle_{H_f}
+            &=
+            \langle \varphi_f(a^*) [u], x_f \rangle_{H_f}
+            =
+            f(a^* u)
+            =
+            \langle [u], [a] \rangle_{H_f}
+        \end{align*}
+        Da die Menge aller $[u]$ dicht liegt, folgt $\varphi_f(a) x_f = [a]$ für alle $a \in \Aa$. Außerdem erhalten wir, dass $\varphi_f(\Aa) = \Aa/_{N_f}$ dicht liegt, womit $x_f$ zyklisch ist. Zuletzt folgt
+        \begin{align*}
+            \langle \varphi_f (u) x_f, x_f \rangle_{H_f}
+            &=
+            \langle [u], x_f \rangle_f = f(u)
+        \end{align*}
+        für alle $u \in \Aa$.
+
+        \item Sei $\varphi : \Aa \to L_b(H)$ eine Darstellung und $x \in H$ zyklisch. Wenden wir die Konstruktion aus dem vorigen Punkt auf $f_x$ an, so gilt $f_x = \langle \varphi_{f} (\cdot) x_f, x_f \rangle_{H_f}$. Aus 2. erhalten wir eine unitäre Abbildung $U : H \to H_f$ mit
+        \[
+            U \circ \varphi(a) = \varphi_f(a) \circ U, \quad \forall a \in \Aa
+        \]
+        und $Ux = x_f$.
+    \end{enumerate}
+\end{remark}
