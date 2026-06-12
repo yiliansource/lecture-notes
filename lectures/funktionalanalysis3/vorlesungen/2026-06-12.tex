@@ -1,0 +1,136 @@
+\subsection*{07.05.2026}
+
+\begin{definition}
+    Sei $T \in S_1(H)$, so definieren wir die \emph{Spur} von $T$ durch
+    \[
+        \tr (T) = \sum_{e \in E} \langle Te, e \rangle_H,
+    \]
+    für eine Orthonormalbasis $E$.
+\end{definition}
+
+Man verifiziert, dass diese Definition nicht von der Wahl einer ONB abhängt, und dass wegen
+\[
+    \vert \tr(T) \vert \leq \Vert T \Vert_1 < \infty
+\]
+die Summe sogar absolut konvergiert.
+
+\begin{remark}{\ }
+    \begin{enumerate}
+        \item Für $T = RS$ für $T \in S_1, R \in S_2, S \in S_2$ gilt
+        \begin{align*}
+            \tr(T)
+            &=
+            \sum_{e \in E} \langle RS e, e \rangle
+            =
+            \sum_{e \in E} \langle Se, R^* e \rangle
+            =
+            \langle S, R^* \rangle_{S_2}
+            =
+            \langle R, S^* \rangle_{S_2}.
+        \end{align*}
+
+        \item Für $A, B \in S_2(H)$ gilt
+        \begin{align*}
+            \tr(AB)
+            &=
+            \langle A, B^* \rangle_{S_2}
+            =
+            \langle B, A^* \rangle_{S_2}
+            =
+            \tr(BA).
+        \end{align*}
+
+        \item Für $T \in S_1, S \in L_b(H)$ gilt $ST, TS \in S_1$, wobei
+        \[
+            \Vert ST \Vert_1 \leq \Vert S \Vert \ \Vert T \Vert_1,
+            \qquad
+            \Vert TS \Vert_1 \leq \Vert T \Vert_1 \Vert S \Vert.
+        \]
+        Faktorisieren wir nun $T = CD$ für $C, D \in S_2$, so gilt
+        \[
+            \tr(ST) = \tr(SCD) = \tr(DSC) = \tr(CDS) = \tr(TS).
+        \]
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}
+    Wir definieren die Abbildungen
+    \[
+        \Phi : L_b(H) \to S_1(H)', \ V \mapsto (T \mapsto \tr (TV))
+    \]
+    und
+    \[
+        \chi : S_1(H) \to K(H)', \ T \mapsto (K \mapsto \tr(KT)).
+    \]
+\end{definition}
+
+Diese Abbildung sind offenbar linear, und wegen
+\[
+    \vert \Phi(V)(T) \vert = \vert \tr(TV) \vert \leq \Vert TV \Vert_1 \leq \Vert V \Vert \ \Vert T \Vert_1
+\]
+und
+\[
+    \vert \chi(T)(K) \vert = \vert \tr(KT) \vert \leq \Vert K \Vert \ \Vert T \Vert_1.
+\]
+sogar wohldefiniert und kontraktiv.
+
+
+
+Für $u, v \in H$ mit $\Vert u \Vert = \Vert v \Vert = 1$ betrachten wir den Operator $S_{v,u}(x) = \langle x, v \rangle u$. Sei $E$ eine ONB mit $u \in E$, so gilt für $V \in L_b(H)$
+\begin{align*}
+    \langle Vu, v \rangle
+    &=
+    \left\langle V \sum_{e \in E} \langle u, e \rangle e, v \right\rangle
+    =
+    \sum_{e \in E} \left\langle \langle u, e \rangle V e, v \right\rangle
+    =
+    \sum_{e \in E} \langle u, e \rangle \langle Ve, v \rangle
+    \\ &=
+    \sum_{e \in E} \left\langle \langle Ve, v \rangle u, e \right\rangle
+    =
+    \sum_{e \in E} \langle SVe, e \rangle
+    =
+    \tr(SV)
+    =
+    \Phi(V)(S).
+\end{align*}
+
+Wegen $\Vert S \Vert_1 = 1$ folgt $\vert \langle Vu, v \rangle \leq \Vert \Phi(V) \Vert$ und damit $\Vert V \Vert = \Vert \Phi(V) \Vert$.
+
+Sei $T \in S_1$, so können wir schreiben
+\[
+    \vert T \vert = \sum_{n \in \N} s_n \langle \cdot, e_n \rangle e_n
+\]
+für ein Orthonormalsystem $e_1, e_2, \ldots$ mit einer $\ell^1$ Folge $s_n$. Aus der Polarzerlegung folgt $T = U \vert T \vert$, dann gilt also
+\[
+    T = \sum_{n \in \N} s_n \langle \cdot, e_n \rangle f_n,
+\]
+mit $f_n \coloneqq U e_n$. Definiere nun, für $m \in \N$,
+\[
+    R_m \coloneqq \sum_{n=1}^m \langle \cdot, f_m \rangle e_n,
+\]
+so gilt $\Vert R_m \Vert \leq 1$. Sei nun $F$ eine ONB die die $f_n$ erweitert. Dann gilt
+\begin{align*}
+    \sum_{n=1}^m s_n
+    &=
+    \sum_{n=1}^m s_n \langle e_n, e_n \rangle
+    =
+    \sum_{f \in F} \sum_{n=1}^m s_n \langle R_m f, e_n \rangle \langle f_n, f \rangle
+    \\ &=
+    \sum_{f \in F} \langle T(R_m f), f \rangle.
+\end{align*}
+Wegen
+\[
+    T R_m f
+    =
+    \sum_{n \in \N} s_n \left\langle \sum_{j=1}^m \langle f, f_j \rangle e_j, e_n \right\rangle e_n
+    =
+    \sum_{n \in \N} \sum_{j=1}^m s_n \langle f, f_j \rangle \langle e_j, e_n \rangle e_n
+    =
+    \sum_{n=1}^m s_n(f, f_n) e_n
+\]
+folgt damit
+\[
+    \sum_{n=1}^m s_n = \tr (TR_m) = \chi(T)(R_m) \leq \Vert \chi(T) \Vert.
+\]
+Für $m \to \infty$ folgt $\Vert T \Vert_1 = \Vert \chi(T) \Vert$.
