@@ -45,7 +45,7 @@
     \end{enumerate}
 \end{remark}
 
-\begin{proposition}
+\begin{proposition} \label{prop:komposition-des-kalküls}
     Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Sind $f \in C_b(\sigma(x), \C), g \in C_b(\sigma(f(x)), \C)$. Dann ist $g \circ f \in C_b(\sigma(x), \C)$ und $(g \circ f)(x) = g(f(x))$.
 \end{proposition}
 
@@ -57,7 +57,7 @@
     \end{align*}
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop:kalkül-erhält-normal}
     Seien $\Aa, \Ba$ $C^*$-Algebren mit Eins ($e_\Aa$, bzw. $e_\Ba$) und $\varphi : \Aa \to \Ba$ ein $\ast$-Algebren-Homomorphismus mit $\varphi(e_\Aa) = e_\Ba$. Falls $x \in \Aa$ normal ist, so ist auch $\varphi(x) \in \Ba$ normal mit $\sigma_\Ba(\varphi(x)) \subseteq \sigma_\Aa(x)$ und $\varphi(f(x)) = \restr{f}{\sigma_\Ba(\varphi(x))} (\varphi(x))$ für alle $f \in C_b(\sigma_\Aa(x), \C)$.\footnote{In anderen Worten: Der oben konstruierte Funktionalkalkül ist verträglich mit $\ast$-Algebren-Homomorphismen.}
 \end{proposition}
 
@@ -71,10 +71,10 @@
     \end{align*}
 \end{proof}
 
-Proposition 1.34 folgt aus Proposition 1.35 mit $f = \iota$.
+Proposition \ref{prop:kalkül-erhält-normal} folgt aus Proposition \ref{prop:komposition-des-kalküls} mit $f = \iota$.
 
 \begin{corollary}
-    Mit den Voraussetzungen von Proposition 1.35 gilt, dass wenn $\varphi$ injektiv ist, $\varphi$ sogar isometrisch ist.
+    Mit den Voraussetzungen von Proposition \ref{prop:kalkül-erhält-normal} gilt, dass wenn $\varphi$ injektiv ist, $\varphi$ sogar isometrisch ist.
 \end{corollary}
 
 \begin{proof}
@@ -145,7 +145,7 @@ Proposition 1.34 folgt aus Proposition 1.35 mit $f = \iota$.
         \end{align*}
 
         \item Es ist zunächst $p + q \in \Aa_{sa}$. Setze $t \coloneqq \Vert p \Vert + \Vert q \Vert \geq \Vert p+q \Vert$, so ist
-        $$ \Vert (\Vert p \Vert + \Vert q \Vert) e - (p+q) \Vert = \Vert \Vert p \Vert e - p \Vert + \Vert \Vert q \Vert e - q \Vert \leq \Vert p \Vert + \Vert q \Vert, $$
+        $$ \Vert (\Vert p \Vert + \Vert q \Vert) e - (p+q) \Vert = \Vert\, \Vert p \Vert e - p \Vert + \Vert \, \Vert q \Vert e - q \Vert \leq \Vert p \Vert + \Vert q \Vert, $$
         womit aus dem vorigen Punkt sogar $p+q \in \Aa_+$ folgt.
 
         \item Seien $q_1, q_2 \in \Aa_+$ mit $q_1 q_2 = 0$ und $q_1 - q_2 = a \in \Aa_{sa}$. Dann gilt
@@ -157,7 +157,7 @@ Proposition 1.34 folgt aus Proposition 1.35 mit $f = \iota$.
         $$ q_2 = \frac{q_1 + q_2 - (q_1 - q_2)}{2} = \frac{\vert a \vert - a}{2} = a_-. $$
 
         \item Wegen der Stetigkeit der $\ast$-Operation ist $\Aa_{sa} \subseteq \Aa$ abgeschlossen. Tatsächlich ist sogar $\Aa_+ \subseteq \Aa$ abgeschlossen. Um dies einzusehen sei $b_n$ eine Folge in $\Aa_+$ mit $b_n \to b \in \Aa_{sa}$. Dann gilt
-        $$ \Vert \Vert b \Vert e - b \Vert = \lim_{n \to \infty} \Vert \Vert b_n \Vert e - b_n \Vert \leq \lim_{n \to \infty} \Vert b_n \Vert = \Vert b \Vert, $$
+        $$ \Vert \, \Vert b \Vert e - b \Vert = \lim_{n \to \infty} \Vert \, \Vert b_n \Vert e - b_n \Vert \leq \lim_{n \to \infty} \Vert b_n \Vert = \Vert b \Vert, $$
         und nach 7. folgt $b \in \Aa_+$.
     \end{enumerate}
 \end{remark}

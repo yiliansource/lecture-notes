@@ -8,7 +8,7 @@
     \begin{enumerate}
         \item Seien $a \leq b$ mit $a, b \in \Aa_{sa}$, so folgt $f(a) \leq f(b)$.
 
-        \item Es gilt $f(\Aa_{sa}) \subseteq \R$, was sofort folgt, da wir $a \in \Aa_{sa}$ als $a = a_+ - a_0$ schreiben können. Insbesondere folgt mit $x = x_r + i x_i$ folgt
+        \item Es gilt $f(\Aa_{sa}) \subseteq \R$, was sofort folgt, da wir $a \in \Aa_{sa}$ als $a = a_+ - a_-$ schreiben können. Insbesondere folgt mit $x = x_r + i x_i$ folgt
         $$ \overline{f(x)} = \overline{f(x_r) + i f(x_i)} = f(x_r - i x_i) = f(x^*). $$
 
         \item Es gilt $f(\Aa_+ \cap K_1^\Aa(0)) \subseteq [0, c]$ für ein $c \geq 0$. Angenommen dem wäre nicht so, dann gibt es für alle $n \in \N$ ein Element $a_n \in K_1^\Aa(0) \cap \Aa_+$ mit $f(a_n) \geq 2^n$. Definiere
@@ -68,7 +68,7 @@
 
     \begin{enumerate}
         \item Wir definieren die Abbildung
-        $$ \varphi_f : A \to L_b(H), \ b \mapsto b_f, $$
+        $$ \varphi_f : A \to L_b(H_f), \ b \mapsto b_f, $$
         diese ist linear und kontraktiv. Wegen
         $$ \varphi_f(ab)([x]) = [abx] = a_f(b_f([x])) = \varphi_f(a) \varphi_f(b) ([x].) $$
         und
@@ -80,10 +80,10 @@
     \end{enumerate}
 \end{remark}
 
-Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir insgesamt also eine $C^*$-Algebra mit Eins als Unterrhaum eines gewissen $L_b(H)$ betrachten. Das geht im Allgemeinen nicht, aber wir werden eine ähnliche Aussage erhalten.
+Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir insgesamt also eine $C^*$-Algebra mit Eins als Unterraum eines gewissen $L_b(H)$ betrachten. Das geht im Allgemeinen zwar nicht, aber wir werden eine ähnliche Aussage erhalten.
 
 \begin{proposition}
-    Sei $f \in \Aa^*$. Dann ist $f$ positiv genau dann, $\Vert f \Vert = f(e) \ \ (< +\infty)$.
+    Sei $f \in \Aa'$. Dann ist $f$ positiv genau dann, wenn $\Vert f \Vert = f(e) \ \ (< +\infty)$.
 \end{proposition}
 
 \begin{proof}
@@ -96,13 +96,13 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
 
     ``$\Longleftarrow$'': Ist $f=0$ so ist nichts zu zeigen. Ansonsten können wir o.B.d.A. nach eine Skalierung $ 1 = \Vert f \Vert = f(e) $. Mit Bemerkung 1.43.2 folgt $f(a) \in [-\Vert a \Vert, +\Vert a \Vert]$ für selbstadjungierte $a$.
 
-    Nun folgt für positive $a$
-    $$ \Vert a \Vert - f(a) = \vert \Vert a \Vert - f(a) \vert = \vert f(\Vert a \Vert e - a) \vert \leq \Vert \Vert a \Vert e - a \Vert \leq \Vert a \Vert, $$
+    Nun folgt für $a \in \Aa_+$
+    $$ \Vert a \Vert - f(a) = \vert \, \Vert a \Vert - f(a) \vert = \vert f(\Vert a \Vert e - a) \vert \leq \Vert \, \Vert a \Vert e - a \Vert \leq \Vert a \Vert, $$
     also $f(a) \geq 0$.
 \end{proof}
 
 \begin{lemma}
-    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Dann existiert ein positives $f \in \Aa^*$ mit $\Vert f \Vert = 1$ und $\vert f(x) \vert = \Vert x \Vert$.
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Dann existiert ein positives $f \in \Aa'$ mit $\Vert f \Vert = 1$ und $\vert f(x) \vert = \Vert x \Vert$.
 \end{lemma}
 
 \begin{proof}
@@ -112,18 +112,20 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
 
     Die Abbildung
     $$ \vert \hat{x} \vert : M_{[e, x]} \to \R $$
-    ist stetig und hat eine Maximalstelle, es gibt also eine $m \in M_{[e, x]}$ mit
+    ist stetig und hat eine Maximalstelle, es gibt also ein $m \in M_{[e, x]}$ mit
     $$ \vert m(x) \vert = \vert \hat{x}(m) \vert = \Vert \hat{x} \Vert_\infty = \Vert x \Vert. $$
 
     Sei $f \in \Aa'$ mit $\restr{f}{[e,x]} = m$ und $\Vert f \Vert = \Vert m \Vert = 1 = m(e) = f(e)$. Dann ist
-    $$ \vert f(x) \vert = \vert m(x) \vert = \Vert x \Vert. $$
+    \[
+        \vert f(x) \vert = \vert m(x) \vert = \Vert x \Vert. \qedhere
+    \]
 \end{proof}
 
 \begin{definition}
     Sei $f \in \Aa^*$ positiv mit $\Vert f \Vert = 1$, so heißt $f$ \emph{Zustand}.
 \end{definition}
 
-\begin{theorem}[Gelfand--Neimark--Siegel]
+\begin{theorem}[Gelfand--Naimark--Segal]
     Sei $\Aa$ eine $C^*$-Algebra mit Eins. Dann existiert ein Hilbertraum $H$ und eine Unter-$C^*$-Algebra $\Ca \leq L_b(H)$ und ein isometrischer $\ast$-Algebren-Isomorphismus $\varphi : \Aa \to \Ca$ mit $\varphi(e) = \mathrm{id}_H$.
 \end{theorem}
 

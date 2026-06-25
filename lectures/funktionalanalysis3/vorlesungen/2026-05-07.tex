@@ -7,7 +7,7 @@
     \[
         A = \int_{\sigma(A) \setminus \{0\}} t \dd E(t) = \sum_{\lambda \in \sigma(A) \setminus \{0\}} \lambda E(\{\lambda\}) = \sum_{n=1}^N \lambda_n \langle \cdot, u_n \rangle u_n,
     \]
-    wobei die Reihe sogar gleichmäßig in der Operatornorm konvergiert und $N \in \N \cup \{\infty\}$. Dabei ist $(u_n)$ ein Orthonormalsystem, $\{ \lambda_n \}_{n = 1, \ldots, N} = \sigma(A) \setminus \{0\}$. Weiters können wir die $\lambda_k$ monoton fallend anordnen.
+    wobei die Reihe sogar gleichmäßig in der Operatornorm konvergiert und $N \in \N \cup \{\infty\}$. Dabei ist $(u_n)$ ein Orthonormalsystem, $\{ \lambda_n \}_{n = 1}^N = \sigma(A) \setminus \{0\}$. Weiters können wir die $\lambda_k$ monoton fallend anordnen.
 \end{remark}
 
 \begin{definition}
@@ -52,7 +52,7 @@ Wir definieren die $s$-Zahlen von $T$ als $s_k(T) \coloneqq \sqrt{\lambda_k}$.
     \[
         \sum_{e \in E \setminus M} \Vert Te \Vert^2 < \varepsilon.
     \]
-    Für ein $x \in H_1$ mit $\Vert x \Vert < 1$, und $P_M$ der orthogonalen Projektion auf $\spn M$, gilt
+    Für ein $x \in H_1$ mit $\Vert x \Vert \leq 1$, und $P_M$ der orthogonalen Projektion auf $\spn M$, gilt
     \begin{align*}        
         \Vert (T - T P_M)x \Vert^2
         &=
@@ -60,7 +60,11 @@ Wir definieren die $s$-Zahlen von $T$ als $s_k(T) \coloneqq \sqrt{\lambda_k}$.
         \leq
         \left( \sum_{e \in E} \vert \langle x, e \rangle \vert \, \Vert (T - TP) e \Vert \right)^2 \\
         &\leq
-        \left( \sum_{e \in E} \vert \langle x, e \rangle^2 \right) \left( \sum_{e \in E \setminus M} \Vert T e \Vert^2 \right) \leq \Vert x \Vert^2 \varepsilon.
+        \left( \sum_{e \in E} \vert \langle x, e \rangle^2 \right) \left( \sum_{e \in E \setminus M} \Vert T e \Vert^2 \right)
+        \leq
+        \Vert x \Vert^2 \varepsilon
+        \leq
+        \varepsilon.
     \end{align*}
     Also ist $\Vert T - TP_M \Vert \leq \varepsilon$, womit wir folgern, dass $T \in K(H_1, H_2)$.
 

@@ -22,9 +22,9 @@
 Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. In dem Fall betten wir $\Aa$ in eine $C^*$-Algebra mit Eins ein.
 
 \begin{proposition}
-    Sei $\Aa$ eine $\C^*$-Algebra ohne Eins. Dann gilt
+    Sei $\Aa$ eine $\C^*$-Algebra ohne Eins. Dann ist
     $$ \mathscr{W} \coloneqq \psi(\Aa) \overset{\cdot}{+} \spn(\id_\Aa) \leq L_b(\Aa) $$
-    ist eine Unter-Banachalgebra und eine $C^*$-Algebra mit
+    eine Unter-Banachalgebra und eine $C^*$-Algebra mit
     $$ (L_a + \lambda \id_\Aa)^* \coloneqq L_{a^*} + \overline{\lambda} \id_\Aa. $$
 \end{proposition}
 
@@ -53,7 +53,7 @@ Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. 
             &\leq
             \Vert x^* \Vert \ \Vert \cdots \Vert \ \Vert x \Vert \\
             &=
-            \Vert \cdots \Vert \ \Vert x \Vert^2.
+            \Vert \cdots \Vert \ \Vert x \Vert^2. \qedhere
         \end{align*}
     \end{itemize}
 \end{proof}
@@ -83,7 +83,7 @@ Wir erkennen unmittelbar, dass $\Aa \vartriangleleft \eAa$ und $\codim \Aa = 1$.
     \begin{itemize}
         \item $\rho_\Aa(a) \coloneqq \rho_{\eAa} (a), \sigma_{\Aa} (a) \coloneqq \sigma_{\eAa} (a), r_{\Aa} (a) \coloneqq r_{\eAa} (a) = \sup_{\lambda \in \rho_{\Aa} (a)} \vert \lambda \vert$.
         \item $\Aa_{sa} \coloneqq \{ a \in \Aa : a = a^* \} = (\eAa)_{sa} \cap \Aa$.
-        \item $\Aa_+ \coloneqq \{ a \in \Aa_{sa} : \sigma_\Aa (a) \subseteq [0, +\infty) \} = (\eAa)_+ +\cap \Aa$.
+        \item $\Aa_+ \coloneqq \{ a \in \Aa_{sa} : \sigma_\Aa (a) \subseteq [0, +\infty) \} = (\eAa)_+ \cap \Aa$.
     \end{itemize}
     Für $a, b \in \Aa_{sa}$ definieren wir $a \leq b :\Leftrightarrow b - a \in \Aa_+$.
 \end{definition}
@@ -92,15 +92,15 @@ Wir erkennen unmittelbar, dass $\Aa \vartriangleleft \eAa$ und $\codim \Aa = 1$.
     Sei $\Aa$ eine $C^*$-Algebra ohne Eins, $a \in \Aa, b \in \Aa, c \in \Aa$.
     \begin{itemize}
         \item Es gilt stets $0 \in \sigma_{\Aa}(a)$, denn wäre $0 \notin \sigma_{\Aa}(a)$, so gäbe es $b \in \Aa, \beta \in \C$ mit $e = a(b+\beta e) \in \Aa$, im Widerspruch dazu, dass $\Aa$ keine Eins hat.
-        \item Es gilt $\Aa_{sa} = \eAa_{sa} \cap \Aa, \Aa_+ = \eAa_+ \cap \Aa, \leq_{\Aa} = \leq_{\eAa} \cap \Aa \times \Aa$. Außerdem sind $\Aa_{sa}$ und $\Aa_+$ abgeschlossen in $\Aa$.
+        \item Es gilt $\Aa_{sa} = \eAa_{sa} \cap \Aa, \Aa_+ = \eAa_+ \cap \Aa, \leq_{\Aa} \ = \ \leq_{\eAa} \cap \ (\Aa \times \Aa)$. Außerdem sind $\Aa_{sa}$ und $\Aa_+$ abgeschlossen in $\Aa$.
         \item Seien $a, b, c \in \Aa_{sa}$ mit $a \leq b$ und $x \in \eAa$. dann gilt $a + c \leq b + c$ und $x^* a x \leq x^* b x$.
         \item Es gilt\footnote{Das wissen wir schon im Fall einer $C^*$-Algebra mit Eins.} $\Aa_+ = \{ x^* x : x \in \Aa \}$, da
         $$ \Aa_+ = \eAa_+ \cap \Aa = \{ x^* x : x \in \eAa \} \cap \Aa = \{ x^* x : x \in \Aa \}. $$
         \item $\Aa$ ist ein maximales Ideal, also insbesondere ein Primideal.
-        \item Für $a \in \Aa_+$ gilt auch\footnote{A priori wissen wir nur $\sqrt[n]{a} \in \Aa_+$!} $\sqrt[n]{a} \in \Aa$, da $\Aa$ prim ist.
+        \item Für $a \in \Aa_+$ gilt auch\footnote{A priori wissen wir nur $\sqrt[n]{a} \in \eAa$!} $\sqrt[n]{a} \in \Aa$, da $\Aa$ prim ist.
         \item Es gilt $\Aa_{sa} = \Aa_+ - \Aa_+$ und damit $\Aa = \Aa_+ - \Aa_+ + i \Aa_+ - i \Aa_+$.
         \item Ist $\Aa$ kommutativ, so ist auch $\eAa$ kommutativ.
-        \item Sei $\Aa$ kommutativ. Dann wissen wir $\eAa \cong C_b(M_{\eAa}, \C)$. (Muss ich noch ausführen.)
-        \item Insgesamt haben wir $\Aa \vartriangleleft \eAa$, wobei Letzteres nach Gelfand--Neimark--Siegel eingebettet werden kann in $L_b(H)$ für einen Hilbertraum $H$. Insbesondere ist also auch $\Aa$ isometrisch isomorph zu einer Unteralgebra von $L_b(H)$.
+        \item Sei $\Aa$ kommutativ. Dann wissen wir $\eAa \cong C_b(M_{\eAa}, \C)$.
+        \item Insgesamt haben wir $\Aa \vartriangleleft \eAa$, wobei Letzteres nach Gelfand--Naimark--Segal eingebettet werden kann in $L_b(H)$ für einen Hilbertraum $H$. Insbesondere ist also auch $\Aa$ isometrisch isomorph zu einer Unteralgebra von $L_b(H)$.
     \end{itemize}
 \end{remark}

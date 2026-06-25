@@ -144,7 +144,7 @@ sind.
     $$ \sigma(e - (e+q)^{-1}) = \left\{ 1 - \frac{1}{\lambda} : \lambda \in \sigma(e+q) \right\} \subseteq [0, 1). $$
     Damit ist $r(\varepsilon(q)) = \Vert \varepsilon(q) \Vert < 1$. Da $\Aa \vartriangleleft \eAa$ folgt damit, dass $\varepsilon$ tatsächlich in $\Aa_+ \cap B_1^\Aa(0)$ abbildet.
     Setze nun
-    $$ \psi : \Aa_+ \cap B_1^\Aa(0) \to \eAa, \ q \mapsto q (e-a)^{-1}, $$
+    $$ \psi : \Aa_+ \cap B_1^\Aa(0) \to \eAa, \ q \mapsto q (e-q)^{-1}, $$
     so ist stets $\psi(q) \in \Aa$. Über die von Neumann'sche Reihe sehen wir sogar $\psi(q) \in \Aa_+$, und wir verifizieren unmittelbar $\varepsilon \circ \psi = \id$ und $\psi \circ \varepsilon = \id$.
 
     Seien $0 \leq p \leq q$ in $\Aa$. Dann folgt
@@ -153,7 +153,7 @@ sind.
     \]
     Daraus folgt
     \[
-        \varepsilon(p) = 0 \leq e - (e + p)^{-1} \leq e - (e + q)^{-1} = \varepsilon(q).
+        \varepsilon(p) \leq e - (e + p)^{-1} \leq e - (e + q)^{-1} = \varepsilon(q).
     \]
     Gilt umgekehrt $\varepsilon(p) \leq \varepsilon(q)$, also
     \[

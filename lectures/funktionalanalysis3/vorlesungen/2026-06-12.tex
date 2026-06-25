@@ -1,4 +1,4 @@
-\subsection*{07.05.2026}
+\subsection*{12.06.2026}
 
 \begin{definition}
     Sei $T \in S_1(H)$, so definieren wir die \emph{Spur} von $T$ durch
@@ -8,11 +8,17 @@
     für eine Orthonormalbasis $E$.
 \end{definition}
 
-Man verifiziert, dass diese Definition nicht von der Wahl einer ONB abhängt, und dass wegen
+Wegen
 \[
-    \vert \tr(T) \vert \leq \Vert T \Vert_1 < \infty
+    \vert \tr(T) \vert
+    \leq
+    \sum_{e \in E} \vert \langle Te, e \rangle_H \vert
+    \leq
+    \Vert T \Vert_1
+    <
+    \infty
 \]
-die Summe sogar absolut konvergiert.
+konvergiert die Summe sogar absolut.
 
 \begin{remark}{\ }
     \begin{enumerate}
@@ -28,6 +34,7 @@ die Summe sogar absolut konvergiert.
             =
             \langle R, S^* \rangle_{S_2}.
         \end{align*}
+        Insbesondere hängt die Definition der Spur nicht von der Wahl einer Orthonormalbasis ab.
 
         \item Für $A, B \in S_2(H)$ gilt
         \begin{align*}
@@ -52,6 +59,8 @@ die Summe sogar absolut konvergiert.
         \]
     \end{enumerate}
 \end{remark}
+
+Wir erinnern uns, dass $(\ell^1)' = \ell^\infty$ und $(c_0)' = \ell^1$. Im Folgenden wollen wir ein Analogon dieser Tatsache für Operatoren auf einem Hilbertraum realisieren.
 
 \begin{definition}
     Wir definieren die Abbildungen

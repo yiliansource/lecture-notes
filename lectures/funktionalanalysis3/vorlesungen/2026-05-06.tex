@@ -1,5 +1,5 @@
 
-Haben wir $\C^*$-Algebren $\Aa, \Ba$ mit respektiven Abbildungen $\varepsilon_\Aa, \varepsilon_\Ba$, so können wir schreiben
+Haben wir $C^*$-Algebren $\Aa \leq \Ba$ mit respektiven Abbildungen $\varepsilon_\Aa, \varepsilon_\Ba$, so können wir schreiben
 \[
     \varepsilon_{\Ba}^{-1}(b) = \sum_{n=1}^\infty b^n.
 \]
@@ -91,8 +91,8 @@ womit folgt
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Sei $d \in J$ und betrachte die (in $\Aa$) erzeugte $C^*$-Algebra
-        $$ \Ca \coloneqq [{d^* d}] = \clspn \{ (d^* d)^n : n \in \N \} \leq \Aa. $$
+        \item Man verifiziert sofort, dass $J$ eine Banach-Unteralgebra ist, es reicht also $J^* \subseteq J$ zu zeigen. Sei $d \in J$ und betrachte die (in $\Aa$) erzeugte $C^*$-Algebra
+        $$ \Ca \coloneqq [{d^* d}] = \clspn \{ (d^* d)^n : n \in \N \} \leq J. $$
         Für $q \in \Ca_+$ gilt $\varepsilon(q) \in \Ca_+$ und
         \begin{align*}
             \Vert \varepsilon(q) d^* - d^* \Vert^2
@@ -198,7 +198,7 @@ Wir weitern dieses Konzept aus:
 Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert f \Vert < \infty$.
 
 \begin{definition}
-    Sei $f \in \Aa^*$ positiv. Dann definieren wir
+    Sei $f \in \Aa^*$ positiv. Dann definieren wir\footnote{Man beachte dass hier Limes und Supremum übereinstimmen, da $\varepsilon$ monoton ist.}
     \[
         f(e_-) \coloneqq \lim_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{q \in \Aa_+} f(\varepsilon(q)) = \sup_{a \in \Aa_+ \cap B_1^\Aa (0)} f(a) \leq \Vert f \Vert.
     \]
@@ -274,7 +274,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
     \[
         \left\Vert \varepsilon(q) - \frac{a}{\Vert a \Vert} \right\Vert \leq 1,
     \]
-    womit wir erhalten $\Vert \varepsilon(q) \Vert a \Vert - a \Vert \leq \Vert a \Vert$. Nun ist
+    womit wir erhalten $\Vert a \Vert \, \Vert \varepsilon(q) - a \Vert \leq \Vert a \Vert$. Nun ist
     \[
         0 \leq \Vert a \Vert - f(a)
         =
@@ -348,7 +348,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
     \begin{enumerate}
         \item $\varphi(\Aa)$ ist eine Unter-$C^*$-Algebra von $L_b(H)$. Inbesondere ist $\varphi/_{\ker \varphi} : \Aa_{\ker \varphi} \to \varphi(\Aa)$ ein $C^*$-Algebren-Isomorphismus.
         
-        \item Es gibt imer injektive Darstellungen (wie zum Beispiel die GNS-Konstruktion).
+        \item Es gibt immer injektive Darstellungen (zum Beispiel die GNS-Konstruktion).
         
         \item Falls es ein zyklisches $x \in H \setminus \{0\}$ gibt, so ist
         \[
@@ -373,6 +373,6 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
         \item Jedes $x \in H \setminus \{0\}$ ist zyklisch bezüglich $\varphi$.
         \item $\varphi(\Aa)^{\updownarrow} = \spn \{ I_H \} \ (\leq L_b(H))$
         \item $\varphi(\Aa)^{\updownarrow \updownarrow} = L_b(H)$
-        \item $\varphi(\Aa) \leq L_b(H)$ ist dicht bezüglich der starken Operatortopologie\footnote{Man beachte, dass hier die starke und die schwache Operatortopologie sogar übereinstimmen.}.
+        \item $\varphi(\Aa) \leq L_b(H)$ ist dicht bezüglich der starken Operatortopologie\footnote{Man beachte, dass hier der Abschluss bezüglich der starken und schwachen Operatortopologie sogar gleich ist.}.
     \end{enumerate}
 \end{theorem}

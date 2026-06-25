@@ -1,0 +1,185 @@
+\chapter{Operatorsysteme}
+
+\begin{lemma}
+    Seien $\Aa, \Ba$ $C^*$-Algebren und $\varphi : \Aa \to \Ba$ linear und positiv, also für $a \in \Aa_+$ gelte $\varphi(a) \in \Ba_+$. Dann ist $\Vert \varphi \Vert < +\infty$.
+\end{lemma}
+
+\begin{proof}
+    Wir zeigen zunächst, dass $\varphi(K_1^{\Aa_+}(0)) \subseteq \Ba_+$ beschränkt ist. Wäre dem nicht so, so gäbe es für alle $n \in \N$ ein $a_n \in \Aa_+$ mit $a_n \leq 1$ und $\Vert \varphi(a_n) \Vert \geq 2^{2n}$. Definiere
+    \[
+        a \coloneqq \sum_{n=0}^\infty \frac{1}{2^n} a_n \in \Aa_+.
+    \]
+    Für $N \in \N$ ist $a \geq 2^{-N} a_N$ und somit
+    \[
+        \varphi(a) \geq \varphi(2^{-N} a_N) \geq 0.
+    \]
+    Damit ist
+    \[
+        \Vert \varphi(a) \Vert \geq 2^{-N} \Vert \varphi(a_N) \Vert \geq 2^N,
+    \]
+    im Widerspruch.
+
+    Zerlegen wir nun $\Aa = \Aa_+ - \Aa_+ + i\Aa_+ - i\Aa_+$, so folgt die Aussage.
+\end{proof}
+
+\begin{definition}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $S \leq \Aa$ ein linearer Unterraum. Dann heißt $S$ \emph{Operatorsystem}, falls $e \in S$ und $S^* = S$.
+\end{definition}
+
+\begin{lemma}
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins, $S \leq \Aa$ ein Operatorsystem und $\varphi : S \to \Ba$ linear und positiv, also für $a \in S_+ = \Aa_+ \cap S$ gelte $\varphi(a) \in \Ba_+$. Dann gilt $\Vert \varphi \Vert \leq 2 \Vert \varphi(e) \Vert < +\infty$.
+\end{lemma}
+
+\begin{proof}
+    Sei $a \in S_+$ mit $\Vert a \Vert \leq 1$. Zunächst gilt $0 \leq a \leq e$, und Anwenden von $\varphi$ liefert $0 \leq \varphi(a) \leq \varphi(e)$, womit $\Vert \varphi(a) \Vert \leq \Vert \varphi(e) \Vert$ folgt.
+
+    Sei nun $a \in S_{sa}$ und schreibe $a = a^+ - a^-$ mit
+    \[
+        a^\pm \coloneqq \frac{1}{2} (\Vert a \Vert e \pm a).
+    \]
+    Es gilt $\Vert a \Vert e \geq \pm a$, also folgt $a^\pm \in S_+$. Damit gilt $0 \leq a^\pm \leq \Vert a \Vert e$, und Anwenden von $\varphi$ gibt
+    \[
+        0 \leq \varphi(a^\pm) \leq \Vert a \Vert \varphi(e).
+    \]
+    Da $\varphi(a^\pm) \in \Ba_+$ folgt
+    \[
+        \Vert \varphi(a) \Vert
+        =
+        \Vert \varphi(a^+) - \varphi(a^-) \Vert
+        \leq
+        \max \{ \Vert \varphi(a^+) \Vert, \Vert \varphi(a^-) \Vert \}
+        \leq
+        \Vert a \Vert \, \Vert \varphi(e) \Vert.
+    \]
+
+    Für allgemeines $x \in S$ schreiben wir $x = x_r + ix_i$, man beachte $x_r, x_i \in S$, und es gilt
+    \[
+        \Vert x_r \Vert
+        =
+        \left\Vert \frac{x + x^*}{2} \right\Vert
+        \leq
+        \Vert x \Vert,
+    \]
+    entsprechend für $x_i$. Damit folgt
+    \[
+        \Vert \varphi(x) \Vert
+        \leq
+        \Vert \varphi(x_r) \Vert + \Vert \varphi(x_i) \Vert
+        \leq
+        2 \Vert x \Vert \, \Vert \varphi(e) \Vert. \qedhere
+    \]
+\end{proof}
+
+\begin{lemma}
+    Sei $\Aa$ eine $\ast$-Algebra und betrachte den Vektorraum
+    \[
+        M_n(\Aa) \coloneqq \Aa^{n \times n}.
+    \]
+    Definiere
+    \[
+        \ast : M_n(\Aa) \to M_n(\Aa), \ [a_{ij}]_{i,j=1}^n \mapsto [a_{ji}^*]_{i,j=1}^n
+    \]
+    und
+    \[
+        \cdot : M_n(\Aa) \times M_n(\Aa) \to M_n(\Aa), \ ([a_{ij}]_{i,j=1}^n, [b_{ij}]_{i,j=1}^n) \mapsto \left[ \sum_{k=1}^n a_{ik} b_{kj} \right]_{i,j=1}^n.
+    \]
+    Dann ist $M_n(\Aa)$ eine $\ast$-Algebra. Hat $\Aa$ ein Einselement, so ist $[\delta_{ij} e]_{i,j=1}^n$ ein Einselement von $M_n(\Aa)$.
+\end{lemma}
+
+\begin{proposition}
+    Ist $\Aa$ eine $C^*$-Algebra, dann existiert eine eindeutige Norm auf $M_n(\Aa)$ so, dass $M_n(\Aa)$ eine $C^*$-Algebra abgibt.
+\end{proposition}
+
+\begin{proof}
+    Wir können o.B.d.A. $\Aa \leq L_b(H)$ annehmen. Definiere
+    \[
+        \Phi : L_b(H)^{n \times n} \to L_b(H^n), \ A = [a_{ij}]_{i,j=1}^n \mapsto \left( (\xi_j)_{j=1}^n \mapsto \left( \sum_{j=1}^n a_{kj} \xi_j \right)_{k=1}^n \right),
+    \]
+    so ist $\Phi$ eine Bijektion. Sind nun $i, j \in \{1, \ldots, n\}$ fest, so zeigt man leicht
+    \[
+        \Vert a_{ij} \Vert \leq \Vert \Phi A \Vert \leq n^2 \max_{k,\ell=1,\ldots,n} \Vert a_{k \ell} \Vert.
+    \]
+    Außerdem ist $\Phi$ insbesondere ein $\ast$-Isomorphismus. Also ist $\Phi (M_n(\Aa)) \leq L_b(H^n)$ als $\ast$-Unteralgebra. Um die Aussage zu zeigen reicht es also die Abgeschlossenheit bezüglich der Operatornorm zu überprüfen. Sei angenommen $\Phi [a_{ij}^k] \to \Phi [a_{ij}] \in L_b(H^n)$. Dann liefert die obige Ungleichung und die Abgeschlossenheit von $\Aa$ sofort $\Phi [a_{ij}] \in \Phi(M_n(\Aa))$.
+\end{proof}
+
+\begin{remark}
+    Sei $Aa$ eine $C^*$-Algebra mit Eins und $S \leq \Aa$ ein Operatorsystem. Dann können wir für $n \in \N$ definieren
+    \[
+        M_n(S) \coloneqq \{ [a_{ij}] : a_{ij} \in S \}.
+    \]
+    Dann ist auch $M_n(S) \leq M_n(\Aa)$ ein Operatorsystem.
+\end{remark}
+
+\begin{definition}
+    Seien $\Aa, \Ba$ $C^*$-Algebren, $S \leq \Aa$ ein Operatorsystem und $\varphi : S \to \Ba$ linear. Für $n \in \N$ definieren wir
+    \[
+        \varphi_n : M_n(S) \to M_n(\Ba), \ [a_{ij}] \mapsto [\varphi(a_{ij})],
+    \]
+    so ist $\varphi_n$ linear. Dann heißt $\varphi$
+    \begin{itemize}
+        \item \emph{completely bounded}, falls\footnote{Man beachte, dass die Folge $\Vert \varphi_n \Vert$ stets monoton wachsend ist.}
+        \[
+            \Vert \varphi \Vert_{cb} \coloneqq \sup_{n \in \N} \Vert \varphi_n \Vert < +\infty.
+        \]
+        \item \emph{completely positive}, falls $\varphi_n$ positiv ist, für alle $n \in \N$.
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    Sei $\Aa$ eine $C^*$-Algebra und $S \leq \Aa$ ein Operatorsystem und $\varphi : S \to \C$ linear mit $\Vert \varphi \Vert \leq +\infty$. Dann folgt $\Vert \varphi \Vert_{cb} = \Vert \varphi \Vert$. Insbesondere ist $\varphi$ completely bounded.
+
+    Ist $\varphi : S \to \C$ linear und positiv, so ist $\varphi$ sogar completely positive.
+\end{proposition}
+
+\begin{proof}
+    Sei $[a_{ij}] \in M_n(S)$, wir wollen $\Vert \varphi_n [a_{ij}] \Vert \leq \Vert [a_{ij}] \Vert \, \Vert \varphi \Vert$ zeigen. Dazu bemerken wir
+    \[
+        \Vert \varphi([a_{ij}]) \Vert
+        =
+        \sup_{\substack{x,y \in \C^n \\ \Vert x \Vert, \Vert y \Vert \leq 1}} \vert \langle [\varphi(a_{ij})] x, y \rangle \vert
+    \]
+    Für festes $x, y$ folgt
+    \[
+        \langle [\varphi(a_{ij})] x, y \rangle
+        =
+        \sum_{i,j=1}^n \varphi(a_{ij}) x_j \overline{y_i}
+        =
+        \varphi \left( \sum_{i,j=1}^n x_j \overline{y_i} a_{ij} \right)
+        \leq
+        \Vert \varphi \Vert \, \left\Vert \sum_{i,j=1}^n x_j \overline{y_i} a_{ij} \right\Vert_{\Aa}.
+    \]
+    Nun betrachten wir die Matrix
+    \[
+        G = \begin{bmatrix}
+            \sum_{i,j=1}^n x_j \overline{y_i} a_{ij} & 0 & \ldots & 0 \\
+            0 & \ddots & & \vdots \\
+            \vdots & & & \vdots \\
+            0 & \ldots & & 0
+        \end{bmatrix} \in M_n(S) \leq M_n(\Aa),
+    \]
+    so gilt
+    \[
+        G = \begin{bmatrix}
+            \overline{y_1} e & \cdots & \overline{y_n} e \\
+            0 & \cdots & 0 \\
+            \vdots & & \vdots \\
+            0 & \cdots & 0
+        \end{bmatrix}
+        [a_{ij}]
+        \begin{bmatrix}
+            x_1 e & 0 & \cdots & 0 \\
+            \vdots & & & \vdots \\
+            x_n e & 0 & \cdots & 0
+        \end{bmatrix}.
+    \]
+    Anwenden der Operatornorm und Erkennen, dass die linke und rechte Matrix jeweils Abbildungsnorm kleiner gleich 1 haben, liefert nun die gewünschte Ungleichung.
+
+    Die Konstruktion für completely positive funktioniert ähnlich.
+\end{proof}
+
+\begin{theorem}    
+    Sei $\Aa$ eine $C^*$-Algebra und $\varphi : \Aa \to L_b(H)$ completely positive. Dann existiert ein Hilbertraum $K \geq H$, eine Darstellung $\pi : \Aa \to L_b(K)$ und eine beschränkte lineare Abbildung $V : H \to K$ mit
+    \[
+        \varphi(a) = V^* \pi(a) V, \quad \forall a \in \Aa.
+    \]
+\end{theorem}
