@@ -1,0 +1,65 @@
+Wir zeigen nun die Surjektivität von $\chi$. Sei dazu $g \in K(H)'$ und setze $S_{u,v} = \langle \cdot, u \rangle v \in F(H) \subseteq K(H)$, für $u, v \in H$. Definiere eine Sesquilinearform
+\[
+    [v, u] : H \times H \to \C, \ (u, v) \mapsto g(S_{u,v}).
+\]
+Wegen
+\[
+    \vert [v, u] \vert
+    =
+    \vert g(S_{u,v}) \vert
+    \leq
+    \Vert g \Vert \, \Vert S_{u,v} \Vert
+    =
+    \Vert g \Vert \, \Vert u \Vert \, \Vert v \Vert
+\]
+ist diese beschränkt, womit ein eindeutiger, assoziierter Gram-Operator $T \in L_b(H)$, mit
+\[
+    g(S_{u,v}) = [v, u] = \langle Tv, u \rangle, \quad u, v \in H.
+\]
+Sei nun $G = (e_j, f_j)_{j=1}^{\ell(G)} \in O(H)$ (siehe Übung), und $\eta_j \in \T$ mit $\vert \langle T e_j, f_j \rangle \vert = \overline{\eta_j} \langle T e_j, f_j \rangle$. Dann gilt
+\[
+    \sum_{j=1}^{\ell(G)} \vert \langle T e_j, f_j \rangle \vert
+    =
+    \sum_{j=1}^{\ell(G)} \langle T e_j, \eta_j f_j \rangle
+    =
+    \sum_{j=1}^{\ell(G)} g(S_{\eta_j f_j, e_j})
+    =
+    g \left( \sum_{j=1}^{\ell(G)} \langle \cdot, \eta_j f_j \rangle e_j \right).
+\]
+Der Term im Argument von $g$ ist eine partielle Isometrie, deswegen eine Kontraktion, womit der linke Ausdruck kleiner als $\Vert g \Vert$ ist. Nehmen wir das Supremum über alle $G$, so folgt $\Vert T \Vert_1 \leq \Vert g \Vert$, also ist $T \in S_1(H)$.
+
+Sei nun $W \in K(H)$, so bleibt $\tr(WT) = g(W)$ zu zeigen. Zerlege
+\[
+    W = U \vert W \vert = U \sum_{k \in \N} t_k \langle \cdot, w_k \rangle U w_k,
+\]
+wobei wir $z_k \coloneqq U w_k$ setzen. Erweitere $(z_k)$ zu einem ONS $E$, dann gilt
+\begin{align*}
+    \tr(WT)
+    &=
+    \sum_{e \in E} \langle WT e, e \rangle
+    =
+    \sum_{\substack{k \in \N \\ t_k \neq 0}} \langle WT z_k, z_k \rangle
+    =
+    \sum_{\substack{k \in \N \\ t_k \neq 0}} t_k \langle T z_k, w_k \rangle
+    \\
+    &=
+    g \left( \sum_{\substack{k \in \N \\ t_k \neq 0}} t_k \langle \cdot, w_k \rangle z_k \right)
+    =
+    g(W).
+\end{align*}
+
+Es bleibt die Surjektivität von $\Phi$ zu zeigen. Sei $h \in S_1(H)'$ und definiere analog zu vorhin eine Sesquilinearform $[v,u] \coloneqq h(S_{u,v})$. Analog folgt die Beschränktheit und damit die Existenz eines eindeutigen $W \in L_b(H)$ mit $\langle Wv, u \rangle = [v,u]$ für alle $u, v \in H$. Nun ist
+\[
+    \spn \{ S_{u,v} : u, v \in H \}
+\]
+dicht in $S_1(H)$. Es reicht also die geforderte Gleichheit $\Phi(W)(T) = h(T)$ für $T \in S_1(H)$ für $T = \langle S_{u,v}$ zu zeigen. Erweitern wir $\{ u / \Vert u \Vert \}$ zu einer ONB $E$, so folgt
+\[
+    \tr(W S_{u,v})
+    =
+    \sum_{e \in E} \langle W S_{u,v} e, e \rangle
+    =
+    \langle W S_{u,v} \frac{u}{\Vert u \Vert}, \frac{u}{\Vert u \Vert} \rangle
+    =
+    \frac{1}{\Vert u \Vert^2} h(S_{u, S_{u,v} u}).
+\]
+Wegen $S_{u,v} u = \Vert u \Vert^2 v$ folgt $\tr (W S_{u,v}) = h(S_{u,v})$ und damit die Surjektivität von $\Phi$.
