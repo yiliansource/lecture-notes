@@ -1,7 +1,7 @@
 \begin{definition}
-    Seien $\Aa, x \in \Aa, \Ba$ wie in Definition 1.27. Dann definieren wir
+    Seien $\Aa, x \in \Aa, \Ba$ wie in Definition \ref{def:phi-x}. Dann definieren wir
     \begin{equation*}
-        \phi_x^t : C_b(\sigma(x), \C) \to C_b(M_\Ba, \C), f \mapsto f \circ \phi_x
+        \phi_x^t : C_b(\sigma(x), \C) \to C_b(M_\Ba, \C), \ f \mapsto f \circ \phi_x
     \end{equation*}
 \end{definition}
 
@@ -33,26 +33,26 @@
         
         $f$ ist $\T$-wertig genau dann, wenn $f(x)$ unitär ist.
 
-        $f(x) \in [e, x] \subseteq \Aa$.
+        $f(x) \in [\{ e, x \}]_\Aa \subseteq \Aa$.
 
         \item Ist $f \in C_b(\sigma(x), \C), a \in \Aa, ax = xa, ax^* = x^* a$, so ist auch $af(x) = f(x) a$.
         
-        \item Ist $f \in C_b(\sigma(x), \C)$, so ist $f(x)$ das eindeutige Element von $[e, x]$ mit der Eigenschaft $\widehat{f(x)} = \phi_x^t(f)$, beziehungsweise $\hat{f}(x)(m) = \phi_x^t(f)(m)$ für alle $m \in M_\Ba$. Inbesondere gilt
+        \item Ist $f \in C_b(\sigma(x), \C)$, so ist $f(x)$ das eindeutige Element von $[\{e, x\}]$ mit der Eigenschaft $\widehat{f(x)} = \phi_x^t(f)$, beziehungsweise $\hat{f}(x)(m) = \phi_x^t(f)(m)$ für alle $m \in M_{[\{e,x\}]}$. Inbesondere gilt
         $$ \phi_x^t(f)(m) = (f \circ \phi_x)(m) = f(m(x)). $$
 
-        \item Es gilt
+        \item Es gilt, für $\Ba \coloneqq [\{e, x\}]$,
         $$ \sigma_\Ba (f(x)) = \{ m(f(x)) : m \in M_\Ba \} = f(\{ m(x) : m \in M_\Ba \}) = f(\sigma(x)). $$
     \end{enumerate}
 \end{remark}
 
 \begin{proposition} \label{prop:komposition-des-kalküls}
-    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Sind $f \in C_b(\sigma(x), \C), g \in C_b(\sigma(f(x)), \C)$. Dann ist $g \circ f \in C_b(\sigma(x), \C)$ und $(g \circ f)(x) = g(f(x))$.
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ normal. Sind $f \in C_b(\sigma(x), \C), g \in C_b(\sigma(f(x)), \C)$, dann ist $g \circ f \in C_b(\sigma(x), \C)$ und $(g \circ f)(x) = g(f(x))$.
 \end{proposition}
 
 \begin{proof}
-    Es gilt $f(x) \in [e, x]$ und damit $[e, f(x)] \leq [e, x] \leq \Aa$. Sei nun $m \in M_{[e,x]}$.
+    Es gilt $f(x) \in [\{e, x\}]_\Aa$ und damit $[\{ e, f(x) \}]_\Aa \leq [\{ e, x \}]_\Aa \leq \Aa$. Sei nun $m \in M_{[\{e,x\}]}$, so gilt:
     \begin{align*}
-        m(g(f(x))) &= \restr{m}{[e,f(x)]}{(g(f(x)))} = g(m(f(x))) = g(f(m(x))) \\
+        m(g(f(x))) &= \restr{m}{[\{e,f(x)\}]}{(g(f(x)))} = g(m(f(x))) = g(f(m(x))) \\
         &= (g \circ f)(m(x)) = m((g \circ f)(x)). \qedhere
     \end{align*}
 \end{proof}
@@ -64,7 +64,7 @@
 \begin{proof}
     Wir wissen bereits $\Vert \varphi \Vert = 1$, $\varphi(x) \varphi(x)^* = \varphi(x)^* \varphi(x)$ und $\sigma_\Ba(\varphi(x)) \subseteq \sigma_\Aa(x)$.
 
-    Sei $m \in M_{[e_\Ba, \varphi(x)]}$. Dann ist $m \circ \varphi \in M_{[e_\Aa, x]}$. Weiters gilt
+    Sei $m \in M_{[\{ e_\Ba, \varphi(x) \}]}$. Dann ist $m \circ \varphi \in M_{[\{ e_\Aa, x \}]}$. Weiters gilt
     \begin{align*}
         m(\varphi(f(x))) &= (m \circ \varphi)(f(x)) = f((m \circ \varphi)(x)) = \restr{f}{\sigma_\Ba (\varphi(x))} (m(\varphi(x))) \\
         &= m(\restr{f}{\sigma_\Ba (\varphi(x))} (\varphi(x))). \qedhere
@@ -80,7 +80,7 @@ Proposition \ref{prop:kalkül-erhält-normal} folgt aus Proposition \ref{prop:ko
 \begin{proof}
     Angenommen $\varphi$ ist nicht isometrisch. Dann gibt es ein $a \in \Aa$ mit $\Vert a \Vert > \Vert \varphi(a) \Vert$, da $\Vert \varphi \Vert \leq 1$. Dann gilt
     $$ r(\varphi(a^* a)) = \Vert \varphi(a^* a) \Vert = \Vert \varphi(a)^* \varphi(a) \Vert = \Vert \varphi(a) \Vert^2 < \Vert a \Vert^2 = r(a^* a). $$
-    Inbesondere folgt $\sigma_\Ba (\varphi(a^* a)) \subsetneq \sigma_\Aa(a^* a)$. Sei nun $f : \sigma(a^* a) \to \C$ stetig mit $f \neq 0$ und $\restr{f}{\sigma_\Ba (\varphi(a^* a))} = 0$. Damit erhalten wir aus der vorigen Proposition
+    Inbesondere folgt $\sigma_\Ba (\varphi(a^* a)) \subsetneq \sigma_\Aa(a^* a)$. Sei nun $f \in C_b(\sigma(a^* a), \C)$ mit $f \neq 0$ und $\restr{f}{\sigma_\Ba (\varphi(a^* a))} = 0$. Damit erhalten wir aus der vorigen Proposition
     $$ \varphi(f(a^* a)) = \restr{f}{\sigma_\Ba(\varphi(a^* a))} (\varphi(a^* a)) = 0. $$
     Nun ist aber $f(a^* a) \neq 0$, daher $\ker \varphi \neq \{ 0 \}$ und damit $\varphi$ nicht injektiv.
 \end{proof}
@@ -115,7 +115,7 @@ Proposition \ref{prop:kalkül-erhält-normal} folgt aus Proposition \ref{prop:ko
         $$ a_+ \coloneqq \max(0, \cdot)(a), \quad a_- \coloneqq [-\min(0,\cdot)](a), $$
         was beides in $\Aa_+$ liegt.
 
-        \item Es gilt $\iota_{\sigma(a)} \in C_b(\sigma(a), \C)$ und damit $\Vert \iota_{\sigma(a)} \Vert = \Vert a \Vert$. Weiters gilt $0 \leq \max(0, \cdot) \leq \vert \iota_{\sigma(a)} \vert$ und damit
+        \item Es gilt $\iota_{\sigma(a)} \in C_b(\sigma(a), \C)$ und $\Vert \iota_{\sigma(a)} \Vert_\infty = \Vert a \Vert$. Damit gilt $0 \leq \max(0, \cdot) \leq \vert \iota_{\sigma(a)} \vert$ und
         $$ \Vert \max(0, \cdot) \Vert_\infty \leq \Vert \vert \iota_{\sigma(a)} \vert \Vert_\infty = \Vert a \Vert. $$
         Entsprechendes folgt für $-\min(0, \cdot)$ und damit
         $$ \Vert a_+ \Vert \leq \Vert a \Vert, \quad \Vert a_- \Vert \leq \Vert a \Vert, \quad \Vert \vert a \vert \Vert = \Vert a \Vert. $$
@@ -145,7 +145,7 @@ Proposition \ref{prop:kalkül-erhält-normal} folgt aus Proposition \ref{prop:ko
         \end{align*}
 
         \item Es ist zunächst $p + q \in \Aa_{sa}$. Setze $t \coloneqq \Vert p \Vert + \Vert q \Vert \geq \Vert p+q \Vert$, so ist
-        $$ \Vert (\Vert p \Vert + \Vert q \Vert) e - (p+q) \Vert = \Vert\, \Vert p \Vert e - p \Vert + \Vert \, \Vert q \Vert e - q \Vert \leq \Vert p \Vert + \Vert q \Vert, $$
+        $$ \Vert (\Vert p \Vert + \Vert q \Vert) e - (p+q) \Vert \leq \Vert\, \Vert p \Vert e - p \Vert + \Vert \, \Vert q \Vert e - q \Vert \leq \Vert p \Vert + \Vert q \Vert, $$
         womit aus dem vorigen Punkt sogar $p+q \in \Aa_+$ folgt.
 
         \item Seien $q_1, q_2 \in \Aa_+$ mit $q_1 q_2 = 0$ und $q_1 - q_2 = a \in \Aa_{sa}$. Dann gilt
@@ -164,8 +164,8 @@ Proposition \ref{prop:kalkül-erhält-normal} folgt aus Proposition \ref{prop:ko
 
 \begin{example}
     Sei $\Aa = L_b(H)$ für einen Hilbertraum $H$. Dann ist $T \in \Aa_{sa}$ genau dann wenn
-    $$ \langle Tx, y \rangle = \langle x, Ty \rangle, $$
+    $$ \langle Tx, y \rangle = \langle x, Ty \rangle, \quad \forall x, y \in H, $$
     und $T \in \Aa_+$ genau dann wenn
-    $$ \langle Tx, x \rangle \geq 0. $$
+    $$ \langle Tx, x \rangle \geq 0, \quad \forall x \in H. $$
     Inbesondere folgt (mit dem numerischen Wertebereich), dass aus positiv bereits selbstadjungiert folgt. Man kann also hier positiv, bzw. selbstadjungiert, über Elemente des Hilbertraums charakterisieren.
 \end{example}

@@ -51,7 +51,7 @@
 
 \graphicspath{{Images/}{../Images/}}
 
-
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \let\b\mathbf
@@ -75,15 +75,6 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Bemerkung}
 
-
-% \pagestyle{fancy}
-% \renewcommand{\footrulewidth}{0pt}
-% \renewcommand{\headrulewidth}{0pt}
-
-% \renewcommand{\sectionmark}[1]{\markright{#1} }
-% \fancyhead[R]{\small\textit{\nouppercase{\rightmark}}}
-
-% \fancyhead[L]{\hyperref[sec:contents]{\small}}
 
 \makeatletter
 \newcommand{\lecturer}[1]{\gdef\@lecturer{#1}}

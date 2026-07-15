@@ -7,7 +7,7 @@
     $$ 1 = m(e) = m(a) m(a^{-1}), $$
     insbesondere $m(a) \neq 0$.
 
-    Ist $a$ nicht invertierbar, so ist $a \cdot \Aa$ ein echtes Ideal in $\Aa$. Sei $I \supseteq a \cdot \Aa$ ein maximales Ideal. Dann gilt $U_1^\Aa(e) \subseteq \Inv(\Aa) \subseteq (I^c)^\circ = (\cl I)^c$ und somit $\cl I \neq \Aa$. Damit ist $I = \cl I$ und insbesondere ist $I$ abgeschlossen. Der Raum $\Aa / I$ ist mit der Quotientennorm ein Banachraum, und wir können durch $[c] \cdot [d] \coloneqq [cd]$ eine Multiplikation wohldefinieren, mit der $\Aa / I$ zu einer kommutativen, normierten Algebra mit Eins (nämlich $[e]$) wird. Sei nun $[b] \in \Aa / I, b \neq [0]$. Da $I$ maximal ist, ist $\Aa / I$ ein Körper, womit $[b]$ invertierbar ist. Da also alle Elemente der Banachalgebra $\Aa / I$ außer Null invertierbar sind, liefert der Satz von Gelfand--Mazur einen isometrischen Isomorphismus
+    Ist $a$ nicht invertierbar, so ist $a \cdot \Aa$ ein echtes Ideal in $\Aa$. Sei $I \supseteq a \cdot \Aa$ ein maximales Ideal. Dann gilt $U_1^\Aa(e) \subseteq \Inv(\Aa) \subseteq (I^c)^\circ = (\cl I)^c$ und somit $\cl I \neq \Aa$. Damit ist $I = \cl I$ und insbesondere ist $I$ abgeschlossen. Der Raum $\Aa / I$ ist mit der Quotientennorm ein Banachraum, und wir können durch $[c] \cdot [d] \coloneqq [cd]$ eine Multiplikation wohldefinieren, mit der $\Aa / I$ zu einer kommutativen Banachalgebra mit Eins (nämlich $[e]$) wird. Sei nun $[b] \in \Aa / I, b \neq [0]$. Da $I$ maximal ist, ist $\Aa / I$ ein Körper, womit $[b]$ invertierbar ist. Da also alle Elemente der Banachalgebra $\Aa / I$ außer Null invertierbar sind, liefert der Satz von Gelfand--Mazur einen isometrischen Isomorphismus
     $$ \phi : \Aa / I \to \C, \ \lambda [e] \mapsto \lambda. $$
     Bezeichnet $\pi$ die Faktorabbildung, so ist die Abbildung $\phi \circ \pi : \Aa \to \C$ kontraktiv, ein Homomorphismus und nicht identisch $0$. Weiters gilt $\phi \circ \pi(a) = \phi([0]) = 0$. Damit erfüllt $m \coloneqq \phi \circ \pi$ das zu Zeigende, nämlich $m(a) = 0$.
 \end{proof}
@@ -49,7 +49,7 @@
 \end{theorem}
 
 \begin{proof}
-    Sei $b \in \Ba$ mit $b = b^*$. Dann gilt zunächst $ \sigma_\Aa(b) \subseteq \sigma_\Ba(b) \subseteq \C $ und damit $ \C \setminus \R \subseteq \rho_\Ba(b) \subseteq \rho_\Aa(b) $.
+    Sei $b \in \Ba$ mit $b = b^*$. Dann gilt zunächst $ \sigma_\Aa(b) \subseteq \sigma_\Ba(b) \subseteq \R$ und damit $ \C \setminus \R \subseteq \rho_\Ba(b) \subseteq \rho_\Aa(b) $.
     Damit folgt
     $$ \C \cap \rho_\Aa(b) = \cl_\C \rho_\Ba(b) \cap \rho_\Aa(b) = \rho_\Ba (b) $$
     und insbesondere $b \in \Inv(\Aa)$ genau dann wenn $b \in \Inv(\Ba)$.
@@ -57,7 +57,7 @@
     Ist nun allgemeiner $b \in \Inv(\Aa) \cap \Ba$ (nicht notwendigerweise selbstadjungiert), so setze $a \coloneqq b^{-1} \in \Aa$. Dann folgt $a^* b^* = b^* a^*$ und damit $(a^* a)(b b^*) = e = (b b^*)(a^* a)$, also folgt $b b^* \in \Ba \cap \Inv(\Aa)$. Da $b b^*$ selbstadjungiert ist, folgt aus dem oben Gezeigtem $b b^* \in \Inv(\Ba)$. Aufgrund der Eindeutigkeit inverser Elemente folgt auch $a a^* \in \Ba$. Damit folgt
     $$ a = ea = b^* (a^* a) \in \Ba. $$
 
-    Die zweite Aussage folgt unmittelbar aus der ersten, wie in Bemerkung \ref{rem:eigenschaften-geschachtelter-cstern-algebren}.
+    Die zweite Aussage folgt unmittelbar aus der Ersten, wie in Bemerkung \ref{rem:eigenschaften-geschachtelter-cstern-algebren}.
 \end{proof}
 
 \begin{remark} {\ }
@@ -67,7 +67,7 @@
         $$ \hat{a} \coloneqq  \restr{\iota(a)}{M_\Aa}, $$
         wobei $\iota$ die kanonische Einbettung $\Aa \to \Aa'', a \mapsto (f \mapsto f(a)) $ bezeichnet. Die Abbildung
         $$ \hat{\cdot} : \Aa \to C_b(M_\Aa, \C) $$
-        ist kontraktiver Banachalgebren-Homomorphismus mit $\Vert \hat{\cdot} \Vert = 1$.
+        ist ein Banachalgebren-Homomorphismus mit $\Vert \hat{\cdot} \Vert = 1$.
 
         Für $a \in \Aa$ gilt $\hat{a}(M_\Aa) = \sigma_\Aa(a)$, da: Es gilt $\lambda \in \sigma_\Aa(a)$ genau dann, wenn $a - \lambda e \notin \Inv(\Aa)$, was genau dann der Fall ist wenn es ein $m \in M_\Aa$ mit $m(a - \lambda e) = 0$ gibt, was zu $\hat{a}(m) = m(a) = \lambda$ äquivalent ist, vgl. den Beweis von Korollar \ref{cor:selbstadjungiert-reelles-spektrum}.
     \end{itemize}
@@ -91,7 +91,7 @@
     Es bleibt die Surjektivität zu zeigen. Es ist $\hat{\Aa} \subseteq C_b(M_\Aa, \C)$ eine $B^*$-Unteralgebra mit $\hat{e} \in \hat{\Aa}$. Weiters ist die Algebra punktetrennend, womit nach dem Satz von Stone-Weierstrass die Aussage folgt. % maybe genauer noch?
 \end{proof}
 
-\begin{definition}
+\begin{definition} \label{def:phi-x}
     Sei $\Aa$ eine $C^*$-Algebra mit Eins und $x \in \Aa$ mit $x x^* = x^* x$. Dann ist
     $$ \Ba \coloneqq \clspn \{ x^j (x^*)^k \mid j, k \in \N_0 \} = [\{ e, x \}]_\Aa \subseteq \Aa $$
     eine kommutative $C^*$-Algebra. Dann definieren wir
@@ -109,5 +109,5 @@
     $$ \overline{\phi_x(m)} = \overline{\hat{x}(m)} = \hat{x^*}(m) = m(x^*) $$
     auch $m_1((x^*)^k) = m_2((x^*)^k)$ für alle $k \in \N_0$. Damit haben wir Gleichheit auf dem Erzeuger, und damit auf dem gesamten Raum, also folgt $m_1 = m_2$.
 
-    Da $\phi_x$ eine stetige, bijektive Abbildung zwischen kompakten Hausdorffräumen ist, folgt auch die Stetigkeit der Umkehrabbildung, also ist $\phi_x$ ein Homöomorphismus.
+    Da $\phi_x$ eine stetige, bijektive Abbildung zwischen kompakten Hausdorffräumen ist, folgt auch die Stetigkeit der Umkehrabbildung. Insgesamt ist $\phi_x$ also ein Homöomorphismus.
 \end{proof}

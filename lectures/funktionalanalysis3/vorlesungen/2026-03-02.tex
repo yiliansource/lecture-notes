@@ -54,7 +54,7 @@
 \end{proof}
 
 \begin{remark}
-    Für eine normierte Algebra $\Aa$ ist die Multiplikation als Abbildung von $\Aa \times \Aa \to \Aa$ stetig, wobei $\Aa \times \Aa$ mit der Produkttopologie versehen ist.
+    Für eine normierte Algebra $\Aa$ ist die Multiplikation, aufgrund der Submultiplikativität, als Abbildung von $\Aa \times \Aa \to \Aa$ stetig, wobei $\Aa \times \Aa$ mit der Produkttopologie versehen ist.
 \end{remark}
 
 \begin{definition}
@@ -89,7 +89,7 @@
 \end{definition}
 
 \begin{remark}
-    Sei $\Aa$ eine normierte Algebra mit Einselement, dann folgt, wegen $\Vert x^2 \Vert \leq \Vert x \Vert^2$ für alle $x \in \Aa$, stets $1 \leq \Vert e \Vert$.
+    Sei $\Aa$ eine normierte Algebra mit Einselement, dann folgt, wegen $\Vert x^2 \Vert \leq \Vert x \Vert^2$ für alle $x \in \Aa$, stets $1 \leq \Vert e \Vert$. Ist $\Aa$ sogar eine $C^*$-Algebra, so gilt $e^* = e$. Wegen $\Vert e \Vert^2 = \Vert e e^* \Vert = \Vert e^2 \Vert$ folgt sogar $\Vert e \Vert = 1$.
 \end{remark}
 
 \begin{example}
@@ -124,10 +124,11 @@
         
         \item Sei $\Aa$ Algebra mit Einselement, $\mathcal{B}$ eine Algebra und $\varphi : \Aa \to \mathcal{B}$ ein surjektiver Homomorphismus. Dann hat auch $\mathcal{B}$ ein Einselement.
         
-        \item Seien $\Aa, \mathcal{B}$ $C^*$-Algebren mit Einselement und $\varphi : \Aa \to \mathcal{B}$ ein ${}^*$-Homo\-morphismus mit $\varphi(e_{\Aa}) = e_{\mathcal{B}}$. Dann folgt $\Vert \varphi \Vert = 1$, da für $a \in \Aa$ gilt
+        \item Seien $\Aa, \mathcal{B}$ $C^*$-Algebren mit Eins und $\varphi : \Aa \to \mathcal{B}$ ein ${}^*$-Homo\-morphismus mit $\varphi(e_{\Aa}) = e_{\mathcal{B}}$. Dann folgt $\Vert \varphi \Vert \geq 1$. Da für alle $a \in \Aa$ stets
         \begin{align*}
-            \Vert \varphi(a) \Vert^2 &= \Vert \varphi(a^*) \varphi(a) \Vert = r(\varphi(a^* a)) = \sup_{\lambda \in \sigma(\varphi(a^* a))} \vert \lambda \vert \leq \sup_{\lambda \in \sigma(a^* a)} \vert \lambda \vert = r(a^* a) = \Vert a \Vert^2.
+            \Vert \varphi(a) \Vert^2 &= \Vert \varphi(a^*) \varphi(a) \Vert = r(\varphi(a^* a)) = \sup_{\lambda \in \sigma(\varphi(a^* a))} \vert \lambda \vert \leq \sup_{\lambda \in \sigma(a^* a)} \vert \lambda \vert = r(a^* a) = \Vert a \Vert^2,
         \end{align*}
+        folgt sogar $\Vert \varphi \Vert = 1$.
 
         \item Sei $\Aa$ eine Algebra mit Einselement $e$. Sei $\mathcal{B} \subseteq \Aa$ eine Unteralgebra mit $e \in \mathcal{B}$. Dann folgt $ \Inv(\mathcal{B}) \subseteq \Inv(\Aa) \cap \mathcal{B} $ und $\rho_{\mathcal{B}}(b) \subseteq \rho_{\Aa}(b) $ für alle $b \in \mathcal{B}$.
         
