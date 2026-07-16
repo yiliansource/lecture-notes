@@ -8,10 +8,10 @@
     \begin{enumerate}
         \item Seien $a \leq b$ mit $a, b \in \Aa_{sa}$, so folgt $f(a) \leq f(b)$.
 
-        \item Es gilt $f(\Aa_{sa}) \subseteq \R$, was sofort folgt, da wir $a \in \Aa_{sa}$ als $a = a_+ - a_-$ schreiben können. Insbesondere folgt mit $x = x_r + i x_i$ folgt
+        \item Es gilt $f(\Aa_{sa}) \subseteq \R$, was sofort folgt, da wir $a \in \Aa_{sa}$ als $a = a_+ - a_-$ schreiben können. Insbesondere folgt für $x = x_r + i x_i \in \Aa$
         $$ \overline{f(x)} = \overline{f(x_r) + i f(x_i)} = f(x_r - i x_i) = f(x^*). $$
 
-        \item Es gilt $f(\Aa_+ \cap K_1^\Aa(0)) \subseteq [0, c]$ für ein $c \geq 0$. Angenommen dem wäre nicht so, dann gibt es für alle $n \in \N$ ein Element $a_n \in K_1^\Aa(0) \cap \Aa_+$ mit $f(a_n) \geq 2^n$. Definiere
+        \item Es gilt $f(\Aa_+ \cap K_1^\Aa(0)) \subseteq [0, c]$ für ein $c \geq 0$. Angenommen dem wäre nicht so, dann gibt es für alle $n \in \N$ ein Element $a_n \in \Aa_+ \cap K_1^\Aa(0)$ mit $f(a_n) \geq 2^n$. Definiere
         $$ a \coloneqq \sum_{n=0}^\infty 2^{-n} a_n \in \Aa_+, $$
         so konvergiert diese Reihe absolut. Für $N \in \N$ gilt außerdem
         $$ \sum_{n=0}^N 2^{-n} a_n \leq a. $$
@@ -32,12 +32,12 @@
         Betrachte nun den ``Kern''
         $$ N_f \coloneqq \{ c \in \Aa : f(c^* c) = 0 \} \subseteq \Aa. $$
         Setze
-        $$ M_f \coloneqq \{ c \in \Aa : f(d^* c) = 0 \ \forall d \in \Aa \}, $$
+        $$ M_f \coloneqq \{ c \in \Aa : f(d^* c) = 0, \ \forall d \in \Aa \} \subseteq \Aa, $$
         so gilt klarerweise $N_f \supseteq M_f$. Nach Cauchy-Schwarz gilt
         $$ \vert f(d^* c) \vert^2 \leq f(d^* d) f(c^* c) = 0, $$
         und damit auch die andere Inklusion und es gilt $N_f = M_f$. Inbesondere ist $N_f$ der Orthogonalraum (insbesondere ein Unterraum) von $\Aa$ bezüglich der definierten Sesquilinearform.
 
-        Damit können wir auf $f/_{N_f}$ eine Abbildung definieren durch
+        Damit können wir auf $\Aa /_{N_f}$ eine Abbildung definieren durch
         $$ ([x], [y])_f \coloneqq f(y^* x). $$
         Seien $u \in [x], v \in [y]$, so ist
         \begin{align*}
@@ -68,12 +68,12 @@
 
     \begin{enumerate}
         \item Wir definieren die Abbildung
-        $$ \varphi_f : A \to L_b(H_f), \ b \mapsto b_f, $$
+        $$ \varphi_f : \Aa \to L_b(H_f), \ b \mapsto b_f, $$
         diese ist linear und kontraktiv. Wegen
-        $$ \varphi_f(ab)([x]) = [abx] = a_f(b_f([x])) = \varphi_f(a) \varphi_f(b) ([x].) $$
-        und
+        $$ \varphi_f(ab)([x]) = [abx] = a_f(b_f([x])) = \varphi_f(a) \varphi_f(b) ([x]) $$
+        und der Dichtheit der Restklassen ist die Abbildung sogar ein Algebrenhomomorphismus, und wegen
         $$ (\varphi_f(b)([x]), [x])_f = ([bx], [y])_f = f(y^* b x) = f((b^*y)^* x) = ([x], \varphi_f(b^*) ([y]))_f $$
-        und der Dichtheit der Restklassen, ist die Abbildung sogar ein Algebrenhomomorphismus, inbesondere gilt $\varphi_f(b)^* = \varphi_f(b^*)$.
+        gilt $\varphi_f(b)^* = \varphi_f(b^*)$.
 
         \item Es gilt
         $$ \varphi_f(e)([x]) = [ex] = [x] = I_{H_f}([x]). $$
@@ -94,9 +94,9 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
     Also ist $\Vert f \Vert^2 \leq f(e) \Vert f \Vert \leq \Vert f \Vert^2$. Wir haben also sogar gezeigt, dass in diesem Fall gilt
     $$ \Vert f(x) \Vert^2 \leq \Vert f \Vert \, f(x^* x). $$
 
-    ``$\Longleftarrow$'': Ist $f=0$ so ist nichts zu zeigen. Ansonsten können wir o.B.d.A. nach eine Skalierung $ 1 = \Vert f \Vert = f(e) $. Mit Bemerkung 1.43.2 folgt $f(a) \in [-\Vert a \Vert, +\Vert a \Vert]$ für selbstadjungierte $a$.
+    ``$\Longleftarrow$'': Ist $f=0$ so ist nichts zu zeigen. Ansonsten können wir o.B.d.A. nach einer Skalierung annehmen $ 1 = \Vert f \Vert = f(e) $. Für $a \in \Aa_{sa}$ gilt nun $f(a) \in [-\Vert a \Vert, +\Vert a \Vert]$.
 
-    Nun folgt für $a \in \Aa_+$
+    Damit folgt für $a \in \Aa_+$
     $$ \Vert a \Vert - f(a) = \vert \, \Vert a \Vert - f(a) \vert = \vert f(\Vert a \Vert e - a) \vert \leq \Vert \, \Vert a \Vert e - a \Vert \leq \Vert a \Vert, $$
     also $f(a) \geq 0$.
 \end{proof}
@@ -106,34 +106,34 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
 \end{lemma}
 
 \begin{proof}
-    Wir betrachten die kommutative $C^*$-Unteralgebra $[e, x] \leq \Aa$. Wir können also die Gelfandtransformierte betrachten
-    $$ \hat{\cdot} : [e, x] \to C_b(M_{[e, x]}, \C), $$
+    Wir betrachten die kommutative $C^*$-Unteralgebra $\Ba \coloneqq [\{e, x\}] \leq \Aa$. Wir können also die Gelfandtransformierte betrachten
+    $$ \hat{\cdot} : \Ba \to C_b(M_\Ba, \C), $$
     welche ein $\ast$-Algebren-Isomorphismus ist.
 
     Die Abbildung
-    $$ \vert \hat{x} \vert : M_{[e, x]} \to \R $$
-    ist stetig und hat eine Maximalstelle, es gibt also ein $m \in M_{[e, x]}$ mit
+    $$ \vert \hat{x}(\cdot) \vert : M_\Ba \to \R $$
+    ist stetig und hat eine Maximalstelle, es gibt also ein $m \in M_\Ba$ mit
     $$ \vert m(x) \vert = \vert \hat{x}(m) \vert = \Vert \hat{x} \Vert_\infty = \Vert x \Vert. $$
 
-    Sei $f \in \Aa'$ mit $\restr{f}{[e,x]} = m$ und $\Vert f \Vert = \Vert m \Vert = 1 = m(e) = f(e)$. Dann ist
+    Sei $f \in \Aa'$ mit $\restr{f}{\Ba} = m$ und $\Vert f \Vert = \Vert m \Vert = 1 = m(e) = f(e)$. Dann ist
     \[
         \vert f(x) \vert = \vert m(x) \vert = \Vert x \Vert. \qedhere
     \]
 \end{proof}
 
 \begin{definition}
-    Sei $f \in \Aa^*$ positiv mit $\Vert f \Vert = 1$, so heißt $f$ \emph{Zustand}.
+    Sei $f \in \Aa'$ positiv mit $\Vert f \Vert = 1$, so heißt $f$ \emph{Zustand}.
 \end{definition}
 
 \begin{theorem}[Gelfand--Naimark--Segal]
-    Sei $\Aa$ eine $C^*$-Algebra mit Eins. Dann existiert ein Hilbertraum $H$ und eine Unter-$C^*$-Algebra $\Ca \leq L_b(H)$ und ein isometrischer $\ast$-Algebren-Isomorphismus $\varphi : \Aa \to \Ca$ mit $\varphi(e) = \mathrm{id}_H$.
+    Sei $\Aa$ eine $C^*$-Algebra mit Eins. Dann existiert ein Hilbertraum $H$, eine Unter-$C^*$-Algebra $\Ca \leq L_b(H)$ und ein isometrischer $\ast$-Algebren-Isomorphismus $\varphi : \Aa \to \Ca$ mit $\varphi(e) = \mathrm{id}_H$.
 \end{theorem}
 
 \begin{proof}
     Setze
-    $$ Z \coloneqq \{ f \in \Aa^* : \Vert f \Vert = f(e) = 1 \} $$
+    $$ Z \coloneqq \{ f \in \Aa' : \Vert f \Vert = f(e) = 1 \} $$
     und $H \coloneq \ell^2(Z, (H_f)_{f \in Z})$, so ist $H$ mit dem ``kanonischen'' Skalarprodukt ein Hilbertraum. Wir definieren
-    $$ \mapping{\varphi}{\Aa & \to & L_b(H),}{b & \mapsto & ((\xi_f)_{f \in Z} \mapsto (\varphi_f(b)(\xi_f))_{f \in Z}).} $$
+    $$ \mapping{\varphi}{\Aa & \to & L_b(H),}{b & \mapsto & \big[ (\xi_f)_{f \in Z} \mapsto (\varphi_f(b)(\xi_f))_{f \in Z} \big].} $$
     Es gilt
     $$ \sum_{f \in Z} \Vert \varphi_f(b) (\xi_f) \Vert^2 \leq \Vert b \Vert^2 \sum_{f \in Z} \Vert \xi_f \Vert^2 < +\infty, $$
     also bildet $\varphi(b)$ tatsächlich nach $H$ ab, inbesondere ist $\Vert \varphi(b) \Vert \leq \Vert b \Vert$. Es ist $\varphi$ klarerweise linear und multiplikativ, was man sofort komponentenweise überprüft. Also ist $\varphi$ ein Algebrenhomomorphismus. Wegen
@@ -143,7 +143,7 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
     \end{align*}
     ist $\varphi$ sogar mit der $\ast$-Operation verträglich.
 
-    Für $c \in \Aa$ ist $c^* c$ normal. Nach dem vorigen Lemma gibt es also ein $g \in Z$ sodass
+    Für $c \in \Aa$ ist $c^* c$ positiv, insbesondere normal. Nach dem vorigen Lemma gibt es also ein $g \in Z$ sodass
     $$ g(c^* c) = \Vert c^* c \Vert = \Vert c \Vert^2. $$
     Damit folgt
     $$ (\varphi_g(c)([e]), \varphi_g(c)([e]))_g = g(c^* c) = \Vert c \Vert^2. $$
@@ -151,7 +151,7 @@ Können wir die Abbildung $\varphi_f$ sogar isometrisch wählen, so können wir 
     Wir betrachten nun das Element
     $$ (\delta_{fg} [e]_{H_f})_{f \in Z} \in H, $$
     wobei $\delta_{xy}$ das Kronecker-Delta bezeichnet. Mit diesem gilt
-    $$ \Vert \varphi(c) (\delta_{fg} [e]_{H_f})_{f \in Z} \Vert^2 = \Vert \varphi_g (c) ([e]_{H_g}) \Vert^2_{H_g} = \Vert c \Vert^2 $$
+    $$ \Vert \varphi(c) (\delta_{fg} [e]_{H_f})_{f \in Z} \Vert^2_H = \Vert \varphi_g (c) ([e]_{H_g}) \Vert^2_{H_g} = \Vert c \Vert^2 $$
     und damit sogar $\Vert \varphi(c) \Vert = \Vert c \Vert$.
 
     Abschließend folgt noch
