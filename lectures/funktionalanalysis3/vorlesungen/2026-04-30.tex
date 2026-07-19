@@ -98,7 +98,7 @@ sind.
 
     Damit folgt nun auch $r(\varphi(a)) \leq r(a)$. Wegen
     \[ 
-        \Vert \varphi(a) \Vert^2 = \varphi(a^* a) \Vert = r(\varphi(a^* a)) \leq r(a^* a) = \Vert a^* a \Vert = \Vert a \Vert^2
+        \Vert \varphi(a) \Vert^2 = \Vert \varphi(a^* a) \Vert = r(\varphi(a^* a)) \leq r(a^* a) = \Vert a^* a \Vert = \Vert a \Vert^2
     \]
     ist $\varphi$ kontraktiv.
 
@@ -113,15 +113,15 @@ sind.
 \end{proposition}
 
 \begin{proof}
-    Wir betrachten $\Aa \vartriangleleft \eAa$. Es ist $\eAa \times \C$ auch eine $\C^*$-Algebra (vgl. Übung), wobei die Operationen punktweise definiert sind, mit $(e_\Aa, 1)$ als Eins. Jetzt gilt
-    $$ \Aa \cong \Aa \times \{ 0 \} \leq \eAa \times \{ 0 \} \leq \eAa \times \C. $$
+    Wir betrachten $\Aa \vartriangleleft \eAa$. Es ist $\eAa \times \C$ auch eine $C^*$-Algebra (vgl. Übung), wobei die Operationen punktweise definiert sind, mit $(e, 1)$ als Eins. Jetzt gilt
+    $$ \Aa \cong \Aa \times \{ 0 \} \leq \eAa \times \{ 0 \} \leq \eAa \times \C $$
     als Unter-$C^*$-Algebren. Analog gilt
     $$ \Ba \cong \Ba \times \{ 0 \} \leq \eBa \times \{ 0 \} \leq \eBa \times \C. $$
-    Betrachte $ (\Aa \times \{ 0 \}) \overset{\cdot}{+} \spn \{ (e_\Aa, 1) \} > \Aa \times \{ 0 \}$, so gilt wieder Analoges für $\Ba$, wir nennen die linken Seiten $\Ca_1, \Ca_2$. Wir definieren nun
-    $$ \widetilde{\varphi} : \Ca_1 \to \Ca_2, \ (a, 0) + \alpha (e_\Aa, 1) \mapsto (\varphi(a), 0) + \alpha(e_\Ba, 1), $$
+    Betrachte $ (\Aa \times \{ 0 \}) \overset{\cdot}{+} \spn \{ (e, 1) \} \geq \Aa \times \{ 0 \}$, so gilt wieder Analoges für $\Ba$, wir nennen die linken Seiten $\Ca_1, \Ca_2$. Wir definieren nun
+    $$ \widetilde{\varphi} : \Ca_1 \to \Ca_2, \ (a, 0) + \alpha (e, 1) \mapsto (\varphi(a), 0) + \alpha(e, 1), $$
     so ist diese Abbildung ein injektiver $\ast$-Algebren-Homomorphismus, mit
     \[
-        \widetilde{\varphi}(e_\Aa, 1) = (e_\Ba, 1).
+        \widetilde{\varphi}((e, 1)) = (e, 1).
     \]
     Also ist $\widetilde{\varphi}$ isometrisch, die Einschränkung auf $\Aa \times \{0\}$ also auch, und damit ist es auch $\varphi$.
 \end{proof}
