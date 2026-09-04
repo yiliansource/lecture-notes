@@ -4,9 +4,12 @@
     \begin{enumerate}
         \item $\psi$ ist ein Algebrenhomomorphismus.
         \item Es gilt stets $\Vert L_a \Vert \leq \Vert a \Vert$. Damit ist $\psi$ sogar kontraktiv.
-        \item Ist $\Aa$ sogar eine $C^*$-Algebra, so gilt wegen
-        $$ \Vert a \Vert^2 = \Vert a a^* \Vert = \Vert L_a \Vert \, \Vert a* \Vert \leq \Vert a \Vert \, \Vert a^* \Vert = \Vert a \Vert^2 $$
-        sogar $\Vert L_a \Vert = \Vert a \Vert$.
+    \end{enumerate}
+    Sei nun $\Aa$ sogar eine $C^*$-Algebra.
+    \begin{enumerate}[resume]
+        \item Wegen
+        $$ \Vert a \Vert^2 = \Vert a a^* \Vert = \Vert L_a \Vert \, \Vert a^* \Vert \leq \Vert a \Vert \, \Vert a^* \Vert = \Vert a \Vert^2 $$
+        gilt sogar $\Vert L_a \Vert = \Vert a \Vert$.
         \item Da $\psi$ isometrisch ist, ist $\psi(\Aa)$ eine Banach-Unteralgebra von $L_b(\Aa)$.
         \item Wir können somit auf $\psi(\Aa)$ eine ${}^*$-Abbildung durch $(L_a)^* \coloneqq L_{a^*}$ definieren, also
         $$ \cdot^* \coloneqq \psi \circ \cdot^{*_\Aa} \circ \psi^{-1}. $$
@@ -22,7 +25,7 @@
 Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. In dem Fall betten wir $\Aa$ in eine $C^*$-Algebra mit Eins ein.
 
 \begin{proposition}
-    Sei $\Aa$ eine $\C^*$-Algebra ohne Eins. Dann ist
+    Sei $\Aa$ eine $C^*$-Algebra ohne Eins. Dann ist
     $$ \mathscr{W} \coloneqq \psi(\Aa) \overset{\cdot}{+} \spn(\id_\Aa) \leq L_b(\Aa) $$
     eine Unter-Banachalgebra und eine $C^*$-Algebra mit
     $$ (L_a + \lambda \id_\Aa)^* \coloneqq L_{a^*} + \overline{\lambda} \id_\Aa. $$
@@ -45,15 +48,15 @@ Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. 
             &=
             \Vert x^* a^* a x + \lambda x^* a^* x + \overline{\lambda} x^* a x + \vert \lambda \vert^2 x^* x \Vert \\
             &=
-            \Vert \psi(x^*) (a^* a x + \lambda a^* x \overline{\lambda} a x + \vert \lambda \vert^2 x) \Vert \\
+            \Vert \psi(x^*) (a^* a x + \lambda a^* x + \overline{\lambda} a x + \vert \lambda \vert^2 x) \Vert \\
             &=
             \Vert \psi(x^*) (\psi(a^* a) x + \lambda \psi(a^*) x + \overline{\lambda} \psi(a) x + \vert \lambda \vert^2 I x) \Vert \\
             &\leq
             \Vert \psi(x^*) \Vert \ \Vert (\psi(a) + \lambda I)(\psi(a) + \lambda I)^* \Vert \ \Vert x \Vert \\
             &\leq
-            \Vert x^* \Vert \ \Vert \cdots \Vert \ \Vert x \Vert \\
+            \Vert x^* \Vert \ \Vert (\psi(a) + \lambda I)(\psi(a) + \lambda I)^* \Vert \ \Vert x \Vert \\
             &=
-            \Vert \cdots \Vert \ \Vert x \Vert^2. \qedhere
+            \Vert (\psi(a) + \lambda I)(\psi(a) + \lambda I)^* \Vert \ \Vert x \Vert^2. \qedhere
         \end{align*}
     \end{itemize}
 \end{proof}
@@ -66,10 +69,10 @@ Es stellt sich die Frage, wie man den Fall $\id_\Aa \notin \psi(\Aa)$ handhabt. 
     \end{itemize}
 \end{definition}
 
-Wir erkennen unmittelbar, dass $\Aa \vartriangleleft \eAa$ und $\codim \Aa = 1$.
+Wir erkennen unmittelbar, dass $\Aa \vartriangleleft \eAa$ und $\codim \Aa \leq 1$.
 
 \begin{proposition}[Eindeutigkeit von $\eAa$]
-    Ist $\Aa$ eine $C^*$-Algebra ohne eins, $\Ba$ eine $C^*$-Algebra mit Eins und $\Aa \leq \Ba$ mit $\codim \Aa = 1$. Dann sind $\eAa$ und $\Ba$ ${}^*$-isomorph.
+    Ist $\Aa$ eine $C^*$-Algebra ohne Eins, $\Ba$ eine $C^*$-Algebra mit Eins und $\Aa \leq \Ba$ mit $\codim \Aa = 1$. Dann sind $\eAa$ und $\Ba$ ${}^*$-isomorph.
 \end{proposition}
 
 \begin{proof}

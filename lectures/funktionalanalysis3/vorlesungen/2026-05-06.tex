@@ -102,7 +102,7 @@ womit folgt
             \Vert d (\varepsilon(q) - e) \Vert^2
             =
             \Vert (\varepsilon(q) - e) d^* d (\varepsilon(q) - e) \Vert \\
-            &=
+            &\leq
             \Vert \varepsilon(q) - e \Vert \, \Vert d^* d \varepsilon(q) - d^* d \Vert
             \leq
             2 \Vert d^* d \varepsilon(q) - d^* d \Vert.
@@ -177,7 +177,7 @@ womit folgt
 \end{corollary}
 
 \begin{proof}
-    Zunächst ist $\varphi$ stetig (sogar eine Kontraktion), wie wir bereits gezeigt haben. Weiters ist $\ker \varphi$ ein echtes, abgeschlossenes Ideal in $\Aa$. Nach der vorigen Proposition ist $\Aa_{\ker \varphi}$ eine $C^*$-Algebra. Die Abbildung
+    Zunächst ist $\varphi$ stetig (sogar eine Kontraktion), wie wir bereits gezeigt haben. Weiters ist $\ker \varphi$ ein echtes, abgeschlossenes Ideal in $\Aa$. Nach der vorigen Proposition ist $\Aa /_{\ker \varphi}$ eine $C^*$-Algebra. Die Abbildung
     \[
         \mapping{\varphi/_{\ker \varphi}}
             {\Aa/_{\ker \varphi} & \to & \varphi(\Aa),}
@@ -212,7 +212,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
 \end{theorem}
 
 \begin{proof}
-    Ist $f$ positiv, so wissen wir bereits $\Vert f \Vert < \infty$ und der in Frage kommende Limes existiert, mit $f(e_-) \leq \Vert f \Vert$. Zunächst definiert $(y, z) \mapsto f(z^* y)$ eine positiv definite, hermitsche Sesquilinearform. Sei $x \in \Aa, q \in \Aa_+$, so folgt durch Cauchy--Schwarz
+    Ist $f$ positiv, so wissen wir bereits $\Vert f \Vert < \infty$ und der in Frage kommende Limes existiert, mit $f(e_-) \leq \Vert f \Vert$. Zunächst definiert $(y, z) \mapsto f(z^* y)$ eine positiv semidefinite, hermitsche Sesquilinearform. Sei $x \in \Aa, q \in \Aa_+$, so folgt durch Cauchy--Schwarz
     \begin{align*}
         \vert f(\varepsilon(q) x) \vert^2
         &=
@@ -234,7 +234,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
     \]
     Nun bilden wir das Supremum über $x \in \Aa$ mit $\Vert x \Vert \leq 1$, und erhalten
     \[
-        \Vert f \Vert^2 \leq f(e_-) \Vert f \Vert = \Vert f \Vert^2.
+        \Vert f \Vert^2 \leq f(e_-) \Vert f \Vert \leq \Vert f \Vert^2.
     \]
     Insbesondere haben wir für $x \in \Aa$ gezeigt, dass $\vert f(x) \vert^2 \leq \Vert f \Vert f(x^* x)$. Wir bemerken noch, dass $\Vert f \Vert$ das kleinste $\eta \geq 0$ ist mit $\vert f(x) \vert^2 \leq \eta f(x^* x)$ für alle $x \in \Aa$. Angenommen es gäbe ein $\eta \geq 0$ mit $\eta < \Vert f \Vert$ und $\vert f(x) \vert^2 \leq \eta f(x^* x)$. Aus der vorig gezeigten Ungleichung folgt
     \[
@@ -242,7 +242,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
     \]
     und damit $\Vert f \Vert^2 \leq \eta \Vert f \Vert$, ein Widerspruch.
 
-    Wir zeigen nun die Umkehrung, wobei wir o.B.d.A. $\Vert f \Vert = 1$ annehmen können. Sei $a \in \Aa^*$ selbstadjungiert und setze $f(a) = \alpha + i \beta$. Sei $\lambda \in \R$ und $q \in \Aa_+$. Dann gilt
+    Wir zeigen nun die Umkehrung, wobei wir o.B.d.A. $\Vert f \Vert = 1$ annehmen können. Sei $a \in \Aa$ selbstadjungiert und setze $f(a) = \alpha + i \beta$. Sei $\lambda \in \R$ und $q \in \Aa_+$. Dann gilt
     \begin{align*}
         \vert f(a - i \lambda \varepsilon(q)) \vert^2
         &\leq
@@ -274,7 +274,7 @@ Für positive Funktionale $f$ gilt $a \leq b \implies f(a) \leq f(b)$ und $\Vert
     \[
         \left\Vert \varepsilon(q) - \frac{a}{\Vert a \Vert} \right\Vert \leq 1,
     \]
-    womit wir erhalten $\Vert a \Vert \, \Vert \varepsilon(q) - a \Vert \leq \Vert a \Vert$. Nun ist
+    womit wir erhalten $\Vert \, \Vert a \Vert \varepsilon(q) - a \Vert \leq \Vert a \Vert$. Nun ist
     \[
         0 \leq \Vert a \Vert - f(a)
         =

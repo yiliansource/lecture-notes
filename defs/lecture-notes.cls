@@ -83,12 +83,14 @@
 \renewcommand{\maketitle}{
     \thispagestyle{plain}
     \begin{center}
-        {\huge\bfseries\@title\hspace{0.2cm}/\hspace{0.2cm}\@semester\par}
-        \vspace{0.2em}
+        {\huge\bfseries\@title\par}
+        \vspace{0.8em}
+        {nach der \@semester \ Vorlesung von\par}
+        \vspace{-0.4em}
         {\Large\@lecturer\par}
-        \vspace{1em}
+        \vspace{0.8em}
         {\large\@author\par}
-        \vspace{0.2em}        
+        \vspace{-0.4em}        
         \today
     \end{center}
 }
