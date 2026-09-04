@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 src/generated
-public/pdfs
+public/documents
