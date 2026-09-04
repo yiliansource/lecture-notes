@@ -1,62 +1,31 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+permissions:
+    pages: write
+    id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - run: corepack enable
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            ${{ github.workspace }}/www/.next/cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.18.1'
-          cache: 'yarn'
-          cache-dependency-path: www/yarn.lock
-
-      - name: Install dependancies
-        run: yarn install --frozen-lockfile
-        working-directory: www
-
-      - name: Build frontend
-        working-directory: www
-        run: yarn build
-
-      - name: Copy documents
-        working-directory: www
-        run: yarn tsx scripts/copy-lecture-notes.ts
-
-      - name: Add deployment files
-        working-directory: www
-        run: |
-          echo 'lecturenotes.hornik.dev' > out/CNAME
-          touch out/.nojekyll
-
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: www/out
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    deploy:
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+        steps:
+            - uses: actions/checkout@v7
+            - uses: oven-sh/setup-bun@v2
+            - run: bun install
+              working-directory: www
+            - run: bun generate
+              working-directory: www
+            - run: bun build
+              working-directory: www
+            - uses: actions/configure-pages@v5
+            - uses: actions/upload-pages-artifact@v3
+              with:
+                  path: "www/dist"
+            - id: deploy
+              uses: actions/deploy-pages@v5

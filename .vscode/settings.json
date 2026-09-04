@@ -1,3 +1,4 @@
 {
-    "editor.wordWrap": "on"
+	"biome.lsp.bin": "./www/node_modules/.bin/biome",
+	"biome.configurationPath": "./www/biome.json"
 }

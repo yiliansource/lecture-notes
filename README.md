@@ -4,9 +4,11 @@ This repository holds some of my digital lecture notes for my studies in mathema
 
 ## LaTeX
 
-The notes use a custom LaTeX class at `defs/lecture-notes.cls`, supplemented with custom macros at `defs/lecture-notes-macros.sty`.
+Most of the notes use a custom LaTeX class at `defs/lecture-notes.cls`, supplemented with custom macros at `defs/lecture-notes-macros.sty`.
 
 To display metadata on the frontend, the application extracts data from the lecture documents at `lectures/<lecture-name>/document.tex`. This includes the `title`, `lecturer` and `semester`.
+
+Lecture folders that contain a `.nopublish` file will be ignored.
 
 ## Frontend
 
@@ -14,27 +16,24 @@ Commands in this section are meant to be run inside the `www` directory.
 
 ### Installation
 
-After pulling the repository, install the frontend packages using yarn.
+After pulling the repository, install the frontend packages using [bun](https://bun.com/).
 
-```console
-yarn install
+```bash
+bun install
+```
+
+### Generated Metadata
+
+To generate the required metadata for the frontend, run
+
+```bash
+bun generate
 ```
 
 ### Local Frontend
 
-The development server serves a local instance of the frontend. When building, data will be statically rendered. Note that the 
+The development server serves a local instance of the frontend.
 
-```console
-yarn dev
-```
-
-> [!WARNING]
-> The lecture PDFs will not be available in the browser, as they are copied at export time.
-
-### Create new lecture
-
-Using the scaffold command, an interactive wizard creates the folder structure for a new lecture.
-
-```console
-yarn scaffold
+```bash
+bun dev
 ```

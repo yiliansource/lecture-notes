@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{enumerate, enumitem}
+
+\makeatletter
+\newcommand{\lecturer}[1]{\gdef\@lecturer{#1}}
+\newcommand{\semester}[1]{\gdef\@semester{#1}}
+
+\renewcommand{\maketitle}{
+    \thispagestyle{plain}
+    \begin{center}
+        \vspace*{1cm}
+        {\LARGE\@title\hspace{0.2cm}/\hspace{0.2cm}MM7043 \@semester\par}
+        \vspace{0.2em}
+        {\Large\@lecturer\par}
+        \vspace{1em}
+        {\large\@author\par}
+        \vspace{0.2em}        
+        \today
+        \vspace{2cm}
+    \end{center}
+}
+\makeatother
+
+\title{Galois Theory}
+\author{Ian Hornik}
+\lecturer{Gregory Arone}
+\semester{2026W}
+
+\renewcommand{\baselinestretch}{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\allowdisplaybreaks
+
+\setlist[itemize]{itemsep=0pt, topsep=0pt, labelsep=1em}
+\setlist[enumerate]{itemsep=0pt, topsep=0pt, labelsep=1em}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\P}{\mathbb{P}}
+
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\L}{\mathbb{L}}
+
+\DeclareMathOperator{\characteristic}{char}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+
+\maketitle
+
+\input{lectures/2026-09-03}
+
+\end{document}
