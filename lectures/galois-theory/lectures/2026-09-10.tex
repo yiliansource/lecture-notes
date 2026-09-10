@@ -1,0 +1,161 @@
+\begin{example}
+    We recall the following basic homomorphisms:
+    \begin{enumerate}
+        \item Suppose $R$ is a ring. Then there exists a unique ring homomorphism
+        \[
+            \varepsilon : \Z \to \R, \, n \mapsto n \cdot 1_R.
+        \]
+
+        \item Suppose $\F$ is a field. Let $\varepsilon : \Z \to \F$ be the ring homomorphism from the above and let $I = \ker \varepsilon$. Then $\varepsilon$ induces a monomorphism $\Z/_I \to \F$. In particular, $\Z/_I$ is an integral domain, therefore $I \subseteq \Z$ is a prime ideal. Thus $I = \{0\}$, or $I = (p)$ for some $p \in \P$. This ``formalizes'' our previous definition of $\characteristic \F$.
+        
+        If $\characteristic \F = 0$, then $\varepsilon : \Z \to \F$ is a monomorphism, so $\varepsilon$ extends to a monomorphism $\Q \to \F$.
+
+        If $\characteristic \F = p \in \P$, then $\ran \varepsilon \cong \Z/_{p\Z} \cong \F_p$.
+
+        \item Suppose we have a fixed homomorphism of rings $i : R \to S$. Then for every choice of of $\theta \in S$ there exists a unique ring homomorphism
+        \[
+            \ev_\theta : R[x] \to S,
+        \]
+        such that $\ev_\theta(r) = i(r)$, for all $r \in R$ and $\ev_\theta(X) = \theta$, namely the map $p(x) \mapsto p(\theta)$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Let $\F$ be a field. A \emph{(field) extension} of $\F$ is a field $\K$ containing $\F$ as a subfield\footnote{Again, we mean ``containing'' up to a monomorphism.}. We will also write $\F \hookrightarrow \K$ to denote such an extension.
+\end{definition}
+
+\begin{example}{\ }
+    \begin{enumerate}
+        \item $\Q \hookrightarrow \R$
+        \item $\R \hookrightarrow \C$
+    \end{enumerate}
+\end{example}
+
+\begin{remark}
+    Suppose $\F \hookrightarrow \K$ is a field extension. Then $\K$ is a vector space over $\F$.
+\end{remark}
+
+\begin{definition}
+    The \emph{degree} of a field extension $\F \hookrightarrow \K$ is defined as the dimension of $\K$ as a vector space over $\F$. We also denote this by $[\K : \F]$ or $\dim_\F \K$.
+\end{definition}
+
+\begin{example}{\ }
+    \begin{enumerate}
+        \item $[\R : \Q] = \infty$
+        \item $[\C : \R] = 2$
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}
+    Suppose we have field extensions $\F \hookrightarrow \K \hookrightarrow \L$, then
+    \[
+        [\L : \F] = [\L : \K] \cdot [\K : \F].
+    \]
+\end{lemma}
+
+\begin{definition}
+    Let $\F \hookrightarrow \K$ be a field extension and $\alpha \in \K$. We say that $\alpha$ is \emph{algebraic} over $\F$ if there exists a non-zero polynomial $p(x) \in \F[x]$ such that $p(\alpha) = 0$. Otherwise $\alpha$ is called \emph{transcendental} over $\F$.
+\end{definition}
+
+\begin{example}{\ }
+    \begin{enumerate}
+        \item $\sqrt{2}, \sqrt[3]{2}$ are algebraic over $\Q$.
+        \item $\pi, e$ are transcendental over $\Q$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    We say that an extension $\F \hookrightarrow \K$ is algebraic, if every element $\alpha \in \K$ is algebraic over $\F$. Otherwise, we say that the extension is transcendental.
+\end{definition}
+
+\subsection{Minimal polynomials}
+
+Suppose $\F \hookrightarrow \K$ is a field extension and $\alpha \in \K$ is an algebraic element over $\F$. Then
+\[
+    I = \{ p(x) \in \F[x] : p(\alpha) = 0 \},
+\]
+is a nonzero ideal in $\F[x]$. Since $\F[x]$ is a principle ideal domain, there exists a unique monic polynomial $m_{\alpha,\F}(x) \in \F[x]$, such that $I = (m_{\alpha,\F})$. If $\F$ is clear from the context, we also abbreviate this as $m_\alpha$.
+
+\begin{definition}
+    The polynomial $m_{\alpha,\F}(x)$ in the is called the \emph{minimal polynomial} of $\alpha$.
+\end{definition}
+
+\begin{lemma}
+    A monic polynomial $p(x) \in \F[x]$ is a minimal polynomial of $\alpha \in \K$ if and only if
+    \begin{enumerate}
+        \item $p(\alpha) = 0$, and
+        \item $p(x)$ is irreducible over $\F$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    ``$\Longrightarrow$'': Suppose $p(x) = m_{\alpha}(x)$. By definition, $p(\alpha) = 0$ and $p(x)$ generates the ideal of polynomials vanishing at $\alpha$. Suppose $p(x) = q_1(x) \cdot q_2(x)$. Then $p(\alpha) = q_1(\alpha) \cdot q_2(\alpha)$. Without loss of generality, assume that $q_1(\alpha) = 0$, that is $q_1(x) \in (p(x))$, therefore $p(x) \mid q_1(x)$. But also, $q_1(x) \mid p(x)$ by our assumption. Therefore $p(x)$ and $q_1(x)$ are associate in $\F[x]$, hence $q_2(x)$ is a unit.
+
+    ``$\Longleftarrow$'': Similarly to the above.
+\end{proof}
+
+Suppose $F \hookrightarrow \K$ and $\alpha \in \K$ is algebraic over $\F$. Since $m_{\alpha,\F}(x)$ is irreducible, $(m_{\alpha,\F})$ is maximal, hence $\F[x]/_{(m_{\alpha,\F}(x))}$ is a field.
+
+\begin{proposition}
+    In the context above, $\F[x]/_{(m_{\alpha,\F}(x))} \cong \F(\alpha)$.
+\end{proposition}
+
+\begin{proof}
+    Consider the evaluation homomorphism
+    \[
+        \ev_\alpha : \F[x] \to \K.
+    \]
+    The image of $\ev_\alpha$ is $\F[\alpha]$, the subring of $\K$ generated by $\F$ and $\alpha$. But the image is also isomorphic to
+    \[
+        \F[x]/_{(m_{\alpha,\F}(x))}
+        =
+        \F[x]/_{\ker \ev_{\alpha}},
+    \]
+    which is a field.
+\end{proof}
+
+\begin{corollary}
+    In the context above, $[\F(\alpha) : \F] = \deg m_{\alpha,\F}$.
+\end{corollary}
+
+\begin{proof}
+    This follows from the general fact that, for a monic polynomial $p(x) = a_0 + \ldots + a_{n-1} x^{n-1} + x^n \in \F[x]$, it holds that
+    \[
+        \F[x]/_{(f(x))} \cong \left\{ b_0 + b_1 x + \ldots + b_{n-1} x^{n-1} : b_0, \ldots, b_{n-1} \in \F \right\} \cong \F^n. \qedhere
+    \]
+\end{proof}
+
+Note that conversely, if $p(x) = a_0 + \ldots + a_{n-1} x^{n-1} + x^n \in \F[x]$ is an irreducible polynomial, then $\F[x]/_{(p(x))}$ is a field extension of $\F$ of degree $n$. Furthermore, the element $x + (p(x)) \in \F[x]/_{(p(x))}$ is a zero of $p(x)$, and $p(x)$ is the minimal polynomial of $x + (p(x))$.
+
+\begin{lemma}
+    Let $\F \hookrightarrow \K$ be a field extension, then $\alpha \in \K$ is algebraic over $\F$ if and only if $[\F(\alpha) : \F] < \infty$.
+\end{lemma}
+
+\begin{proof}
+    ``$\Longrightarrow$'': Follows immediately from the previous corollary.
+
+    ``$\Longleftarrow$'': The elements $1, \alpha, \alpha^2, \ldots, \alpha^n$ are linearly dependant over $\F$. Thus there exists $s_0, s_1, \ldots, s_n \in \F$, not all zero, such that $s_0 + s_1 \alpha + \ldots + s_n \alpha^n = 0$, therefore $\alpha$ is algebraic over $\F$.
+\end{proof}
+
+\begin{corollary}
+    Suppose $\F \hookrightarrow \K$ and $\alpha, \beta \in \K$ are algebraic over $\F$. Then $\alpha \pm \beta, \alpha \beta, \frac{1}{\alpha}$ (provided $\alpha \neq 0$) are algebraic over $\F$.
+\end{corollary}
+
+\begin{proof}
+    By the previous lemma, it suffices to show that the respective generated extensions are of finite degree. But $\F(\alpha \pm \beta), \F(\alpha \beta)$ are subfields of $\F(\alpha, \beta)$. But the latter extension has finite degree, since
+    \[
+        [\F(\alpha, \beta) : \F] = [\F(\alpha, \beta) : \F(\alpha)] \cdot [\F(\alpha) : \F] \leq [\F(\beta) : \F] \cdot [\F(\alpha) : \F] < \infty.
+    \]
+    The final claim follows from the fact that $\F(\alpha) = \F(\frac{1}{\alpha})$.
+\end{proof}
+
+\begin{corollary}
+    Suppose $\F \hookrightarrow \K$. Then the set of all algebraic elements of $\K$ over $\F$ is a sub-extension of $\K$, that is it is a sub-field of $\K$ that is also an extension of $\F$. This is also called the \emph{algebraic closure} of $\F$ in $\K$.
+\end{corollary}
+
+\begin{example}
+    We want to determine the minimal polynomial of $\sqrt{2} + \sqrt{3}$. We consider that we ultimately want $x = \sqrt{2} + \sqrt{3}$, squaring yields $x^2 = 5 + 2 \sqrt{6}$, that is $x^2 - 5 = 2 \sqrt{6}$. Squaring again yields $x^4 - 10x^2 + 1$. It remains to show that this is minimal, which will be the case if one can show
+    \[
+        [\Q(\sqrt{2} + \sqrt{3}) : \Q] = 4.
+    \]
+\end{example}
