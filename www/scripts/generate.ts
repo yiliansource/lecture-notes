@@ -1,42 +1,52 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
+import * as z from "zod";
 
 const repositoryRoot = path.resolve(import.meta.dirname, "..", "..");
 const lecturesRoot = path.join(repositoryRoot, "lectures");
 const pdfsRoot = path.join(repositoryRoot, "www", "public", "documents");
 const generatedRoot = path.resolve(repositoryRoot, "www", "src", "generated");
 
-await fs.rm(pdfsRoot, { recursive: true, force: true });
+await fs.rm(pdfsRoot, { recursive: true, force: true }); // clear old pdfs
 await fs.mkdir(pdfsRoot, { recursive: true });
 await fs.mkdir(generatedRoot, { recursive: true });
 
-interface LectureMetadata {
+const LectureManifest = z.object({
+	title: z.string().min(3).max(128),
+	lecturer: z.string(),
+	semester: z.string().regex(/\d{4}[WS]/),
+});
+
+type LectureManifest = z.infer<typeof LectureManifest>;
+
+interface LectureMetadata extends LectureManifest {
 	id: string;
-	title: string;
-	lecturer: string | null;
-	semester: string | null;
 	lastChanged: number;
 }
 
 const lectures: LectureMetadata[] = [];
 for (const lectureDirname of await fs.readdir(lecturesRoot)) {
+	const lectureId = lectureDirname;
 	const lectureDir = path.join(lecturesRoot, lectureDirname);
 	if (await fs.exists(path.join(lectureDir, ".nopublish"))) continue;
 
-	const lectureDocumentPath = path.join(lectureDir, "document.tex");
-	const lectureDocumentContent = await fs.readFile(
-		lectureDocumentPath,
+	const lectureManifestPath = path.join(lectureDir, "manifest.json");
+	if (!(await fs.exists(lectureManifestPath))) {
+		console.error(`No lecture manifest found for lecture '${lectureId}'.`);
+		continue;
+	}
+	const lectureManifestContents = await fs.readFile(
+		lectureManifestPath,
 		"utf-8",
 	);
-
-	const lectureId = lectureDirname;
-	const lectureData = Object.fromEntries(
-		["title", "lecturer", "semester"].map((key) => [
-			key,
-			lectureDocumentContent.match(new RegExp(`\\\\${key}{(.*)}`))?.[1] ??
-				null,
-		]),
+	const lectureManifest = await LectureManifest.safeParseAsync(
+		JSON.parse(lectureManifestContents),
 	);
+	if (!lectureManifest.success) {
+		console.error(`Malformed lecture manifest for lecture '${lectureId}'.`);
+		console.log(z.treeifyError(lectureManifest.error));
+		continue;
+	}
 
 	const lecturePdfPath = path.join(lectureDir, "document.pdf");
 	const lecturePdfModifiedDateString =
@@ -47,9 +57,9 @@ for (const lectureDirname of await fs.readdir(lecturesRoot)) {
 
 	lectures.push({
 		id: lectureId,
-		title: lectureData.title ?? lectureDirname,
-		lecturer: lectureData.lecturer ?? null,
-		semester: lectureData.semester ?? null,
+		title: lectureManifest.data.title ?? lectureId,
+		lecturer: lectureManifest.data.lecturer,
+		semester: lectureManifest.data.semester,
 		lastChanged: lecturePdfModifiedDate.getTime(),
 	});
 
@@ -57,7 +67,7 @@ for (const lectureDirname of await fs.readdir(lecturesRoot)) {
 
 	console.log(`✓ ${lectureId}`);
 }
-lectures.sort((a, b) => b.lastChanged - a.lastChanged);
+lectures.sort((a, b) => b.semester.localeCompare(a.semester));
 
 const output = `// This file is generated. Do not edit manually.
 
