@@ -16,6 +16,8 @@ jobs:
             name: github-pages
         steps:
             - uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
             - uses: oven-sh/setup-bun@v2
             - run: bun install
               working-directory: www
@@ -23,8 +25,8 @@ jobs:
               working-directory: www
             - run: bun run build
               working-directory: www
-            - uses: actions/configure-pages@v5
-            - uses: actions/upload-pages-artifact@v3
+            - uses: actions/configure-pages@v6
+            - uses: actions/upload-pages-artifact@v5
               with:
                   path: "www/dist"
             - id: deploy
