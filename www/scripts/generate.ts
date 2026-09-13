@@ -48,7 +48,17 @@ for (const lectureDirname of await fs.readdir(lecturesRoot)) {
 		continue;
 	}
 
-	const lecturePdfPath = path.join(lectureDir, "document.pdf");
+	const lectureDirFiles = await fs.readdir(lectureDir);
+	const lecturePdfName = lectureDirFiles.find((f) => f.endsWith(".pdf"));
+	if (lecturePdfName === undefined) {
+		console.error(`No lecture .pdf found for lecture '${lectureId}'.`);
+		continue;
+	}
+
+	const lecturePdfPath = path.join(lectureDir, lecturePdfName);
+	fs.copyFile(lecturePdfPath, path.join(pdfsRoot, `${lectureId}.pdf`));
+
+	// TODO: this does not work correctly
 	const lecturePdfModifiedDateString =
 		await Bun.$`git log -1 --format=%aI -- ${lecturePdfPath}`.text();
 	const lecturePdfModifiedDate = lecturePdfModifiedDateString
@@ -62,8 +72,6 @@ for (const lectureDirname of await fs.readdir(lecturesRoot)) {
 		semester: lectureManifest.data.semester,
 		lastChanged: lecturePdfModifiedDate.getTime(),
 	});
-
-	fs.copyFile(lecturePdfPath, path.join(pdfsRoot, `${lectureId}.pdf`));
 
 	console.log(`✓ ${lectureId}`);
 }
