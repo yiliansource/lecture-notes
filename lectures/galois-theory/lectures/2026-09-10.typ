@@ -110,6 +110,10 @@ Note that conversely, if $p(x) = a_0 + dots + a_(n-1) x^(n-1) + x^n in FF[x]$ is
 ]
 
 #corollary[
+  Let $FF arrow.hook KK$ be a field extension. If $[KK : FF] < oo$, then $KK$ is algebraic over $FF$.
+]
+
+#corollary[
   Suppose $FF arrow.hook KK$ and $alpha, beta in KK$ are algebraic over $FF$. Then $alpha plus.minus beta, alpha beta, 1/alpha$ (provided that $alpha eq.not 0$) are algebraic over $FF$.
 ]
 

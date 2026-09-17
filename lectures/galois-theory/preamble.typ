@@ -1,6 +1,8 @@
 #import "@preview/theoretic:0.4.0"
 #import theoretic.presets.basic: *
 
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
+
 #let example = definition.with(supplement: "Example")
 #let remark = definition.with(supplement: "Remark")
 
