@@ -45,7 +45,7 @@
 ]
 
 #definition[
-  Let $p(x) in FF[x]$. A _splitting field_ over $FF$ is any field extension $FF arrow.hook KK$ such that:
+  Let $p(x) in FF[x] without FF$. A _splitting field_ over $FF$ is any field extension $FF arrow.hook KK$ such that:
   + $p(x)$ splits completely over $KK$.
   + $p(x)$ does not split completely over any proper sub-extension $FF arrow.hook LL arrow.hook KK$.
 ]
@@ -53,7 +53,7 @@
 We have already shown:
 
 #lemma[
-  If $FF arrow.hook LL$ is an extension such that $p(x) in FF[x]$ splits completely over $LL$, then $LL$ contains a splitting field of $p(x)$.
+  If $FF arrow.hook LL$ is an extension such that $p(x) in FF[x] without FF$ splits completely over $LL$, then $LL$ contains a splitting field of $p(x)$.
 ]
 
 #proposition[
@@ -76,7 +76,7 @@ We have already shown:
 ]
 
 #theorem[
-  Suppose $phi : KK_1 -> KK_2$ is an isomorphism of fields and $p(x) in FF[x]$. Suppose $LL_1$ is any splitting field of $p(x)$ and $LL_2$ is any splitting field of $phi(p(x))$. Then there exists a field isomorphism $psi : LL_1 -> LL_2$ such that the following diagram commutes:
+  Suppose $phi : KK_1 -> KK_2$ is an isomorphism of fields and $p(x) in KK_1[x]$. Suppose $LL_1$ is any splitting field of $p(x)$ and $LL_2$ is any splitting field of $phi(p(x))$. Then there exists a field isomorphism $psi : LL_1 -> LL_2$ such that the following diagram commutes:
   #align(center)[
     #diagram(
       cell-size: 10mm,
