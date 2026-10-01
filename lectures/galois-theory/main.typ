@@ -22,3 +22,4 @@
 #include "lectures/2026-09-10.typ"
 #include "lectures/2026-09-17.typ"
 #include "lectures/2026-09-24.typ"
+#include "lectures/2026-10-01.typ"

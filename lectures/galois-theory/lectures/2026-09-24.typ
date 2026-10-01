@@ -83,7 +83,7 @@ We prove a generalized converse:
 In particular, we now know that every field $FF$ has an algebraic closure, which is unique up to isomorphism.
 
 #definition[
-  A field $LL$ is _algebraically closed_, if every non-constant polynomial in $LL[x]$ splits completely over $LL$. Equivalently, every polynomial such polynomial has a root in $LL$.
+  A field $LL$ is _algebraically closed_, if every non-constant polynomial in $LL[x]$ splits completely over $LL$. Equivalently, every such polynomial has a root in $LL$.
 ]
 
 #theorem[
@@ -93,6 +93,6 @@ In particular, we now know that every field $FF$ has an algebraic closure, which
 #theorem[
   Suppose we have a field extension $FF arrow.hook KK$, then the following are equivalent:
   + $KK$ is an algebraic closure of $FF$.
-  + Every non-polynomial over $FF$ splits completely over $KK$ and $KK$ an algebraic extension of $FF$.
+  + Every non-constant polynomial over $FF$ splits completely over $KK$ and $KK$ an algebraic extension of $FF$.
   + $KK$ is algebraically closed and $KK$ is an algebraic extension of $FF$.
 ]

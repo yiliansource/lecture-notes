@@ -126,7 +126,7 @@ Note that conversely, if $p(x) = a_0 + dots + a_(n-1) x^(n-1) + x^n in FF[x]$ is
 ]
 
 #corollary[
-  Suppose $FF arrow.hook KK$. Then the set of all algebraic elements of $KK$ is a sub-extension of $KK$, in other words it is a sub-field of $KK$ that is also an extension $FF$. This is called the _algebraic closure_ of $FF$ in $KK$.
+  Suppose $FF arrow.hook KK$. Then the set of all algebraic elements of $FF$ is a sub-extension of $FF$, in other words it is a sub-field of $KK$ that is also an extension of $FF$. This is called the _algebraic closure_ of $FF$ in $KK$.
 ]
 
 #example[
