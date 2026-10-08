@@ -24,3 +24,5 @@
 }
 
 #let ran = math.op("ran")
+#let Aut = math.op("Aut")
+#let Gal = math.op("Gal")
