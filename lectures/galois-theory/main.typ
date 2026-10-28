@@ -11,12 +11,17 @@
 
   doc,
 )
+
+#theoretic.configure(numbering-depth: 2)
 #show ref: theoretic.show-ref
 
+#set heading(numbering: "1.1")
 #set enum(numbering: "1.i.")
 #set terms(separator: [: ])
 
 #set math.equation(numbering: none)
+
+#outline()
 
 #include "lectures/2026-09-03.typ"
 #include "lectures/2026-09-10.typ"
@@ -25,3 +30,4 @@
 #include "lectures/2026-10-01.typ"
 #include "lectures/2026-10-08.typ"
 #include "lectures/2026-10-15.typ"
+#include "lectures/2026-10-22.typ"
