@@ -4,7 +4,7 @@
 
 Suppose $FF arrow.hook LL$ is a finite Galois extension and $FF arrow.hook KK arrow.hook LL$ is an intermediate field. We note that:
 
-+ $KK$ is always seperable over $FF$ and $LL$ is seperable over $KK$.
++ $KK$ is always separable over $FF$ and $LL$ is separable over $KK$.
 + $LL$ is normal (and therefore Galois) over $KK$.
 + The following are equivalent:
   + $KK$ is normal (Galois) over $FF$.
@@ -170,15 +170,15 @@ Now
 == Galois closures
 
 #definition[
-  Suppose $FF arrow.hook KK$ is a finite seperable extension. A _Galois closure_ of $KK$ over $FF$ is a finite Galois extension $FF arrow.hook KK arrow.hook LL$ such that no proper subextension $FF arrow.hook KK arrow.hook EE arrow.hook LL$ is Galois over $FF$.
+  Suppose $FF arrow.hook KK$ is a finite separable extension. A _Galois closure_ of $KK$ over $FF$ is a finite Galois extension $FF arrow.hook KK arrow.hook LL$ such that no proper subextension $FF arrow.hook KK arrow.hook EE arrow.hook LL$ is Galois over $FF$.
 ]
 
 #proposition[
-  Every finite seperable extension $FF arrow.hook KK$ has a Galois closure $LL$, which is unique up to isomorphism fixing $FF$.
+  Every finite separable extension $FF arrow.hook KK$ has a Galois closure $LL$, which is unique up to isomorphism fixing $FF$.
 ]
 
 #proof[
-  Choose a finite set of generators $alpha_1, dots, alpha_n$ such that $KK = FF(alpha_1, dots, alpha_n)$. Let $m_1, dots, m_n$ be the minimal polynomials of $alpha_1, dots, alpha_n$ and let $LL$ be a splitting field of ${ p_1, dots, p_n }$, or equivalently of $p_1 dot.c p_2 dot.c dots.c dot.c p_n$. Then $LL$ is seperable and normal over $FF$, with $alpha_1, dots, alpha_n in LL$. Therefore $KK = FF(alpha_1, dots, alpha_n) arrow.hook LL$.
+  Choose a finite set of generators $alpha_1, dots, alpha_n$ such that $KK = FF(alpha_1, dots, alpha_n)$. Let $m_1, dots, m_n$ be the minimal polynomials of $alpha_1, dots, alpha_n$ and let $LL$ be a splitting field of ${ p_1, dots, p_n }$, or equivalently of $p_1 dot.c p_2 dot.c dots.c dot.c p_n$. Then $LL$ is separable and normal over $FF$, with $alpha_1, dots, alpha_n in LL$. Therefore $KK = FF(alpha_1, dots, alpha_n) arrow.hook LL$.
 
   If $FF$ is a proper subfield containing $KK$, then $p_1 dot.c dots.c dot.c p_n$ does not split completely over $EE$, but it has roots in $EE$, so $EE$ is normal. Moreover, $LL$ is a Galois closure of $KK = FF(alpha_1, dots, alpha_n)$ if and only if $LL$ is a splitting field of $p_1, dots, p_n$. So $LL$ is unique up to isomorphism.
 ]
@@ -188,7 +188,7 @@ Now
 ]
 
 #remark[
-  As an application, suppose $FF arrow.hook KK$ is a finite seperable extension. What are the intermediate fields? We can answer this using the above: Let $FF arrow.hook KK arrow.hook LL$ be the Galois closure of $KK$. Then
+  As an application, suppose $FF arrow.hook KK$ is a finite separable extension. What are the intermediate fields? We can answer this using the above: Let $FF arrow.hook KK arrow.hook LL$ be the Galois closure of $KK$. Then
   $ { "Intermediate fields" FF arrow.hook EE arrow.hook LL} <--> { "Subgroups of " Gal_FF (KK) }. $
   It follows that the Galois correspondence restricts to a bijection
   $
@@ -235,5 +235,5 @@ Now
 ]
 
 #proof[
-  Suppose $FF$ is perfect, $FF arrow.hook KK$ is finite, then $KK$ is seperable over $FF$. let $FF arrow.hook KK arrow.hook LL$ be a Galois closure. Then intermediate fields $FF arrow.hook EE arrow.hook KK$ correspond to certain subgroups of $Gal_FF (LL)$, a finite group.
+  Suppose $FF$ is perfect, $FF arrow.hook KK$ is finite, then $KK$ is separable over $FF$. let $FF arrow.hook KK arrow.hook LL$ be a Galois closure. Then intermediate fields $FF arrow.hook EE arrow.hook KK$ correspond to certain subgroups of $Gal_FF (LL)$, a finite group.
 ]
