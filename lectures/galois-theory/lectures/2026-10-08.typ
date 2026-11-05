@@ -14,7 +14,7 @@ $ KK^phi := { x in KK : phi(x) = x}. $
 #proof[Follows immediately by computation.]
 
 Let $Aut(KK)$ be the group of automorphisms of $KK$ and suppose $H subset.eq Aut(KK).$ Define
-$ KK^H := { x in KK : phi(x) in x "for all" phi in H} = inter.big_(phi in H) KK^phi. $
+$ KK^H := { x in KK : phi(x) = x "for all" phi in H} = inter.big_(phi in H) KK^phi. $
 By the above lemma, it follows that $KK^H$ is a subfield of $KK$.
 
 #example[

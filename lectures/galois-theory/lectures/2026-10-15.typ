@@ -21,7 +21,7 @@
   contradicting minimality of $k$.
 ]
 
-#proof([(Theorem 1.88)])[
+#proof([(Theorem 1.6.12)])[
   Let $G = { e, g_2, dots, g_n }$ and $w_1, dots, w_m in KK$. We want to prove:
   + If $m < n$ then $w_1, dots, w_m$ do not span $KK$ over $KK^G$.
   + If $m > n$ then $w_1, dots, w_m$ are linearly dependent over $KK^G$.
@@ -63,7 +63,7 @@
 ]
 
 #theorem([The Fundamental Theorem of Galois Theory])[
-  Let $FF arrow.hook KK$ be a finite Galois extension. Then there order-reversing, mutally inverse bijections $Phi, Gamma$ of posets
+  Let $FF arrow.hook KK$ be a finite Galois extension. Then there are order-reversing, mutally inverse bijections $Phi, Gamma$ of posets
   $ { "Subgroups of " Gal_FF (KK) } <--> { "Intermediate fields" FF arrow.hook EE arrow.hook KK} $
   with $Phi(H) = KK^H$ and $Gamma (EE) = Gal_EE (KK)$.
 ]

@@ -26,12 +26,12 @@ Now suppose we have two intermediate fields, $FF arrow.hook KK_1, KK_2, arrow.ho
       node((1, 3), $KK_1 inter KK_2$, name: <Kcap>)
       node((1, 4), $FF$, name: <F>)
 
-      edge(<K12>, <L>)
+      edge(<K12>, <L>, "->")
       edge(<K1>, <K12>, "->")
-      edge(<K12>, <K2>)
-      edge(<K1>, <Kcap>)
+      edge(<K2>, <K12>, "->")
+      edge(<Kcap>, <K1>, "->")
       edge(<Kcap>, <K2>, "->")
-      edge(<F>, <Kcap>)
+      edge(<F>, <Kcap>, "->")
 
       edge((3, 2), (4, 2), "~>")
 
@@ -101,12 +101,12 @@ Now
         node((1, 3), $KK inter NN$, name: <Kcap>)
         node((1, 4), $FF$, name: <F>)
 
-        edge(<KN>, <L>)
+        edge(<KN>, <L>, "->")
         edge(<K>, <KN>, "->")
-        edge(<KN>, <N>)
-        edge(<K>, <Kcap>)
+        edge(<N>, <KN>, "->")
+        edge(<Kcap>, <K>, "->")
         edge(<Kcap>, <N>, "->")
-        edge(<F>, <Kcap>)
+        edge(<F>, <Kcap>, "->")
 
         edge((3, 2), (4, 2), "~>")
 
@@ -198,7 +198,7 @@ Now
 
 #example[
   What are the intermediate fields $QQ arrow.hook EE arrow.hook QQ(root(3, 2))$?
-  We conside the Galois closure $QQ arrow.hook^3 QQ(root(3, 2)) arrow.hook^2 QQ(omega, root(3, 2))$. Then
+  We consider the Galois closure $QQ arrow.hook^3 QQ(root(3, 2)) arrow.hook^2 QQ(omega, root(3, 2))$. Then
   $ Gal_QQ QQ(omega, root(3, 2)) tilde.equiv S_3, quad Gal_(QQ(root(3, 2))) QQ(omega, root(3, 2)) tilde.equiv S_2. $
   The only intermediate groups $S_2 subset.eq H subset.eq S_3$ are $S_2$ and $S_3$, corresponding to the intermediate fields $QQ$ and $QQ(root(3, 2))$.
 ]
