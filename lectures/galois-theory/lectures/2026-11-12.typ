@@ -1,6 +1,6 @@
 #import "../preamble.typ": *
 
-#lecture-date("05.11.2026")
+#lecture-date("12.11.2026")
 
 #remark[
   Consider the quadratic equation
